@@ -45,3 +45,8 @@ dist/
 *.ogg
 data/
 .DS_Store
+
+# data stores
+*.sqlite
+*.sqlite3
+*.db

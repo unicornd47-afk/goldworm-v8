@@ -1,0 +1,6 @@
+{
+ "outcome": "PROBE_NOT_STARTED",
+ "reasons": [
+  "C4 start rule: load1 1.10 >= 1.0"
+ ]
+}

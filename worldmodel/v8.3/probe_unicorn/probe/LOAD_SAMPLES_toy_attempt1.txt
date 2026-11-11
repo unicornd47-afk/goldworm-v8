@@ -1,0 +1,3 @@
+{"event": "sidecar_start", "wall_unix": 1794393658.5677626, "pid": 46040, "sidecar_pid": 46044, "interval_s": 30.0}
+{"wall_unix": 1794393658.5679033, "wall_local": "2026-11-11T11:40:58+0100", "pid": 46040, "load_1_5_15": [0.9, 1.23, 1.44], "runnable": 2, "tasks": 2532, "mem_available_kb": 5958360, "steal_ticks": 0, "total_ticks": 90546316, "cpu_mhz_mean": 2155.805, "run_proc_cpu_s": 0.9, "steal_frac_since_prev": null, "event": "sample", "seq": 0}
+{"event": "sidecar_end", "wall_unix": 1794393688.5683463, "pid": 46040, "samples": 1, "watched_alive": false}

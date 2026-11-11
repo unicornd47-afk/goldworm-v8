@@ -1,0 +1,1601 @@
+diff -ruN -x __pycache__ v8.1/code/CODE_HASHES_v8.1.sha256 v8.2/code/CODE_HASHES_v8.1.sha256
+--- v8.1/code/CODE_HASHES_v8.1.sha256
++++ v8.2/code/CODE_HASHES_v8.1.sha256
+@@ -1,30 +0,0 @@
+-# v8.1 code freeze, implementer TMbot · Research (non-author), 2026-11-10T05:19+0100; bound to HASHES_r3 b2fac5bf5e57e9e7013445aba7b57b7e192aa10e4c72e49247d00d0fc6d70ed7
+-7b099e55c74907095d407b1df41dd20e0c408ad231284c6dcb719b0f9ed61bc2  IMPL_NOTES.md
+-897ad23bacdc60f26cbc91e452700155f4e7a49a46718ea198553a85d9fcba63  run_preflight.py
+-ae53f1f72bc594ca4cc88c31a54acd338dc432d8faf3daa09e9889b2b2eec23f  run_production.py
+-07343c5926c5b007bc977d39edb052e8ac6d186226129c7b7994d8100027ee06  tests/conftest.py
+-94e2663e91b319c3adfb16779e3a36d6e242e31f95025ebd3902ea661ae10415  tests/test_bootstrap.py
+-0ef4f478ed4dcbc5491f5ae6645ade82248949b3042d762219ef598c53e10152  tests/test_gates.py
+-e14fd15bfdab5548b62993fccde660cc281be3bd2d0bb6dbf6d6cd0048c423ea  tests/test_heldout_isolation.py
+-9f9bef439b37694a2100642f19fa1817c967cfdcffdb515b943e28445fc5095f  tests/test_param_matching.py
+-f425b58b94bf9c823747e587a288209e3ab9a9ab40a895a8ac2a90ec5e2eef66  tests/test_plant_and_models.py
+-5693fea9deefa533b274cb7610d57bba5df57d58b37948a71c5dda64efa6282c  tests/test_seeds_initial_states.py
+-1eeeb73dc98a290039caa0b14f2545519bac492e62dac93eacaa2f10832ab311  tests/test_smoke_pipeline.py
+-c9a55ae4d897992d4440043b45d6cc70e13018285bf68086a606fa78159eda8d  tests/test_windows.py
+-77f6614a7ba542f0ba5027405db43cab74c33b0ba764c765f842171d53c26547  v81/__init__.py
+-e8aaf836102bd785bf5befcb160a0ec873cc50a3e755eaa0498399bf9ee1eec7  v81/budget.py
+-b02cf27571ec6e12c20d52a214c09e9c3f67620353cd25bed38ef74437de5f11  v81/closedloop.py
+-4f14c3753499ed2a27fa964b6fbfa34a0c59a0ce814258a94d64c7b6aacbcc82  v81/features.py
+-79b242dfde435e5a75229977b77da2757ba5294078b541ddafc1fc58720f2eb3  v81/ledger.py
+-18ee559812e3858d5de1cd2f60cb9ed8399f360d06315f80190f9d2c04a48c72  v81/model_lin.py
+-c9eef10b214b9eabdb3b99a20c1deabe8b7d725f99bf44b40c65518c11b0c61e  v81/models_torch.py
+-4ac94132d2c8e6d97f47081ec47c8078fe18c281aae80f022e08210deeb5db46  v81/pipeline.py
+-a11f6ec698b61b624ea4bf20e55b27d5ea363a99cb63b13d08dbaa567a26114e  v81/planner.py
+-166da4c1418fa0be79c19b385334db7f02b487ed7246085e10741c246981f091  v81/plant_iv.py
+-3c327987ac69e299f0eccf4100b9690d4770c0504914df08c2116b300d47f35a  v81/predictors.py
+-2ee0f4658a404a88c3be502a116b77bd54b7ff8cfd6b2a895be4edfac8f2e091  v81/preflight.py
+-9b0046caff39ced649054eac6693c00a0bd019f47d5c6d224786f247c4033f26  v81/release.py
+-6f64bdaea1504bef851ba395bfad3155f0f3852e4b6767cdf23ba2f205431b52  v81/seeds.py
+-055f7301531795c6f7933608524d4b16817c48696de9a05b59d955f5f4749599  v81/spec.py
+-44436934aab2defa5c9f8807f3318405a4f5e7a48692f615ea54e64e3b10b3d2  v81/stage0.py
+-22eace0a690a129c88f67ef8949218b1387ae793e7e8cf081e7397f6fe2626b8  v81/stats.py
+diff -ruN -x __pycache__ v8.1/code/CODE_HASHES_v8.1.sha256.sha256 v8.2/code/CODE_HASHES_v8.1.sha256.sha256
+--- v8.1/code/CODE_HASHES_v8.1.sha256.sha256
++++ v8.2/code/CODE_HASHES_v8.1.sha256.sha256
+@@ -1 +0,0 @@
+-be232be6b42d534c7bfd8ee3f0d6e3c75bd1c1c3129f47ab88de8e174ff4d4e8  CODE_HASHES_v8.1.sha256
+diff -ruN -x __pycache__ v8.1/code/CODE_HASHES_v8.2.sha256 v8.2/code/CODE_HASHES_v8.2.sha256
+--- v8.1/code/CODE_HASHES_v8.2.sha256
++++ v8.2/code/CODE_HASHES_v8.2.sha256
+@@ -0,0 +1,32 @@
++7b099e55c74907095d407b1df41dd20e0c408ad231284c6dcb719b0f9ed61bc2  IMPL_NOTES.md
++75a4c61734d5e2b877ef18daf343d95aa36e58c659d482b221ae17ac38bf082e  IMPL_NOTES_v8.2.md
++3d86405e0619b167ecf54343deed4e47238555dc86fb53a0719a74c76d1d748e  run_preflight.py
++524abd4b42aa3014d34d74548b6a0edb618ee0226bc87e9a8a846b7bf032611f  run_production.py
++07343c5926c5b007bc977d39edb052e8ac6d186226129c7b7994d8100027ee06  tests/conftest.py
++c716ec6367692d8c6cec4f58cda24afecbb27246c7f4b4caf6ede593fa998417  tests/test_bootstrap.py
++419a3e2169fa8be596743785d6b8575ddef6ebb4666dbe0367783e2c37037ed8  tests/test_gates.py
++c09ef0aa70af4a040b8dedf394083aa96114ebc8d2e424021479d2ea7464e07e  tests/test_heldout_isolation.py
++9f9bef439b37694a2100642f19fa1817c967cfdcffdb515b943e28445fc5095f  tests/test_param_matching.py
++f425b58b94bf9c823747e587a288209e3ab9a9ab40a895a8ac2a90ec5e2eef66  tests/test_plant_and_models.py
++be83b57b55e17fd53455337b8ce523eb5903de306c9818578ac4040a9f482c8b  tests/test_seeds_initial_states.py
++4c6e8498d07b00c349ba26259fc108c97b2157a3f8573631b6944a8fd895f399  tests/test_smoke_pipeline.py
++a88373eb264a89a2ff7e534b0bd67198b13be4740bdc0db8984a1802189270eb  tests/test_v82_selection.py
++97bc5f7962cf968e7340c4889b5a74321ab4175df550a7bd63b15b149562270d  tests/test_w1_preflight.py
++c9a55ae4d897992d4440043b45d6cc70e13018285bf68086a606fa78159eda8d  tests/test_windows.py
++9ed7c0ec07e28341e84091d53b5a4d64107964be03e09de4c68ecdb65c2bb31c  v81/__init__.py
++e8aaf836102bd785bf5befcb160a0ec873cc50a3e755eaa0498399bf9ee1eec7  v81/budget.py
++b02cf27571ec6e12c20d52a214c09e9c3f67620353cd25bed38ef74437de5f11  v81/closedloop.py
++4f14c3753499ed2a27fa964b6fbfa34a0c59a0ce814258a94d64c7b6aacbcc82  v81/features.py
++79b242dfde435e5a75229977b77da2757ba5294078b541ddafc1fc58720f2eb3  v81/ledger.py
++18ee559812e3858d5de1cd2f60cb9ed8399f360d06315f80190f9d2c04a48c72  v81/model_lin.py
++c9eef10b214b9eabdb3b99a20c1deabe8b7d725f99bf44b40c65518c11b0c61e  v81/models_torch.py
++02f0359d559602cc61be03c12a62fc945141475cb5ce823eb659509c380a533f  v81/pipeline.py
++a11f6ec698b61b624ea4bf20e55b27d5ea363a99cb63b13d08dbaa567a26114e  v81/planner.py
++166da4c1418fa0be79c19b385334db7f02b487ed7246085e10741c246981f091  v81/plant_iv.py
++3c327987ac69e299f0eccf4100b9690d4770c0504914df08c2116b300d47f35a  v81/predictors.py
++b56810b00e826c9d4f4041d6ca5f987aa22c6125ca8c4dba94f7b7c28aea3d5d  v81/preflight.py
++7d75e6bf89cbae5a4a1e737cefc9338decb9beca737462e99e9bda29bb6b3e88  v81/release.py
++3631b365071b449bae16fddc9816e3d38ad59b4835c3b7f0f95344de89cc82a0  v81/seeds.py
++c546755a5943172ae1b284acac0d54f1273424ec15859c17fc065fc2b5c6c14d  v81/spec.py
++44436934aab2defa5c9f8807f3318405a4f5e7a48692f615ea54e64e3b10b3d2  v81/stage0.py
++c665aa7f181002c214ef23e49dca7493150af891968ebf9279d1f9c4010f9575  v81/stats.py
+diff -ruN -x __pycache__ v8.1/code/IMPL_NOTES_v8.2.md v8.2/code/IMPL_NOTES_v8.2.md
+--- v8.1/code/IMPL_NOTES_v8.2.md
++++ v8.2/code/IMPL_NOTES_v8.2.md
+@@ -0,0 +1,125 @@
++# IMPL_NOTES v8.2 — FROZEN CODE (v8.2/code), awaiting independent code review
++
++Implementer: TMbot · Research (non-author). Status: **frozen in `v8.2/code` (manifest `code/CODE_HASHES_v8.2.sha256`;
++its sha256 is recorded in `RELEASE_v8.2_DRAFT.json`, not here, to avoid a circular hash). Toy preflight done; no
++production run, no run_output.** Base: frozen v8.1 code, manifest `CODE_HASHES_v8.1.sha256` =
++`be232be6b42d534c7bfd8ee3f0d6e3c75bd1c1c3129f47ab88de8e174ff4d4e8` (re-verified 29/29 OK after this work; nothing
++under v8.1/ was modified). Plan: `HASHES_v8.2.sha256` = `733cc25c…b1d1` (PLAN a1e5b1cd…26c3, CONFIG 7f31dc4e…ef63,
++FEASIBILITY 6ce29d10…3100, INTERVENTIONS 948b5e3d…1d9c unchanged), PASSed by dahill: `/workspace/audit_dahill_v8.2/PLAN_PASS_v8.2.json` sha256 `8ad13f896e2677498048f864ee3abed6e6534c4dcb75c889b59643de34bd49fe` (verdict PLAN_PASS, reviewer dahill, hashes_v8.2_sha256 = 304bc28d…).
++Full diff: `../DIFF_v8.1_to_v8.2.patch` = `diff -ruN -x __pycache__ v8.1/code v8.2/code` with the date/time part of
++every `---`/`+++` header stripped (timestamp-free, reproducible; new files included). Code dir renamed code_draft → code.
++The v8.1 `IMPL_NOTES.md` (Q1–Q17) is kept unchanged and still applies except where stated here.
++
++## Bundle in use: v8.2 + ERRATUM_v8.2_E1
++`spec.BUNDLE` points at `HASHES_v8.2_E1.sha256` = `304bc28de338c92ee72817e7ed4ad498c367165e7f3ca47eed38e1732c636ff3` (lists PLAN, CONFIG, FEASIBILITY, INTERVENTIONS,
++HASHES_v8.2 733cc25c…, ERRATUM_v8.2_E1.md 67b4ecdb9bd5a31a91ef2e603fe15350b7048fb98a05f8e3168e99f152938c47, E1.6 flag-only). The `*_NOT_COMPARABLE_withdrawn.*` files are ignored. CONFIG_v8.2.json itself still says λ {0.5,1,2,4,8}; the
++erratum wins, so `BUNDLE["erratum_overrides"]["lambda_grid"] = [0.5, 0.625, 0.75, 0.875, 1.0]` (§E1.1) and
++`spec.LAMBDAS` reads it. The sealed selection records `lambda_grid`. E1.6 (flag-only fallback) = Q6 below. E1.4 (RC_only
++s2 λ=1 sits on D_max) needs no code. E1.5 (fit reproduction vs v8.1 fit_info, report only): no code; RESULTS can
++compare `run_output/fit_info.json` with v8.1's (873435b1…e3e5) — see Q11. dahill PASSed bundle 304bc28d (incl. E1). `spec.GRID_OVERRIDE` is the machine-readable override record
++(parameter, CONFIG value [0.5,1,2,4,8], effective value [0.5,0.625,0.75,0.875,1.0], source + sha); `check_start`
++requires `RELEASE.grid_override == spec.GRID_OVERRIDE`; it is also written to PREFLIGHT_PROJECTION.json and FINAL_STATUS.json.
++
++## What changed (minimal diff; plant, models, features, planner, closed loop, budget, ledger, stage0 untouched)
++
++| File | Change |
++|---|---|
++| `v81/spec.py` | Single `BUNDLE` dict holds every plan-bundle identity (hashes file + sha, listed files, CONFIG name, INTERVENTIONS path `../v8.1/…`, plan-PASS path/sha/JSON key, release + manifest names). Swapping to an r2 bundle = edit `BUNDLE` only. `PLAN_PASS_SHA256 = "TODO_AFTER_PASS"`. Excluded seeds parsed from CONFIG `excluded_never_used_in_production` (5000-5039, 7000-7019, 9100-9139, 8000-8009, 9901-9903; preflight 1-4 handled by its own mode) → `BURNED_SEEDS`. `parse_comfort_bound()` accepts ONLY the absolute `D_max_K_h_per_day` (any other D_* key raises SpecError); import fails unless it equals `D_MAX_EXPECTED` = 0.3269812989590207. Import-time asserts: 5 λ, 15 configs/arm, production seeds ∩ excluded = ∅, bootstrap seeds ∉ excluded. Seeds, λ grid, caps all come from CONFIG_v8.2 (no hard-coding). |
++| `v81/stats.py` | `select_within_arm(arm, table, d_bound)` → (config, feasible): min mean E over F={D ≤ bound}; ties lower D, smaller structure, smaller λ; F=∅ → min D; ties lower E, smaller structure, smaller λ. `select_comparator(sel)` over GRU/LIN/RC_only: feasible before infeasible; feasible: min E (tie D); none: min D (tie E); then RC_only, LIN, GRU. `comfort_bound()` (absolute D_max only, SpecError otherwise). `fallback_flags()` (E1.6). `outcome()` unchanged from v8.1. `mse_contrast_ci()` for the 6 contrasts. |
++| `v81/pipeline.py` | Tuning table now records per config: mean_E, mean_D, mean_J (over all 3×40 rows), rep_mean_E, rep_mean_D, n_rows, safety_exits, fallbacks, feasible. New pure `select_from_table()` (used for sealing **and** recompute). New validity gate `selection_recomputed_from_sealed_table`: re-reads sealed COMPARATOR_SELECTION.json, recomputes bound/selection/comparator/feasibility flags, and checks sealed means == means recomputed from the per-episode tuning rows. `_heldout_mse` keeps per-(rep, episode) errors; new `_heldout_mse_ci()` saves `BOOT_INDEX_mse.npy` (seed 9924, 10000×40, sha256 in ledger before stats) and `heldout_mse_rows.npz`. New descriptive `wm_vs_each_arm_descriptive` (S, dD of WM vs GRU/LIN/RC_only, point estimates). |
++| `v81/release.py` | Manifest name `CODE_HASHES_v8.2.sha256`; release `RELEASE_v8.2.json`; binds `HASHES_v8.2`; plan PASS: placeholder sha → explicit NOT_LAUNCHED reason; PASS JSON key `hashes_v8.2_sha256`. New: diff hash must be in `rel["diff"]["sha256"]` and match `v8.2/DIFF_v8.1_to_v8.2.patch`; `PREFLIGHT_PROJECTION.json` must be in `bound_files` and its own `all_gates_pass` must be true (dahill v8.1 CODE_PASS condition 1, now enforced in code). |
++| `v81/preflight.py` | **Bug-for-v8.2 fixed:** tuning projection hard-coded `3 * 3` (reps × 3 λ) → `3 * len(LAMBDAS)`; HELDOUT-scan record count `4*9*3*40` → `4*15*3*40`; MSE bootstrap matrix + 6 contrasts added to the measured bootstrap_stats cost; dummy scan records use tuning seed base from spec. |
++| `v81/seeds.py` | Error message / docstring no longer name v8.1 seeds (logic unchanged; lists come from spec). |
++| `run_production.py`, `run_preflight.py`, `v81/__init__.py` | Release/version names from `BUNDLE`; bound paths normalised (INTERVENTIONS is `../v8.1/…`). |
++| tests | Existing tests moved to v8.2 seeds (7300/9500/4100) and bootstrap seed from spec; v8.1 `test_selection_ties` replaced; release test asserts TODO_AFTER_PASS, diff and preflight-binding reasons; smoke test checks 5 λ effort, recompute gate, table fields, comfort bound, MSE contrasts, MSE matrix ledger order. New `tests/test_v82_selection.py` (29 tests incl. parametrised): bundle/CONFIG numbers, unchanged-vs-v8.1 CONFIG blocks, seed disjointness (vs v8.1 CONFIG, pairwise, bootstrap), SeedGuard rejects all v8.1 seeds and accepts v8.2 lists in order, adaptation composition 4100.., ladder (c) = 7300-7314, feasible min-E, inclusive boundary, all tie-breaks, RC/LIN structure order, infeasible fallback + ties, comparator (feasible first, none feasible, ties, ignores WM), 20 random full tables vs brute force + recompute gate detects a tampered comparator, table-vs-rows check, absolute-only comfort bound + error cases, MSE CI vs explicit loop, NaN/missing handling. |
++| E1.6 flag-only (Q6) | `stats.fallback_flags` → sealed `fallback_flags` {WM_fallback, comparator_fallback, arms_fallback}, part of the recompute gate, copied to FINAL_STATUS `selection_fallback_flags`. No new outcome; precedence NOT_LAUNCHED > INVALID > ADVANCE/NO_ADVANCE (v8.1). |
++| removed | `CODE_HASHES_v8.1.sha256(.sha256)` (v8.1 manifest; a v8.2 manifest is created only at freeze). |
++
++Package directory name kept as `v81` to keep the diff minimal (Q3).
++
++## Verification done (draft only)
++- `/workspace/venv_wm/bin/python -m pytest tests` (CPU, `CUDA_VISIBLE_DEVICES=""`): **79 passed** (36 carried over from v8.1 + 43 new).
++- Smoke pipeline (preflight seeds 1-4, toy design, tmp dir only): outcome field set, all validity flags true incl.
++  the new recompute gate; it exercised both feasible and infeasible (fallback) arms. Numbers are meaningless.
++- D_max re-derived read-only from `v8.1/run_output/tuning_rows.npz` (sha 864ac87a…dfce4): RC_only s=2, λ=1, 120 rows →
++  0.3269812989590207 exactly; λ=0.5 → 0.16305200579291218 (the rejected alternative). Matches PLAN/CONFIG.
++- No preflight, no production design, nothing written under v8.1/ or v7/, no RELEASE, no manifest.
++
++## Open questions (uni / dahill)
++
++**Q1 Comfort hypothesis HC — RESOLVED by ERRATUM_v8.2_E1 §E1.2:** no HC; dD stays descriptive. Nothing implemented.
++
++**Q2 Plan-PASS identity — RESOLVED.** `/workspace/audit_dahill_v8.2/PLAN_PASS_v8.2.json`, sha 8ad13f89…49fe;
++`check_start` verifies file sha, `verdict == PLAN_PASS`, `hashes_v8.2_sha256 == 304bc28d…`, `reviewer == dahill`.
++
++**Q3 Package name `v81`.** Kept to minimise the diff (renaming touches every import). OK, or rename to `v82`?
++
++**Q4 Feasibility boundary — RESOLVED (confirmed 12:44):** inclusive `mean_D <= D_max`, exact float comparison.
++Means are over all 3×40 rows (= mean of replicate means, equal counts); under ladder (c) over 3×30.
++
++**Q5 λ tie-break changed.** v8.1 preferred λ = 1.0 on ties; v8.2 PLAN/CONFIG say "smaller λ". Implemented v8.2 rule.
++
++**Q6 Infeasible selections — RESOLVED by ERRATUM_v8.2_E1 §E1.6 (67b4ecdb…, flag-only).** A fallback (infeasible)
++selection of WM or of the comparator is flagged and reported only; the run stays valid; the outcome is ADVANCE /
++NO_ADVANCE via P1–P4 as predeclared; no re-selection, no rerun. Implemented as `fallback_flags` in the sealed
++COMPARATOR_SELECTION.json (checked by the recompute gate) and in FINAL_STATUS.json. The briefly implemented
++NOT_COMPARABLE outcome was withdrawn by the coordinator and removed completely (code, policy constant, tests).
++
++**Q7 Comparator with mixed feasibility.** Implemented: any feasible arm beats every infeasible arm even if the
++infeasible one has lower E (CONFIG wording). Confirm.
++
++**Q8 MSE CI definition details** (CONFIG `secondary_mse_ci`): per-seed value = nanmean over that seed's
++(3 replicates × up to 8 HELDOUT episodes) errors; contrast a−b per seed; point = mean over 40 seeds; bootstrap
++value = mean of the differences over the resampled seeds (matrix seed 9924, 10000×40, same [249]/[9750] rule).
++Episodes where the PI reference had a safety exit are dropped for all arms (v8.1 behaviour). If any seed has NaN for
++an arm (failed fit / non-finite prediction), the contrast gets `ci: null` and `n_nan_seeds` — no ranking claim.
++The v8.1 point MSE per arm (mean over all errors) is kept unchanged for continuity.
++
++**Q9 "S and ΔD of WM against every non-WM arm (descriptive)".** Implemented as point estimates only (primary
++window, HELDOUT test). CIs wanted? If yes, which matrix (primary 9921?).
++
++**Q10 Excluded seeds.** Parsed from the CONFIG strings; SeedGuard now rejects 7000-7019, 9100-9139, 8000-8009 (and
++5000-5039) in production. 9901-9903 are bootstrap seeds, not episode seeds; asserted not reused. Train/val/init
++seeds deliberately unchanged (CONFIG `unchanged_note`).
++
++**Q11 Fit reproducibility — E1.5: report only, no gate.** Not coded; done at RESULTS time (max abs difference of
++logged fit metrics per arm × structure vs v8.1 fit_info.json). Say if you want it computed inside the run instead.
++
++**Q12 Start-rule additions in code.** `check_start` now additionally requires (a) the diff hash and (b) the
++preflight file in `bound_files` with its own `all_gates_pass`. Both follow PLAN start rule 2/4 and dahill's v8.1
++condition 1; please confirm.
++
++**Q13 Diff hash stability — RESOLVED.** Headers are made timestamp-free (run from v8/worldmodel):
++`diff -ruN -x __pycache__ v8.1/code v8.2/code | sed -E 's/^((---|\+\+\+) [^\t]+)\t.*$/\1/'`.
++Re-running it reproduces the same sha256. Preflight output now goes to `v8.2/PREFLIGHT_PROJECTION.json`
++(`release.PREFLIGHT_FILE`).
++
++**Q14 — RESOLVED / REMOVED.** The 'D_ref + margin' mode was removed completely (no D_ref function, no parsing,
++no tests). `comfort_bound` accepts only the absolute D_max from CONFIG (0.3269812989590207, verified at import)
++and raises SpecError on any other form.
++
++## Under-specified / inconsistent points noticed in the bundle
++1. CONFIG_v8.2.json still carries the old λ grid {0.5,1,2,4,8} and the old note "lambda=1.0 reproduces Option1"
++   (still true); E1 overrides the grid only in prose. A reviewer must read CONFIG + E1 together; a CONFIG r2 would
++   remove the override from the code.
++2. CONFIG `seeds.excluded_never_used_in_production` mixes episode seeds and bootstrap seeds; harmless, handled.
++3. PLAN §9 "Other secondaries" adds "S and ΔD of WM against every non-WM arm" but §13's difference list does not
++   mention it (Q9).
++4. Plan-PASS file path/format was not specified in the plan (resolved, Q2).
++5. The v8.1 preflight formula would have under-projected v8.2 tuning (3 λ hard-coded); fixed. FEASIBILITY_v8.2's
++   15/9 scaling is consistent with the fixed formula.
++6. Otherwise PLAN and CONFIG agree on every number I checked: seeds, λ grid, D_max (re-derived), bootstrap seeds,
++   caps (sum 3600), ladder (7300-7314, 9500-9504), adaptation eval 9500-9509, P1–P4 unchanged.
++
++## IMPL_ERRATUM_v8.2_W1 (preflight warm-up fix; sha256 08f62233dadb4d009dfe5d7ce3bd3529337886211c87b48c1db5743c1668bdf8)
++Attempt 1 of the toy preflight failed (fits 815.4 > 720, adaptation 537.4 > 468; WM_32 0.0805 s/update vs WM_64
++0.0133) because the warm-up only ran a GRU. Changes, preflight only: untimed warm-up of every arm x structure
++before timed measurements; `os.getloadavg()` logged before/after; plausibility gate WM_32 per-update <= WM_64
++(`preflight.plausibility`, re-checked from unit costs in `check_start`); ladder restricted to step (a) and only when
++adaptation fails (`spec.W1_ALLOWED_LADDER`). `spec.BUNDLE` binds W1 (`impl_errata`) and the preserved, read-only
++`PREFLIGHT_PROJECTION_attempt1_FAILED.json` (f2a0e6b2…b17f7); `check_start` requires both in the RELEASE.
++Tests: `tests/test_w1_preflight.py`. Exactly one fresh preflight follows the re-freeze; no repeat.
++
++## Freeze order (done up to RELEASE DRAFT)
++dahill plan PASS ✔ → PASS sha in spec ✔ → tests ✔ → code_draft → code ✔ → CODE_HASHES_v8.2.sha256 ✔ →
++timestamp-free diff ✔ → toy preflight ✔ → **independent code review (open)** → RELEASE FINAL + start authority (open).
+diff -ruN -x __pycache__ v8.1/code/run_preflight.py v8.2/code/run_preflight.py
+--- v8.1/code/run_preflight.py
++++ v8.2/code/run_preflight.py
+@@ -21,24 +21,27 @@
+ def main():
+     hashes = S.verify_plan_hashes()                       # STOP on mismatch (raises)
+     setup_cpu = time.process_time()                      # imports + hash verification = overhead proxy
+-    out_dir = os.path.join(S.PLAN_DIR, "preflight")
+-    os.makedirs(out_dir, exist_ok=True)
+-    out = os.path.join(out_dir, "PREFLIGHT_PROJECTION.json")
++    out = RL.PREFLIGHT_FILE                                # v8.2: v8.2/PREFLIGHT_PROJECTION.json
+     if os.path.exists(out):
+         raise SystemExit("PREFLIGHT_PROJECTION.json exists; refusing to overwrite")
+     man = os.path.join(S.CODE_DIR, RL.CODE_MANIFEST)
+     man_sha = S.sha256_file(man) if os.path.exists(man) else None
+     t0 = 0.0
++    load_before = list(os.getloadavg())                  # IMPL_ERRATUM_v8.2_W1: log machine load
+     m = PF.measure(t0)
++    load_after = list(os.getloadavg())
+     dec = PF.decide(m, setup_cpu)
+     cpu = time.process_time()
+-    res = dict(kind="v8.1 toy preflight", device="cpu", torch_threads=torch.get_num_threads(),
++    res = dict(kind="%s toy preflight" % S.BUNDLE["version"], device="cpu", torch_threads=torch.get_num_threads(),
+                time_berlin=time.strftime("%Y-%m-%dT%H:%M:%S%z"), plan_hashes=hashes,
+                code_manifest_sha256=man_sha, setup_cpu_s=setup_cpu, measurements=m,
++               lambda_grid=list(S.LAMBDAS), grid_override=S.GRID_OVERRIDE,
+                projection_cpu_s=dec["projection"], total_projection_cpu_s=dec["total"],
+                caps_cpu_s=S.CAPS, gate_limits_cpu_s={k: S.GATE_FRAC * v for k, v in S.CAPS.items()},
+                total_gate_cpu_s=S.TOTAL_GATE, phase_gates=dec["gates"], total_gate=dec["total_gate"],
+                ladder_applied=dec["ladder_applied"], all_gates_pass=dec["all_gates_pass"],
++               plausibility=dec["plausibility"], loadavg_1_5_15_before=load_before, loadavg_1_5_15_after=load_after,
++               impl_errata=S.BUNDLE["impl_errata"],
+                failing_non_ladder=dec.get("failing_non_ladder", []),
+                preflight_cpu_s_used=cpu, preflight_cap_cpu_s=S.PREFLIGHT_CAP,
+                preflight_within_cap=cpu <= S.PREFLIGHT_CAP,
+@@ -48,7 +51,8 @@
+     with open(out, "w") as f:
+         json.dump(res, f, indent=1, sort_keys=True)
+     print(json.dumps(dict(projection=dec["projection"], total=dec["total"], gates=dec["gates"],
+-                          ladder=dec["ladder_applied"], all_pass=dec["all_gates_pass"], preflight_cpu=cpu), indent=1))
++                          ladder=dec["ladder_applied"], all_pass=dec["all_gates_pass"], preflight_cpu=cpu,
++                          plausibility=dec["plausibility"], load_before=load_before, load_after=load_after), indent=1))
+ 
+ 
+ if __name__ == "__main__":
+diff -ruN -x __pycache__ v8.1/code/run_production.py v8.2/code/run_production.py
+--- v8.1/code/run_production.py
++++ v8.2/code/run_production.py
+@@ -18,7 +18,7 @@
+ 
+ 
+ def main(release_path=None, out_dir=None):
+-    release_path = release_path or os.path.join(S.PLAN_DIR, "RELEASE_v8.1.json")
++    release_path = release_path or os.path.join(S.PLAN_DIR, S.BUNDLE["release_file"])
+     out_dir = out_dir or os.path.join(S.PLAN_DIR, "run_output")
+     ok, reasons, rel = RL.check_start(release_path)
+     if not ok:
+@@ -31,7 +31,7 @@
+     if os.path.exists(out_dir):
+         raise SystemExit("run_output exists: one production run only (no retry, no resume)")
+     design = PP.Design().apply_ladder(rel["preflight"].get("ladder_applied", []))
+-    bound = {os.path.join(S.PLAN_DIR, k): v for k, v in S.BOUND_FILES.items()}
++    bound = {os.path.normpath(os.path.join(S.PLAN_DIR, k)): v for k, v in S.BOUND_FILES.items()}
+     bound[os.path.join(S.CODE_DIR, RL.CODE_MANIFEST)] = rel["code_hashes"]["manifest_sha256"]
+     run = PP.Run(design, out_dir, release_hashes=bound)
+     final = run.run_all()
+diff -ruN -x __pycache__ v8.1/code/tests/test_bootstrap.py v8.2/code/tests/test_bootstrap.py
+--- v8.1/code/tests/test_bootstrap.py
++++ v8.2/code/tests/test_bootstrap.py
+@@ -29,7 +29,7 @@
+     rng = np.random.default_rng(3)
+     cl = np.repeat(np.arange(40), 8)
+     Ew, Ec, Dw, Dc = (rng.uniform(1, 5, 320) for _ in range(4))
+-    idx = ST.boot_matrix(9901, 40)
++    idx = ST.boot_matrix(S.BOOT_SEEDS["primary"], 40)
+     Sb, dDb, _ = ST.boot_S_dD(Ew, Ec, Dw, Dc, cl, idx)
+     for b in (0, 17, 9999):
+         sel = np.concatenate([np.where(cl == c)[0] for c in idx[b]])
+diff -ruN -x __pycache__ v8.1/code/tests/test_gates.py v8.2/code/tests/test_gates.py
+--- v8.1/code/tests/test_gates.py
++++ v8.2/code/tests/test_gates.py
+@@ -10,7 +10,7 @@
+ 
+ def _prim(Ew, Ec, Dw, Dc, sw=0, sc=0):
+     cl = np.repeat(np.arange(40), 8)
+-    return ST.primary_endpoints(Ew, Ec, Dw, Dc, cl, ST.boot_matrix(9901, 40), sw, sc)
++    return ST.primary_endpoints(Ew, Ec, Dw, Dc, cl, ST.boot_matrix(S.BOOT_SEEDS["primary"], 40), sw, sc)
+ 
+ 
+ def test_advance_when_all_pass():
+@@ -41,32 +41,25 @@
+     assert p["P4"]
+ 
+ 
+-def test_selection_ties():
+-    tab = {(32, 0.5): (10.0, 5.0), (64, 1.0): (10.0, 5.0), (32, 1.0): (10.0, 5.0), (96, 2.0): (11.0, 1.0)}
+-    assert ST.select_within_arm("GRU", tab) == (32, 1.0)
+-    tab[(64, 2.0)] = (10.0, 4.0)
+-    assert ST.select_within_arm("GRU", tab) == (64, 2.0)
+-    sel = {"GRU": (None, 5.0, 1.0), "LIN": (None, 5.0, 1.0), "RC_only": (None, 5.0, 1.0)}
+-    assert ST.select_comparator(sel) == "RC_only"
+-    sel["LIN"] = (None, 5.0, 0.5)
+-    assert ST.select_comparator(sel) == "LIN"
+-
+-
+ def test_draft_release_is_not_launched(tmp_path):
+-    rel = dict(status="DRAFT", plan_bundle={"HASHES_r3.sha256": S.HASHES_FILE_SHA256},
++    rel = dict(status="DRAFT", plan_bundle={S.HASHES_FILE: S.HASHES_FILE_SHA256},
+                plan_pass={"sha256": S.PLAN_PASS_SHA256}, implementer="TMbot · Research (non-author)",
+                code_review_pass=None, code_hashes={"manifest_sha256": "x"}, preflight={"all_gates_pass": True})
+-    p = tmp_path / "RELEASE_v8.1.json"
++    p = tmp_path / "RELEASE_v8.2.json"
+     p.write_text(json.dumps(rel))
+     ok, reasons, _ = RL.check_start(str(p))
+     assert not ok
+     assert any("code-review PASS missing" in r for r in reasons)
+     assert any("FINAL" in r for r in reasons)
++    assert not any("plan PASS" in r for r in reasons)          # v8.2: real dahill PASS 8ad13f89 verifies
++    assert any("grid_override" in r for r in reasons)
++    assert any("diff vs v8.1" in r for r in reasons)
++    assert any("PREFLIGHT_PROJECTION.json not in bound_files" in r for r in reasons)
+ 
+ 
+ def test_missing_release_is_not_launched(tmp_path):
+     ok, reasons, _ = RL.check_start(str(tmp_path / "nope.json"))
+-    assert not ok and reasons == ["RELEASE_v8.1.json missing"]
++    assert not ok and reasons == ["RELEASE_v8.2.json missing"]
+ 
+ 
+ def test_production_entry_writes_not_launched_without_release(tmp_path):
+diff -ruN -x __pycache__ v8.1/code/tests/test_heldout_isolation.py v8.2/code/tests/test_heldout_isolation.py
+--- v8.1/code/tests/test_heldout_isolation.py
++++ v8.2/code/tests/test_heldout_isolation.py
+@@ -26,21 +26,22 @@
+ def test_guard_blocks_test_before_seal_and_adaptation_before_primary():
+     G = SD.SeedGuard("production")
+     with pytest.raises(SD.SeedGuardError):
+-        G.check(9100, "test_heldout")
++        G.check(9500, "test_heldout")
+     with pytest.raises(SD.SeedGuardError):
+-        G.check(9100, "tuning")
++        G.check(9500, "tuning")
+     with pytest.raises(SD.SeedGuardError):
+-        G.check(7000, "train")                      # tuning seed is not a training seed
++        G.check(7300, "train")                      # tuning seed is not a training seed
+     G.check(6100, "train")
+-    G.check(7000, "tuning")
++    G.check(7300, "tuning")
+     G.selection_sealed = True
+-    G.check(9100, "test_heldout")
++    G.check(9500, "test_heldout")
+     with pytest.raises(SD.SeedGuardError):
+-        G.check(8000, "adaptation_data")
++        G.check(4100, "adaptation_data")
+     G.primary_sealed = True
+-    G.check(8000, "adaptation_data")
++    G.check(4100, "adaptation_data")
++    G.check(9509, "adapt_eval")
+     with pytest.raises(SD.SeedGuardError):
+-        G.check(9110, "adapt_eval")                 # eval only on 9100-9109
++        G.check(9510, "adapt_eval")                 # eval only on 9500-9509
+     with pytest.raises(SD.SeedGuardError):
+         G.check(5000, "train")                      # burned
+ 
+@@ -48,7 +49,7 @@
+ def test_preflight_guard_only_seeds_1_to_4_and_no_test():
+     G = SD.SeedGuard("preflight")
+     G.check(1, "preflight_toy")
+-    for s in (9100, 7000, 6100, 8000):
++    for s in (9500, 7300, 6100, 4100, 9100, 7000, 8000):
+         with pytest.raises(SD.SeedGuardError):
+             G.check(s, "preflight_toy")
+     G.selection_sealed = G.primary_sealed = True
+diff -ruN -x __pycache__ v8.1/code/tests/test_seeds_initial_states.py v8.2/code/tests/test_seeds_initial_states.py
+--- v8.1/code/tests/test_seeds_initial_states.py
++++ v8.2/code/tests/test_seeds_initial_states.py
+@@ -7,12 +7,12 @@
+ 
+ def test_examples_from_plan():
+     pos = {s: i for i, s in enumerate(S.TUNING_SEEDS)}
+-    assert SD.initial_state_index(pos[7000]) == 0
+-    assert SD.initial_state_index(pos[7001]) == 1
+-    assert SD.initial_state_index(pos[7003]) == 3
+-    assert SD.initial_state_index(pos[7004]) == 0
++    assert SD.initial_state_index(pos[7300]) == 0
++    assert SD.initial_state_index(pos[7301]) == 1
++    assert SD.initial_state_index(pos[7303]) == 3
++    assert SD.initial_state_index(pos[7304]) == 0
+     tp = {s: i for i, s in enumerate(S.TEST_SEEDS)}
+-    assert SD.initial_state_index(tp[9100]) == 0 and SD.initial_state_index(tp[9139]) == 3
++    assert SD.initial_state_index(tp[9500]) == 0 and SD.initial_state_index(tp[9539]) == 3
+     counts = np.bincount([SD.initial_state_index(i) for i in range(40)])
+     assert list(counts) == [10, 10, 10, 10]
+     assert S.INITIAL_STATES[0] == (15.0, 14.5, 0.0) and S.INITIAL_STATES[3] == (22.5, 21.0, 0.0)
+diff -ruN -x __pycache__ v8.1/code/tests/test_smoke_pipeline.py v8.2/code/tests/test_smoke_pipeline.py
+--- v8.1/code/tests/test_smoke_pipeline.py
++++ v8.2/code/tests/test_smoke_pipeline.py
+@@ -20,4 +20,17 @@
+     assert order.index("BOOT_INDEX_primary.npy") < order.index("PRIMARY_RESULT.json")
+     sel = json.loads((out / "COMPARATOR_SELECTION.json").read_text())
+     assert sel["comparator"] in ("GRU", "LIN", "RC_only")
+-    assert all(e["episodes"] == 3 * 3 * 4 for e in sel["effort"].values())
++    assert all(e["episodes"] == 5 * 3 * 4 for e in sel["effort"].values())       # v8.2: 1 structure x 5 lambda x 3 reps x 4 eps
++    assert v["selection_recomputed_from_sealed_table"] is True
++    assert len(sel["tuning_table"]) == 4 * 5
++    for t in sel["tuning_table"]:
++        assert {"mean_E", "mean_D", "mean_J", "feasible", "rep_mean_E", "rep_mean_D", "n_rows"} <= set(t)
++    assert sel["fallback_flags"] == final["selection_fallback_flags"]
++    assert set(sel["fallback_flags"]) == {"WM_fallback", "comparator_fallback", "arms_fallback"}
++    assert sel["lambda_grid"] == [0.5, 0.625, 0.75, 0.875, 1.0]
++    assert (out / "PRIMARY_RESULT.json").exists()                  # fallback selections never stop the run (E1.6)
++    assert sel["comfort_bound"]["form"] == "absolute" and sel["comfort_bound"]["value"] == 0.3269812989590207
++    sec = json.loads((out / "SECONDARY_RESULTS.json").read_text())
++    assert set(sec["heldout_mse_12step_ci"]["contrasts"]) == {"WM-GRU", "WM-RC_only", "WM-LIN", "GRU-RC_only",
++                                                              "GRU-LIN", "RC_only-LIN"}
++    assert "BOOT_INDEX_mse.npy" in order and order.index("BOOT_INDEX_mse.npy") > order.index("PRIMARY_RESULT.json")
+diff -ruN -x __pycache__ v8.1/code/tests/test_v82_selection.py v8.2/code/tests/test_v82_selection.py
+--- v8.1/code/tests/test_v82_selection.py
++++ v8.2/code/tests/test_v82_selection.py
+@@ -0,0 +1,359 @@
++"""v8.2-specific tests: energy-under-comfort-bound selection (PLAN §8), comparator rule, fresh seeds disjoint from
++v8.1 (incl. SeedGuard), bundle/config numbers, MSE contrast CI (PLAN §9)."""
++import json
++import os
++
++import numpy as np
++import pytest
++
++from v81 import pipeline as PP
++from v81 import seeds as SD
++from v81 import spec as S
++from v81 import stats as ST
++
++V81_DIR = os.path.normpath(os.path.join(S.PLAN_DIR, "..", "v8.1"))
++DMAX = 0.3269812989590207
++
++
++def _t(E, D, J=0.0):
++    return dict(mean_E=E, mean_D=D, mean_J=J)
++
++
++# ---------------- bundle / CONFIG numbers ----------------
++def test_bundle_and_config_numbers():
++    S.verify_plan_hashes()
++    assert S.HASHES_FILE == "HASHES_v8.2_E1.sha256"
++    assert S.HASHES_FILE_SHA256 == "304bc28de338c92ee72817e7ed4ad498c367165e7f3ca47eed38e1732c636ff3"
++    assert S.BOUND_FILES["ERRATUM_v8.2_E1.md"] == "67b4ecdb9bd5a31a91ef2e603fe15350b7048fb98a05f8e3168e99f152938c47"
++    assert S.sha256_file(os.path.join(S.PLAN_DIR, S.HASHES_FILE)) == S.HASHES_FILE_SHA256
++    assert S.LAMBDAS == (0.5, 0.625, 0.75, 0.875, 1.0)                      # ERRATUM_v8.2_E1 §E1.1
++    assert 1.0 in S.LAMBDAS                                                  # D_max reference point is on the grid
++    assert len(S.configs("WM")) == 15 and all(len(S.configs(a)) == 15 for a in S.ARMS)
++    assert S.COMFORT_BOUND == dict(form="absolute", D_max=DMAX)
++    assert S.TUNING_SEEDS == tuple(range(7300, 7320)) and S.TEST_SEEDS == tuple(range(9500, 9540))
++    assert S.ADAPT_SEEDS == tuple(range(4100, 4110))
++    assert S.BOOT_SEEDS == dict(primary=9921, adapt=9922, secondary=9923, mse=9924)
++    assert S.CAPS["tuning"] == 1100 and S.CAPS["test"] == 800 and S.GLOBAL_CAP == 3600
++    assert S.PLAN_PASS_SHA256 == "8ad13f896e2677498048f864ee3abed6e6534c4dcb75c889b59643de34bd49fe"
++    assert S.sha256_file(S.PLAN_PASS_FILE) == S.PLAN_PASS_SHA256
++    with open(S.PLAN_PASS_FILE) as f:
++        pp = json.load(f)
++    assert pp["verdict"] == "PLAN_PASS" and pp["reviewer"] == "dahill"
++    assert pp["hashes_v8.2_sha256"] == S.HASHES_FILE_SHA256
++
++
++def test_grid_override_record():
++    g = S.GRID_OVERRIDE
++    assert g["parameter"] == "planner.lambda_grid"
++    assert g["config_value"] == [0.5, 1.0, 2.0, 4.0, 8.0] == S.CFG["planner"]["lambda_grid"]
++    assert g["effective_value"] == [0.5, 0.625, 0.75, 0.875, 1.0] == list(S.LAMBDAS)
++    assert g["source_sha256"] == S.BOUND_FILES["ERRATUM_v8.2_E1.md"] and "E1.1" in g["source"]
++    json.dumps(g)                                                              # machine-readable
++
++
++def _release(tmp_path, **kw):
++    from v81 import release as RL
++    rel = dict(status="DRAFT", plan_bundle={S.HASHES_FILE: S.HASHES_FILE_SHA256},
++               plan_pass={"sha256": S.PLAN_PASS_SHA256}, grid_override=S.GRID_OVERRIDE,
++               implementer="TMbot · Research (non-author)", code_review_pass=None,
++               code_hashes={"manifest_sha256": "x"}, preflight={"all_gates_pass": True})
++    rel.update(kw)
++    p = tmp_path / "RELEASE_v8.2.json"
++    p.write_text(json.dumps(rel))
++    return RL.check_start(str(p))[1]
++
++
++def test_check_start_plan_pass_and_grid(tmp_path, monkeypatch):
++    r = _release(tmp_path)
++    assert not any("plan PASS" in x for x in r) and not any("grid_override" in x for x in r)
++    assert any("plan PASS" in x for x in _release(tmp_path, plan_pass={"sha256": "0" * 64}))
++    g = dict(S.GRID_OVERRIDE, effective_value=[0.5, 1.0, 2.0, 4.0, 8.0])
++    assert any("grid_override" in x for x in _release(tmp_path, grid_override=g))
++    # a PASS file with the wrong reviewer / bundle is rejected even if its own hash is "right"
++    for bad in (dict(verdict="PLAN_PASS", reviewer="uni", **{"hashes_v8.2_sha256": S.HASHES_FILE_SHA256}),
++                dict(verdict="PLAN_PASS", reviewer="dahill", **{"hashes_v8.2_sha256": "1" * 64})):
++        f = tmp_path / "pp.json"
++        f.write_text(json.dumps(bad))
++        monkeypatch.setattr(S, "PLAN_PASS_FILE", str(f))
++        monkeypatch.setattr(S, "PLAN_PASS_SHA256", S.sha256_file(str(f)))
++        assert any("plan PASS" in x for x in _release(tmp_path, plan_pass={"sha256": S.sha256_file(str(f))}))
++
++
++def test_unchanged_vs_v81_config():
++    with open(os.path.join(V81_DIR, "CONFIG_v8.1_r3.json")) as f:
++        old = json.load(f)
++    for k in ("time", "inputs_all_arms", "context_steps", "horizon_steps", "PI", "training", "initial_states"):
++        assert S.CFG[k] == old[k], k
++    for k in ("train_data", "val_data", "model_init"):
++        assert S.CFG["seeds"][k] == old["seeds"][k], k
++    assert S.CFG["seeds"]["preflight"] == old["preflight"]["seeds"] == S.CFG["preflight"]["seeds"]
++    assert S.CFG["preflight"]["cap_cpu_s"] == old["preflight"]["cap_cpu_s"]
++    for a in S.ARMS:
++        for k, v in old["arms"][a].items():
++            if k != "desc":
++                assert S.CFG["arms"][a][k] == v, (a, k)
++
++
++# ---------------- seeds ----------------
++def test_seeds_disjoint_from_v81():
++    with open(os.path.join(V81_DIR, "CONFIG_v8.1_r3.json")) as f:
++        old = json.load(f)["seeds"]
++    old_ep = set(old["tuning"]) | set(old["test"]) | set(old["adaptation"])
++    new_ep = set(S.TUNING_SEEDS) | set(S.TEST_SEEDS) | set(S.ADAPT_SEEDS)
++    assert not (old_ep & new_ep)
++    assert not (set(old["bootstrap"].values()) & set(S.BOOT_SEEDS.values()))
++    assert old_ep <= S.EXCLUDED_SEEDS and set(old["bootstrap"].values()) <= S.EXCLUDED_SEEDS
++    # new lists pairwise disjoint and disjoint from train/val/init/preflight
++    tv = set(sum((list(v) for v in S.TRAIN_SEEDS.values()), [])) | set(sum((list(v) for v in S.VAL_SEEDS.values()), []))
++    lists = [set(S.TUNING_SEEDS), set(S.TEST_SEEDS), set(S.ADAPT_SEEDS), tv, set(S.INIT_SEEDS.values()),
++             set(S.PREFLIGHT_SEEDS), set(S.BOOT_SEEDS.values())]
++    for i in range(len(lists)):
++        for j in range(i + 1, len(lists)):
++            assert not (lists[i] & lists[j]), (i, j)
++
++
++@pytest.mark.parametrize("seed,purpose", [(7000, "tuning"), (7019, "tuning"), (9100, "test_heldout"),
++                                          (9139, "test_id"), (8000, "adaptation_data"), (8009, "adaptation_data"),
++                                          (9100, "adapt_eval"), (5000, "train")])
++def test_seedguard_rejects_v81_seeds(seed, purpose):
++    G = SD.SeedGuard("production")
++    G.selection_sealed = G.primary_sealed = True
++    with pytest.raises(SD.SeedGuardError):
++        G.check(seed, purpose)
++
++
++def test_seedguard_accepts_v82_seeds_in_order():
++    G = SD.SeedGuard("production")
++    for s in S.TUNING_SEEDS:
++        G.check(s, "tuning")
++    with pytest.raises(SD.SeedGuardError):
++        G.check(S.TEST_SEEDS[0], "test_heldout")
++    G.selection_sealed = True
++    for s in S.TEST_SEEDS:
++        G.check(s, "test_heldout")
++    with pytest.raises(SD.SeedGuardError):
++        G.check(S.ADAPT_SEEDS[0], "adaptation_data")
++    G.primary_sealed = True
++    for s in S.ADAPT_SEEDS:
++        G.check(s, "adaptation_data")
++    for s in range(9500, 9510):
++        G.check(s, "adapt_eval")
++
++
++def test_adaptation_composition_uses_new_seeds():
++    assert [c[0] for c in SD.adaptation_composition("H1", 10)] == list(range(4100, 4110))
++
++
++def test_ladder_c_tuning_seeds():
++    d = PP.Design().apply_ladder(["c"])
++    assert d.tuning_seeds == list(range(7300, 7315))
++
++
++# ---------------- within-arm selection ----------------
++def test_feasible_min_energy():
++    tab = {(32, 0.5): _t(10.0, 0.10), (32, 0.875): _t(6.0, 0.50), (64, 0.625): _t(8.0, 0.30), (96, 0.75): _t(7.0, 0.32)}
++    assert ST.select_within_arm("GRU", tab, DMAX) == ((96, 0.75), True)
++
++
++def test_boundary_is_inclusive():
++    tab = {(32, 1.0): _t(9.0, 0.1), (64, 0.75): _t(5.0, DMAX)}
++    assert ST.select_within_arm("GRU", tab, DMAX) == ((64, 0.75), True)
++    tab[(64, 0.75)] = _t(5.0, np.nextafter(DMAX, 1.0))
++    assert ST.select_within_arm("GRU", tab, DMAX) == ((32, 1.0), True)
++
++
++def test_feasible_ties_lower_D_then_structure_then_lambda():
++    tab = {(64, 1.0): _t(5.0, 0.2), (32, 0.625): _t(5.0, 0.3)}
++    assert ST.select_within_arm("GRU", tab, DMAX)[0] == (64, 1.0)                 # lower D
++    tab = {(64, 1.0): _t(5.0, 0.2), (32, 0.625): _t(5.0, 0.2)}
++    assert ST.select_within_arm("GRU", tab, DMAX)[0] == (32, 0.625)                 # smaller structure
++    tab = {(32, 0.75): _t(5.0, 0.2), (32, 0.5): _t(5.0, 0.2), (32, 1.0): _t(5.0, 0.2)}
++    assert ST.select_within_arm("GRU", tab, DMAX)[0] == (32, 0.5)                 # smaller lambda (not 1.0 first)
++
++
++def test_rc_and_lin_structure_order():
++    tab = {(3, 1.0): _t(5.0, 0.2), (1, 1.0): _t(5.0, 0.2), (2, 1.0): _t(5.0, 0.2)}
++    assert ST.select_within_arm("RC_only", tab, DMAX)[0] == (1, 1.0)
++    tab = {(8, 1.0): _t(5.0, 0.2), (5, 1.0): _t(5.0, 0.2)}
++    assert ST.select_within_arm("LIN", tab, DMAX)[0] == (5, 1.0)
++
++
++def test_infeasible_fallback_lowest_D():
++    tab = {(32, 0.5): _t(10.0, 0.40), (32, 0.875): _t(2.0, 0.90), (64, 1.0): _t(9.0, 0.35), (96, 0.5): _t(8.0, 0.35)}
++    sel, feas = ST.select_within_arm("GRU", tab, DMAX)
++    assert not feas and sel == (96, 0.5)                                         # tie on D -> lower E
++    tab[(32, 1.0)] = _t(8.0, 0.35)
++    assert ST.select_within_arm("GRU", tab, DMAX)[0] == (32, 1.0)                # then smaller structure
++    tab[(32, 0.5)] = _t(8.0, 0.35)
++    assert ST.select_within_arm("GRU", tab, DMAX)[0] == (32, 0.5)                # then smaller lambda
++
++
++# ---------------- comparator ----------------
++def _s(E, D, f):
++    return dict(mean_E=E, mean_D=D, feasible=f)
++
++
++def test_comparator_feasible_lowest_E():
++    sel = {"GRU": _s(5.0, 0.3, True), "LIN": _s(4.0, 0.1, True), "RC_only": _s(6.0, 0.0, True)}
++    assert ST.select_comparator(sel) == "LIN"
++
++
++def test_comparator_feasible_before_infeasible():
++    sel = {"GRU": _s(1.0, 0.9, False), "LIN": _s(9.0, 0.3, True), "RC_only": _s(0.5, 0.4, False)}
++    assert ST.select_comparator(sel) == "LIN"
++
++
++def test_comparator_none_feasible_lowest_D():
++    sel = {"GRU": _s(1.0, 0.9, False), "LIN": _s(9.0, 0.5, False), "RC_only": _s(0.5, 0.6, False)}
++    assert ST.select_comparator(sel) == "LIN"
++
++
++def test_comparator_ties():
++    sel = {"GRU": _s(5.0, 0.2, True), "LIN": _s(5.0, 0.1, True), "RC_only": _s(5.0, 0.2, True)}
++    assert ST.select_comparator(sel) == "LIN"                                   # lower D
++    sel["LIN"] = _s(5.0, 0.2, True)
++    assert ST.select_comparator(sel) == "RC_only"                               # order RC_only, LIN, GRU
++    sel = {"GRU": _s(4.0, 0.5, False), "LIN": _s(3.0, 0.5, False), "RC_only": _s(3.0, 0.5, False)}
++    assert ST.select_comparator(sel) == "RC_only"
++    sel["RC_only"] = _s(3.5, 0.5, False)
++    assert ST.select_comparator(sel) == "LIN"                                   # infeasible tie on D -> lower E
++
++
++def test_comparator_ignores_wm():
++    sel = {"GRU": _s(5.0, 0.2, True), "LIN": _s(5.0, 0.2, True), "RC_only": _s(5.0, 0.2, True),
++           "WM": _s(0.0, 0.0, True)}
++    assert ST.select_comparator(sel) in ("GRU", "LIN", "RC_only")
++
++
++# ---------------- full-table selection + recompute gate ----------------
++def _full_table(seed=0):
++    rng = np.random.default_rng(seed)
++    t = {}
++    for a in S.ARMS:
++        for st in S.structures(a):
++            for lam in S.LAMBDAS:
++                t[(a, st, lam)] = dict(mean_E=float(rng.uniform(5, 15) / lam ** 0.3), mean_D=float(rng.uniform(0, 0.6) * lam ** 0.5),
++                                       mean_J=float(rng.uniform(10, 20)), n_rows=120)
++    return t
++
++
++def test_select_from_table_and_recompute(tmp_path):
++    for seed in range(20):
++        t = _full_table(seed)
++        sel = PP.select_from_table(t)
++        assert sel["comfort_bound"]["value"] == DMAX
++        for a in S.ARMS:
++            x = sel["selected"][a]
++            feas = [k for k in t if k[0] == a and t[k]["mean_D"] <= DMAX]
++            if feas:
++                best = min(t[k]["mean_E"] for k in feas)
++                assert x["feasible"] and x["mean_E"] == best and x["mean_D"] <= DMAX
++            else:
++                assert not x["feasible"] and x["mean_D"] == min(t[k]["mean_D"] for k in t if k[0] == a)
++        p = tmp_path / ("sel%d.json" % seed)
++        p.write_text(json.dumps(sel))
++        assert PP.recompute_selection_ok(str(p))
++        bad = json.loads(p.read_text())
++        others = [c for c in ("GRU", "LIN", "RC_only") if c != bad["comparator"]]
++        bad["comparator"] = others[0]
++        p.write_text(json.dumps(bad))
++        assert not PP.recompute_selection_ok(str(p))
++
++
++def test_table_matches_rows():
++    rows = [dict(arm="GRU", structure=32, lam=1.0, E=float(e), D=0.1 * e, J=2.0 * e) for e in range(6)]
++    tt = [dict(arm="GRU", structure=32, lam=1.0, n_rows=6, mean_E=float(np.mean([r["E"] for r in rows])),
++               mean_D=float(np.mean([r["D"] for r in rows])), mean_J=float(np.mean([r["J"] for r in rows])))]
++    assert PP.table_matches_rows(tt, rows)
++    tt[0]["mean_E"] += 1e-9
++    assert not PP.table_matches_rows(tt, rows)
++
++
++# ---------------- comfort bound: absolute D_max only ----------------
++def test_comfort_bound_absolute_only():
++    assert S.D_MAX_EXPECTED == DMAX == S.CFG["selection"]["D_max_K_h_per_day"]
++    v, rec = ST.comfort_bound(_full_table(1))
++    assert v == DMAX and rec == dict(form="absolute", D_max=DMAX, value=DMAX)
++    assert S.parse_comfort_bound({"D_max_K_h_per_day": 0.3}) == dict(form="absolute", D_max=0.3)
++    for bad in ({}, {"D_margin_K_h_per_day": 0.25}, {"D_max_K_h_per_day": 0.3, "D_margin": 0.25}, None):
++        with pytest.raises(S.SpecError):
++            S.parse_comfort_bound(bad)
++    for bad in (dict(form="relative", D_max=DMAX), dict(form="absolute", D_max=DMAX, margin=0.25), dict(form="absolute")):
++        with pytest.raises(S.SpecError):
++            ST.comfort_bound({}, bad)
++
++
++# ---------------- E1.6 flag-only fallback ----------------
++def _sel(wm, gru, lin, rc):
++    return {"WM": dict(feasible=wm), "GRU": dict(feasible=gru), "LIN": dict(feasible=lin), "RC_only": dict(feasible=rc)}
++
++
++def test_fallback_flags():
++    f = ST.fallback_flags(_sel(False, True, False, True), "GRU")
++    assert f == dict(WM_fallback=True, comparator_fallback=False, arms_fallback=["WM", "LIN"])
++    f = ST.fallback_flags(_sel(True, False, False, False), "RC_only")
++    assert f == dict(WM_fallback=False, comparator_fallback=True, arms_fallback=["GRU", "LIN", "RC_only"])
++
++
++def test_outcome_precedence_v81_restored():
++    adv = dict(P1=True, P2=True, P3=True, P4=True)
++    assert ST.outcome(adv, True) == "ADVANCE"
++    assert ST.outcome(dict(adv, P3=False), True) == "NO_ADVANCE"
++    assert ST.outcome(adv, False) == "INVALID"
++    assert ST.outcome(adv, False, launched=False) == "NOT_LAUNCHED"
++    import inspect
++    assert list(inspect.signature(ST.outcome).parameters) == ["primary", "validity_ok", "launched", "start_ok"]
++
++
++def _table_with(wm_feasible, comp_feasible):
++    t = {}
++    for a in S.ARMS:
++        ok = wm_feasible if a == "WM" else (comp_feasible if a == "RC_only" else False)
++        for st in S.structures(a):
++            for lam in S.LAMBDAS:
++                t[(a, st, lam)] = dict(mean_E=10.0 / lam, mean_D=0.1 if (ok and lam == 1.0) else 0.5 + lam, mean_J=1.0)
++    return t
++
++
++@pytest.mark.parametrize("wm,comp", [(True, True), (False, True), (True, False), (False, False)])
++def test_fallback_flags_sealed_and_recomputed(tmp_path, wm, comp):
++    sel = PP.select_from_table(_table_with(wm, comp))
++    f = sel["fallback_flags"]
++    assert f["WM_fallback"] == (not wm) and f["comparator_fallback"] == (not sel["selected"][sel["comparator"]]["feasible"])
++    if comp:
++        assert sel["comparator"] == "RC_only" and not f["comparator_fallback"]  # feasible arm ranks first
++    else:
++        assert f["comparator_fallback"]
++    p = tmp_path / "s.json"
++    p.write_text(json.dumps(sel))
++    assert PP.recompute_selection_ok(str(p))
++    bad = dict(sel, fallback_flags=dict(f, WM_fallback=not f["WM_fallback"]))
++    p.write_text(json.dumps(bad))
++    assert not PP.recompute_selection_ok(str(p))                              # tampered flag is detected
++
++
++# ---------------- MSE contrast CI ----------------
++def test_mse_contrast_ci_matches_loop():
++    rng = np.random.default_rng(5)
++    per = {a: rng.uniform(1, 3, 40) for a in S.ARMS}
++    per["WM"] = per["GRU"] - 0.5
++    idx = ST.boot_matrix(S.BOOT_SEEDS["mse"], 40)
++    assert idx.shape == (10000, 40)
++    out = ST.mse_contrast_ci(per, idx)
++    assert set(out) == {"WM-GRU", "WM-RC_only", "WM-LIN", "GRU-RC_only", "GRU-LIN", "RC_only-LIN"}
++    assert np.isclose(out["WM-GRU"]["diff"], -0.5) and np.allclose(out["WM-GRU"]["ci"], [-0.5, -0.5])
++    d = per["RC_only"] - per["LIN"]
++    vals = np.array([d[idx[b]].mean() for b in range(10000)])
++    assert out["RC_only-LIN"]["ci"] == list(ST.ci(vals))
++    assert np.isclose(out["RC_only-LIN"]["diff"], d.mean())
++
++
++def test_mse_contrast_ci_nan_and_missing():
++    per = {a: np.ones(40) for a in S.ARMS}
++    per["LIN"] = np.ones(40)
++    per["LIN"][3] = np.nan
++    per["GRU"] = None
++    out = ST.mse_contrast_ci(per, ST.boot_matrix(S.BOOT_SEEDS["mse"], 40))
++    assert out["WM-LIN"]["ci"] is None and out["WM-LIN"]["n_nan_seeds"] == 1
++    assert out["WM-GRU"]["diff"] is None and out["WM-GRU"]["ci"] is None
++    assert out["WM-RC_only"]["ci"] == [0.0, 0.0]
+diff -ruN -x __pycache__ v8.1/code/tests/test_w1_preflight.py v8.2/code/tests/test_w1_preflight.py
+--- v8.1/code/tests/test_w1_preflight.py
++++ v8.2/code/tests/test_w1_preflight.py
+@@ -0,0 +1,85 @@
++"""IMPL_ERRATUM_v8.2_W1: warm-up of every structure, plausibility gate, ladder (a) only, bindings in check_start."""
++import inspect
++import json
++import os
++
++from v81 import preflight as PF
++from v81 import release as RL
++from v81 import spec as S
++
++
++def _m(wm32=0.010, wm64=0.013):
++    return {"unit": {"WM_32": {"per_update_cpu_s": wm32}, "WM_64": {"per_update_cpu_s": wm64}}}
++
++
++def _proj(over):
++    def project(m, setup, ladder=()):
++        proj = {k: 0.5 * S.GATE_FRAC * v for k, v in S.CAPS.items()}
++        for k, v in over.items():
++            proj[k] = v(ladder) if callable(v) else v
++        return proj, sum(proj.values()), {k: proj[k] <= S.GATE_FRAC * S.CAPS[k] for k in proj}
++    return project
++
++
++def test_warmup_covers_every_arm_and_structure():
++    src = inspect.getsource(PF.measure)
++    w = src.index("warmup_all_structures_cpu_s")
++    first_timed = src.index("for arm in S.ARMS:\n        for st in S.structures(arm):\n            u = dict(")
++    assert src.index("IMPL_ERRATUM_v8.2_W1") < w < first_timed          # warm-up precedes all timed measurements
++    assert "model_lin.fit(train, ns, order=st)" in src[:first_timed] and "MT.build(arm, st, ns.to_dict(), 0)" in src[:first_timed]
++
++
++def test_plausibility_gate(monkeypatch):
++    monkeypatch.setattr(PF, "project", _proj({}))
++    d = PF.decide(_m(0.010, 0.013), 1.0)
++    assert d["all_gates_pass"] and d["plausibility"]["ok"]
++    d = PF.decide(_m(0.013, 0.013), 1.0)
++    assert d["all_gates_pass"]                                                   # equality allowed (<=)
++    d = PF.decide(_m(0.0805, 0.0133), 1.0)
++    assert not d["all_gates_pass"] and not d["plausibility"]["ok"]
++
++
++def test_fits_fail_is_not_launched_no_ladder(monkeypatch):
++    monkeypatch.setattr(PF, "project", _proj({"fits": 815.4, "adaptation": 537.4}))
++    d = PF.decide(_m(), 1.0)
++    assert not d["all_gates_pass"] and d["ladder_applied"] == [] and d["failing_non_ladder"] == ["fits"]
++
++
++def test_adaptation_fail_ladder_a_only(monkeypatch):
++    monkeypatch.setattr(PF, "project", _proj({"adaptation": lambda L: 300.0 if "a" in L else 537.4}))
++    d = PF.decide(_m(), 1.0)
++    assert d["all_gates_pass"] and d["ladder_applied"] == ["a"]
++    monkeypatch.setattr(PF, "project", _proj({"adaptation": 500.0}))           # still failing after (a)
++    d = PF.decide(_m(), 1.0)
++    assert not d["all_gates_pass"] and d["ladder_applied"] == ["a"]
++    monkeypatch.setattr(PF, "project", _proj({"tuning": 1000.0}))              # (b)/(c) not available under W1
++    d = PF.decide(_m(), 1.0)
++    assert not d["all_gates_pass"] and d["ladder_applied"] == []
++
++
++def test_w1_and_attempt1_bound():
++    assert S.W1_ALLOWED_LADDER == ("a",)
++    for name, h in S.BUNDLE["impl_errata"].items():
++        assert S.sha256_file(os.path.join(S.PLAN_DIR, name)) == h
++    a1 = S.BUNDLE["preflight_attempt1"]
++    p = os.path.join(S.PLAN_DIR, a1["file"])
++    assert S.sha256_file(p) == a1["sha256"] == "f2a0e6b2a608d71bd0f1d554a2aca481ac97621f2be08985a565bdf73c4b17f7"
++    assert not os.access(p, os.W_OK)
++    with open(p) as f:
++        old = json.load(f)
++    assert not old["all_gates_pass"] and old["measurements"]["unit"]["WM_32"]["per_update_cpu_s"] > \
++        old["measurements"]["unit"]["WM_64"]["per_update_cpu_s"]                # the attempt would fail plausibility too
++
++
++def test_check_start_w1_reasons(tmp_path):
++    rel = dict(status="DRAFT", plan_bundle={S.HASHES_FILE: S.HASHES_FILE_SHA256}, plan_pass={"sha256": S.PLAN_PASS_SHA256},
++               grid_override=S.GRID_OVERRIDE, implementer="TMbot · Research (non-author)", code_review_pass=None,
++               code_hashes={"manifest_sha256": "x"}, preflight={"all_gates_pass": True})
++    p = tmp_path / "RELEASE_v8.2.json"
++    p.write_text(json.dumps(rel))
++    r = RL.check_start(str(p))[1]
++    assert any("implementation erratum" in x for x in r) and any("attempt 1" in x for x in r)
++    rel.update(impl_errata=S.BUNDLE["impl_errata"], preflight_attempts=[dict(S.BUNDLE["preflight_attempt1"])])
++    p.write_text(json.dumps(rel))
++    r = RL.check_start(str(p))[1]
++    assert not any("implementation erratum" in x for x in r) and not any("attempt 1" in x for x in r)
+diff -ruN -x __pycache__ v8.1/code/v81/__init__.py v8.2/code/v81/__init__.py
+--- v8.1/code/v81/__init__.py
++++ v8.2/code/v81/__init__.py
+@@ -1,4 +1,5 @@
+-"""v8.1 thermal world-model experiment (PLAN_v8.1_r3.md). Implementation by TMbot · Research (non-author, §11).
++"""v8.2 thermal world-model experiment (PLAN_v8.2.md), minimal diff on the frozen v8.1 code (manifest be232be6…d4e8;
++package name kept as v81 to minimise the diff). Implementation by TMbot · Research (non-author).
+ 
+ Package layout:
+   spec        binding plan files, hashes, frozen numbers (CONFIG governs numbers)
+diff -ruN -x __pycache__ v8.1/code/v81/pipeline.py v8.2/code/v81/pipeline.py
+--- v8.1/code/v81/pipeline.py
++++ v8.2/code/v81/pipeline.py
+@@ -1,4 +1,4 @@
+-"""Full-run orchestration (PLAN §2-§11). The same code runs the production Design and the toy smoke
++"""Full-run orchestration (PLAN_v8.2 §2-§11). The same code runs the production Design and the toy smoke
+ Design (seeds 1-4, tiny counts) used only by tests; preflight measures unit costs separately."""
+ import hashlib
+ import json
+@@ -178,29 +178,31 @@
+                 effort[arm] = dict(configs=0, episodes=0, decisions=0)
+                 for st in D.structures[arm]:
+                     for lam in D.lambdas:
+-                        Js, Es, saf = [], [], 0
++                        Js, Es, Ds, saf, fb = [], [], [], 0, 0
+                         for r in range(S.REPLICATES):
+                             pred = self._predictor(arm, r, st)
+                             rows = self._run_set(scens, pred, lam)
+                             sm = self._summ(rows)
+-                            Js.append(sm["J"]); Es.append(sm["E"]); saf += int(sm["safety"].sum())
++                            Js.append(sm["J"]); Es.append(sm["E"]); Ds.append(sm["D"])
++                            saf += int(sm["safety"].sum()); fb += int(sm["fallback"].sum())
+                             effort[arm]["episodes"] += len(rows)
+                             effort[arm]["decisions"] += len(rows) * S.N_CONTROL
+                             rows_all += [dict(arm=arm, structure=st, lam=lam, rep=r, seed=x["meta"]["seed"],
+                                               iv_id=x["meta"]["iv_id"], E=x["E"], D=x["D"], J=x["J"],
+                                               safety=x["safety_exit"], fallback=x["fallback"]) for x in rows]
+                         effort[arm]["configs"] += 1
+-                        tab[(st, lam)] = (float(np.mean(Js)), float(np.mean(Es)))
+-                        table[(arm, st, lam)] = dict(mean_J=tab[(st, lam)][0], mean_E=tab[(st, lam)][1], safety_exits=saf)
+-                self.results.setdefault("tuning_selected", {})[arm] = ST.select_within_arm(arm, tab)
+-            sel = {a: (self.results["tuning_selected"][a],) + tuple(table[(a,) + self.results["tuning_selected"][a]][k]
+-                                                                   for k in ("mean_J", "mean_E")) for a in S.ARMS}
+-            comp = ST.select_comparator(sel)
+-            self.selection = dict(selected={a: dict(structure=sel[a][0][0], lam=sel[a][0][1], mean_J=sel[a][1],
+-                                                    mean_E=sel[a][2]) for a in S.ARMS},
+-                                  comparator=comp, effort=effort,
+-                                  tuning_table=[dict(arm=k[0], structure=k[1], lam=k[2], **v) for k, v in table.items()],
+-                                  tuning_seeds=list(D.tuning_seeds), ladder_applied=list(D.ladder_applied))
++                        # means over all 3 reps x n episodes (equal counts per rep)
++                        table[(arm, st, lam)] = dict(mean_J=float(np.mean(np.concatenate(Js))),
++                                                     mean_E=float(np.mean(np.concatenate(Es))),
++                                                     mean_D=float(np.mean(np.concatenate(Ds))),
++                                                     rep_mean_E=[float(np.mean(x)) for x in Es],
++                                                     rep_mean_D=[float(np.mean(x)) for x in Ds],
++                                                     n_rows=int(sum(len(x) for x in Es)),
++                                                     safety_exits=saf, fallbacks=fb)
++            self.selection = select_from_table(table, D.structures, D.lambdas)
++            comp = self.selection["comparator"]
++            self.selection.update(effort=effort, tuning_seeds=list(D.tuning_seeds), lambda_grid=list(D.lambdas),
++                                  ladder_applied=list(D.ladder_applied))
+             self.logs_pre_test += rows_all
+             self.logs_pre_test.append(self.selection)
+             exp_eps = len(D.structures["WM"]) * len(D.lambdas) * S.REPLICATES * len(scens)
+@@ -213,6 +215,11 @@
+             self.validity["no_heldout_pre_test"] = scan["valid"]
+             h = self.L.write_sealed("COMPARATOR_SELECTION.json", self.selection)
+             self.results["comparator_selection_sha256"] = h
++            # v8.2 gate (PLAN §9): the sealed selection must follow §8 exactly; recomputed from the sealed file,
++            # and the sealed table means are recomputed from the saved tuning rows
++            self.validity["selection_recomputed_from_sealed_table"] = (
++                recompute_selection_ok(os.path.join(self.out, "COMPARATOR_SELECTION.json"))
++                and table_matches_rows(self.selection["tuning_table"], rows_all))
+             self.G.selection_sealed = True
+ 
+     def _instances(self, arm):
+@@ -373,17 +380,25 @@
+             sec["oracle_test"] = dict(E=float(self.oracle_test["E"].sum()), J=float(self.oracle_test["J"].sum()))
+             sec["pi_test"] = dict(E=float(self.pi_test["E"].sum()), J=float(self.pi_test["J"].sum()),
+                                   safety_exits=int(self.pi_test["safety"].sum()))
++            # v8.2 PLAN §9 "other secondaries": S and dD of WM against every non-WM arm (descriptive, point only)
++            sec["wm_vs_each_arm_descriptive"] = {
++                a: dict(S=ST.saving(self._mean_rep(self.test["WM"], "E"), self._mean_rep(self.test[a], "E")),
++                        dD=float(np.mean(self._mean_rep(self.test["WM"], "D") - self._mean_rep(self.test[a], "D"))))
++                for a in S.ARMS if a != "WM"}
+             sec["arms_test_totals"] = {a: dict(E=float(self._mean_rep(self.test[a], "E").sum()),
+                                                J=float(self._mean_rep(self.test[a], "J").sum())) for a in S.ARMS}
+             sec["tuning_safety_exits"] = {a: int(sum(t["safety_exits"] for t in self.selection["tuning_table"] if t["arm"] == a))
+                                           for a in S.ARMS}
+             sec["heldout_mse_12step"] = self._heldout_mse()
++            sec["heldout_mse_12step_ci"] = self._heldout_mse_ci()
+             self.secondary = sec
+             self.save_json("SECONDARY_RESULTS.json", sec)
+ 
+     def _heldout_mse(self):
+         """12-step y_r MSE at origin k=120 on the PI-reference trajectories of the HELDOUT test episodes
+-        (logged commanded actions), selected config x 3 replicates (IMPL_NOTES D10)."""
++        (logged commanded actions), selected config x 3 replicates (IMPL_NOTES D10).
++        v8.2: also keeps the per-(replicate, episode) errors (NaN = no prediction) so that per-test-seed means
++        can be paired across arms for the MSE contrast CIs (bootstrap seed 9924)."""
+         out = {}
+         trajs = []
+         for sc in self.test_scens:
+@@ -391,22 +406,49 @@
+             if "traj" in r and not r["safety_exit"]:
+                 trajs.append((sc, r["traj"]))
+         k = 120
++        self.mse_err = {}
+         for arm in S.ARMS:
+             st, _ = self._instances(arm)
+             errs = []
++            E = np.full((S.REPLICATES, len(trajs)), np.nan)
+             for rep in range(S.REPLICATES):
+                 pred = self._predictor(arm, rep, st)
+                 if pred is None:
+                     continue
+-                for sc, tj in trajs:
++                for j, (sc, tj) in enumerate(trajs):
+                     view = Fe.ObservableView(k, tj["y"], tj["To"], tj["u"], sc.d.s_occ, sc.d.s_night)
+                     yh = pred(view, tj["u"][k:k + S.H][None, :])
+                     if yh is not None:
+                         errs.append(float(np.mean((yh[0] - tj["y"][k + 1:k + S.H + 1]) ** 2)))
++                        E[rep, j] = errs[-1]
+                 self.B.check()
+             out[arm] = float(np.mean(errs)) if errs else None
++            self.mse_err[arm] = E
++        self.mse_cluster = np.array([sc.position for sc, _ in trajs], dtype=np.int64)
+         return out
+ 
++    def _heldout_mse_ci(self):
++        """v8.2 secondary: paired cluster-bootstrap CIs of per-test-seed mean MSE differences (CONFIG
++        endpoints.secondary_mse_ci). Per-seed mean = nanmean over that seed's (replicate, episode) errors."""
++        nC = len(self.D.test_seeds)
++        idx = ST.boot_matrix(S.BOOT_SEEDS["mse"], nC)
++        p = os.path.join(self.out, "BOOT_INDEX_mse.npy")
++        np.save(p, idx)
++        self.L.append("boot_matrix_saved", file="BOOT_INDEX_mse.npy", sha256=_sha(p))
++        per_seed = {}
++        for arm in S.ARMS:
++            E = self.mse_err[arm]
++            v = np.full(nC, np.nan)
++            for c in range(nC):
++                x = E[:, self.mse_cluster == c]
++                if np.isfinite(x).any():
++                    v[c] = float(np.nanmean(x))
++            per_seed[arm] = v
++        np.savez(os.path.join(self.out, "heldout_mse_rows.npz"), cluster_of=self.mse_cluster,
++                 **{"%s_err" % a: self.mse_err[a] for a in S.ARMS}, **{"%s_per_seed" % a: per_seed[a] for a in S.ARMS})
++        return dict(per_seed_mean={a: [None if np.isnan(x) else float(x) for x in per_seed[a]] for a in S.ARMS},
++                    contrasts=ST.mse_contrast_ci(per_seed, idx), boot_seed=S.BOOT_SEEDS["mse"])
++
+     def phase_audit(self, extra_validity=None):
+         with self.B.phase("audit"):
+             if self.release_hashes is not None:
+@@ -456,6 +498,8 @@
+             bud = dict(cap_exceeded=str(ex), used=self.B.used, total=self.B.total())
+             v, fb, status = self.validity, {}, "INVALID"
+         final = dict(outcome=status, validity=v, fallback_gate=fb, budget=bud, design_mode=self.D.mode,
++                     grid_override=S.GRID_OVERRIDE,
++                     selection_fallback_flags=(getattr(self, "selection", None) or {}).get("fallback_flags"),
+                      ladder_applied=list(self.D.ladder_applied),
+                      primary=getattr(self, "primary", None), selection=getattr(self, "selection", None))
+         self.save_json("FINAL_STATUS.json", final)
+@@ -463,6 +507,56 @@
+         return final
+ 
+ 
++def select_from_table(table, structures=None, lambdas=None):
++    """PLAN §8 applied to a full tuning table {(arm, structure, lam): {"mean_E", "mean_D", "mean_J", ...}}.
++    Pure function of the table (used for sealing AND for the recompute gate)."""
++    bound, brec = ST.comfort_bound(table)
++    selected, tab_rows = {}, []
++    for arm in S.ARMS:
++        tab = {(k[1], k[2]): v for k, v in table.items() if k[0] == arm}
++        (st, lam), feas = ST.select_within_arm(arm, tab, bound)
++        v = tab[(st, lam)]
++        selected[arm] = dict(structure=st, lam=lam, mean_E=v["mean_E"], mean_D=v["mean_D"], mean_J=v["mean_J"],
++                             feasible=bool(feas))
++    comp = ST.select_comparator({a: selected[a] for a in S.COMPARATOR_ARMS_TIEBREAK})
++    for k, v in table.items():
++        tab_rows.append(dict(arm=k[0], structure=k[1], lam=k[2], feasible=bool(v["mean_D"] <= bound), **v))
++    return dict(selected=selected, comparator=comp, comfort_bound=brec, selection_rule="v8.2 PLAN §8 min E s.t. D<=bound",
++                fallback_flags=ST.fallback_flags(selected, comp),
++                tuning_table=tab_rows)
++
++
++def recompute_selection_ok(sealed_path):
++    """Recompute selection + comparator + feasibility flags from the sealed COMPARATOR_SELECTION.json table."""
++    with open(sealed_path) as f:
++        sel = json.load(f)
++    keep = ("mean_E", "mean_D", "mean_J")
++    table = {(t["arm"], t["structure"], float(t["lam"])): {k: t[k] for k in keep} for t in sel["tuning_table"]}
++    re = select_from_table(table)
++    if re["comparator"] != sel["comparator"] or re["comfort_bound"]["value"] != sel["comfort_bound"]["value"]:
++        return False
++    if re["fallback_flags"] != sel["fallback_flags"]:
++        return False
++    for a in S.ARMS:
++        x, y = re["selected"][a], sel["selected"][a]
++        if (x["structure"], float(x["lam"]), x["feasible"]) != (y["structure"], float(y["lam"]), y["feasible"]):
++            return False
++    flags = {(t["arm"], t["structure"], float(t["lam"])): t["feasible"] for t in sel["tuning_table"]}
++    return all(flags[(t["arm"], t["structure"], float(t["lam"]))] == t["feasible"] for t in re["tuning_table"])
++
++
++def table_matches_rows(tuning_table, rows):
++    """Sealed per-config means equal the means recomputed from the per-episode tuning rows (tuning_rows.npz)."""
++    for t in tuning_table:
++        rr = [r for r in rows if r["arm"] == t["arm"] and r["structure"] == t["structure"] and r["lam"] == t["lam"]]
++        if len(rr) != t["n_rows"]:
++            return False
++        for k in ("E", "D", "J"):
++            if float(np.mean([r[k] for r in rr])) != t["mean_" + k]:
++                return False
++    return True
++
++
+ def smoke_design(n_updates=20, adapt_updates=5):
+     """Toy design on preflight seeds 1-4 only (tests). Never used for production."""
+     tr = {r: [1, 2, 3, 4] for r in range(S.REPLICATES)}
+diff -ruN -x __pycache__ v8.1/code/v81/preflight.py v8.2/code/v81/preflight.py
+--- v8.1/code/v81/preflight.py
++++ v8.2/code/v81/preflight.py
+@@ -61,6 +61,18 @@
+     pairs = Fe.train_pairs(4)
+     (ctx, fut, tgt), m["windows_4ep_cpu_s"] = _timed(Fe.window_arrays, train, pairs, ns)
+     bidx = np.random.default_rng([1, 2]).integers(0, len(pairs), size=(N_TOY_UPDATES, S.BATCH))
++    # IMPL_ERRATUM_v8.2_W1 §W1.1: untimed warm-up of EVERY arm x structure before any timed update/episode
++    # (separate instances, init seed 0; measured models use seed 3101). CPU counts toward the 120 s cap.
++    t = clock()
++    lr_w = lambda tt: MT.lr_cosine(tt, S.N_UPDATES, S.LR0, S.LR_MIN)
++    for arm in S.ARMS:
++        for st in S.structures(arm):
++            if arm == "LIN":
++                model_lin.fit(train, ns, order=st)
++            else:
++                MT.train(MT.build(arm, st, ns.to_dict(), 0), ctx, fut, tgt, bidx[:2], 2, lr_w, log_every=0)
++    m["warmup_all_structures_cpu_s"] = clock() - t
++    guard_cap()
+     # toy closed-loop scenarios (warm-up + 96 decisions); purpose preflight_toy (never test)
+     t = clock()
+     scens = [P.Scenario(1, 0, "N0", G, "preflight_toy"), P.Scenario(2, 1, "T1a", G, "preflight_toy")]
+@@ -125,7 +137,7 @@
+     rng = np.random.default_rng(12345)
+     with tempfile.TemporaryDirectory() as td:
+         mats = [ST.boot_matrix(S.BOOT_SEEDS["primary"], 40), ST.boot_matrix(S.BOOT_SEEDS["adapt"], 10),
+-                ST.boot_matrix(S.BOOT_SEEDS["secondary"], 40)]
++                ST.boot_matrix(S.BOOT_SEEDS["secondary"], 40), ST.boot_matrix(S.BOOT_SEEDS["mse"], 40)]
+         for i, mm in enumerate(mats):
+             p = os.path.join(td, "b%d.npy" % i)
+             np.save(p, mm)
+@@ -138,6 +150,7 @@
+         cla = np.tile(np.arange(10), 4)
+         for _ in range(3):                      # adaptation K=1,3,10
+             ST.boot_S_dD(E1[:40], E2[:40], D1[:40], D2[:40], cla, mats[1])
++        ST.mse_contrast_ci({a: rng.uniform(0, 3, 40) for a in S.ARMS}, mats[3])     # v8.2: 6 MSE contrasts
+     m["bootstrap_stats_cpu_s"] = clock() - t
+     # audit: stage0 + plan hash verify + code hashing + HELDOUT scan scaled to the production record count
+     t = clock()
+@@ -148,11 +161,11 @@
+             if f.endswith(".py"):
+                 S.sha256_file(os.path.join(root, f))
+     m["audit_static_cpu_s"] = clock() - t
+-    recs = [dict(arm="GRU", structure=64, lam=1.0, rep=0, seed=7000 + i, iv_id="T1a", E=1.0, D=0.1, J=2.0,
++    recs = [dict(arm="GRU", structure=64, lam=1.0, rep=0, seed=S.TUNING_SEEDS[0] + i, iv_id="T1a", E=1.0, D=0.1, J=2.0,
+                  safety=False, fallback=False) for i in range(500)]
+     _, c = _timed(stage0.heldout_scan, recs)
+     m["heldout_scan_per_record_cpu_s"] = c / 500
+-    m["n_records_pre_test_production"] = 3 * 40 + 40 + 4 * 9 * 3 * 40 + 40
++    m["n_records_pre_test_production"] = 3 * 40 + 40 + 4 * len(S.configs("WM")) * 3 * 40 + 40   # v8.2: 15 configs
+     guard_cap()
+     return m
+ 
+@@ -180,7 +193,8 @@
+     for s in S.LIN_ORDERS:
+         fits += 3 * u["LIN_%s" % s]["fit_cpu_s_scaled_32ep"]
+     proj["fits"] = fits
+-    proj["tuning"] = tun_eps * sc + sum(ep(a, s) * 3 * 3 * tun_eps for a in S.ARMS for s in S.structures(a))
++    # v8.2: 3 replicates x len(LAMBDAS) (=5) per structure (v8.1 hard-coded 3 x 3)
++    proj["tuning"] = tun_eps * sc + sum(ep(a, s) * 3 * len(S.LAMBDAS) * tun_eps for a in S.ARMS for s in S.structures(a))
+     proj["test"] = 320 * sc + sum(ep_max[a] * 3 * 320 for a in S.ARMS)
+     proj["in_distribution"] = 0.0 if "b" in ladder else 40 * sc + sum(ep_max[a] * 3 * 40 for a in S.ARMS)
+     proj["pi_oracle"] = m["pi_episode_cpu_s"] * (360 if "b" not in ladder else 320) + \
+@@ -198,18 +212,30 @@
+     return proj, total, gates
+ 
+ 
++def plausibility(m):
++    """IMPL_ERRATUM_v8.2_W1 §W1.3(4): WM_32 per-update cost must be <= WM_64 per-update cost."""
++    a = m["unit"]["WM_32"]["per_update_cpu_s"]
++    b = m["unit"]["WM_64"]["per_update_cpu_s"]
++    return dict(rule="WM_32 per_update_cpu_s <= WM_64 per_update_cpu_s", WM_32=a, WM_64=b,
++                ok=bool(a is not None and b is not None and a <= b))
++
++
+ def decide(m, setup_cpu_s):
++    """W1 rules: ladder only step (a) and only if adaptation fails; any other failing phase, the total gate or the
++    plausibility gate -> all_gates_pass False (NOT_LAUNCHED)."""
+     applied = []
+-    steps = ["a", "b", "c"]
++    pl = plausibility(m)
+     while True:
+         proj, total, gates = project(m, setup_cpu_s, tuple(applied))
+         failing = [k for k, ok in gates.items() if not ok]
+         total_ok = total <= S.TOTAL_GATE
+         if not failing and total_ok:
+             return dict(projection=proj, total=total, gates=gates, total_gate=total_ok, ladder_applied=applied,
+-                        all_gates_pass=True)
++                        plausibility=pl, all_gates_pass=bool(pl["ok"]), failing_non_ladder=[])
+         non_ladder = [k for k in failing if k not in S.LADDER_PHASES]
+-        if non_ladder or not steps:
++        can_a = ("adaptation" in failing and "a" in S.W1_ALLOWED_LADDER and "a" not in applied
++                 and not non_ladder)
++        if not can_a:
+             return dict(projection=proj, total=total, gates=gates, total_gate=total_ok, ladder_applied=applied,
+-                        all_gates_pass=False, failing_non_ladder=non_ladder)
+-        applied.append(steps.pop(0))
++                        plausibility=pl, all_gates_pass=False, failing_non_ladder=non_ladder)
++        applied.append("a")
+diff -ruN -x __pycache__ v8.1/code/v81/release.py v8.2/code/v81/release.py
+--- v8.1/code/v81/release.py
++++ v8.2/code/v81/release.py
+@@ -1,13 +1,16 @@
+-"""Start rule (PLAN Status, fix 1). Launch requires ALL of:
+- (1) dahill plan PASS on the HASHES_r3 hashes, (2) non-author implementation, (3) independent code-review PASS
+- on the frozen code hashes, (4) RELEASE_v8.1.json binding HASHES_r3, code hashes, both PASS files and the
+- measured preflight projection with every gate passing. Anything missing -> NOT_LAUNCHED."""
++"""Start rule (PLAN_v8.2 Status). Launch requires ALL of:
++ (1) dahill plan PASS on the HASHES_v8.2 hashes, (2) non-author implementation reusing the v8.1 frozen code with a
++ hashed minimal diff, (3) independent code-review PASS on the frozen v8.2 code hashes, (4) RELEASE_v8.2.json
++ binding HASHES_v8.2, code hashes, the diff hash, both PASS files and the measured preflight projection with every
++ gate passing. Anything missing -> NOT_LAUNCHED."""
+ import json
+ import os
+ 
+ from . import spec as S
+ 
+-CODE_MANIFEST = "CODE_HASHES_v8.1.sha256"
++CODE_MANIFEST = S.BUNDLE["code_manifest"]          # v8.2: CODE_HASHES_v8.2.sha256
++DIFF_FILE = os.path.join(S.PLAN_DIR, "DIFF_v8.1_to_v8.2.patch")
++PREFLIGHT_FILE = os.path.join(S.PLAN_DIR, "PREFLIGHT_PROJECTION.json")
+ PLAN_AUTHORS = ("uni", "uni · KI-Forschung")
+ 
+ 
+@@ -30,7 +33,7 @@
+     """Returns (ok: bool, reasons: list, release dict or None)."""
+     reasons = []
+     if not os.path.exists(release_path):
+-        return False, ["RELEASE_v8.1.json missing"], None
++        return False, ["%s missing" % S.BUNDLE["release_file"]], None
+     with open(release_path) as f:
+         rel = json.load(f)
+     if rel.get("status") != "FINAL":
+@@ -39,17 +42,28 @@
+         S.verify_plan_hashes()
+     except S.SpecError as ex:
+         reasons.append("plan hashes: %s" % ex)
+-    if rel.get("plan_bundle", {}).get("HASHES_r3.sha256") != S.HASHES_FILE_SHA256:
+-        reasons.append("release does not bind HASHES_r3")
++    if rel.get("plan_bundle", {}).get(S.HASHES_FILE) != S.HASHES_FILE_SHA256:
++        reasons.append("release does not bind %s" % S.HASHES_FILE)
+     pp = rel.get("plan_pass", {})
+-    if not (os.path.exists(S.PLAN_PASS_FILE) and S.sha256_file(S.PLAN_PASS_FILE) == S.PLAN_PASS_SHA256
+-            and pp.get("sha256") == S.PLAN_PASS_SHA256):
++    if S.PLAN_PASS_SHA256 == S.TODO_AFTER_PASS:
++        reasons.append("plan PASS sha256 is a TODO_AFTER_PASS placeholder in spec.BUNDLE")
++    elif not (os.path.exists(S.PLAN_PASS_FILE) and S.sha256_file(S.PLAN_PASS_FILE) == S.PLAN_PASS_SHA256
++              and pp.get("sha256") == S.PLAN_PASS_SHA256):
+         reasons.append("plan PASS file missing or hash mismatch")
+     else:
+         with open(S.PLAN_PASS_FILE) as f:
+             ppj = json.load(f)
+-        if ppj.get("verdict") != "PLAN_PASS" or ppj.get("hashes_r3_sha256") != S.HASHES_FILE_SHA256:
+-            reasons.append("plan PASS not bound to HASHES_r3")
++        if ppj.get("verdict") != "PLAN_PASS" or ppj.get(S.BUNDLE["plan_pass_hashes_key"]) != S.HASHES_FILE_SHA256:
++            reasons.append("plan PASS not bound to %s" % S.HASHES_FILE)
++        if ppj.get("reviewer") != S.BUNDLE["plan_pass_reviewer"]:
++            reasons.append("plan PASS reviewer is not %s" % S.BUNDLE["plan_pass_reviewer"])
++    # v8.2: the erratum override of CONFIG numbers must be shown verbatim in the RELEASE
++    if rel.get("grid_override") != S.GRID_OVERRIDE:
++        reasons.append("release grid_override missing or differs from spec.GRID_OVERRIDE")
++    # v8.2 start rule (2): the v8.1 -> v8.2 diff itself is hashed and bound
++    dh = (rel.get("diff") or {}).get("sha256")
++    if not dh or not os.path.exists(DIFF_FILE) or S.sha256_file(DIFF_FILE) != dh:
++        reasons.append("code diff vs v8.1 missing or hash mismatch")
+     impl = rel.get("implementer", "")
+     if not impl or impl.strip().lower().startswith("uni"):
+         reasons.append("implementer missing or a plan author")
+@@ -73,6 +87,36 @@
+     pf = rel.get("preflight", {})
+     if not pf.get("all_gates_pass"):
+         reasons.append("preflight gates not passing")
++    # v8.2 (dahill v8.1 CODE_PASS condition 1): the measured preflight file must be bound and must itself pass
++    bf = {os.path.normpath(k): v for k, v in rel.get("bound_files", {}).items()}
++    if bf.get(os.path.normpath(PREFLIGHT_FILE)) is None:
++        reasons.append("PREFLIGHT_PROJECTION.json not in bound_files")
++    elif os.path.exists(PREFLIGHT_FILE):
++        with open(PREFLIGHT_FILE) as f:
++            pfj = json.load(f)
++        if not pfj.get("all_gates_pass"):
++            reasons.append("PREFLIGHT_PROJECTION.json all_gates_pass is not true")
++        # W1 §W1.3(4) plausibility, recomputed from the unit costs (not trusted from the flag)
++        u = pfj.get("measurements", {}).get("unit", {})
++        a = u.get("WM_32", {}).get("per_update_cpu_s")
++        b = u.get("WM_64", {}).get("per_update_cpu_s")
++        if a is None or b is None or not a <= b:
++            reasons.append("preflight plausibility: WM_32 per-update cost > WM_64 (W1)")
++        # W1 §W1.3(3): ladder only (a)
++        if any(st not in S.W1_ALLOWED_LADDER for st in pfj.get("ladder_applied", [])):
++            reasons.append("preflight ladder step outside W1 (only 'a' allowed)")
++        if pfj.get("impl_errata") != S.BUNDLE["impl_errata"]:
++            reasons.append("preflight not run under the bound implementation errata (W1)")
++    # W1: implementation errata and the preserved failed first attempt are bound by sha
++    for name, h in S.BUNDLE["impl_errata"].items():
++        fp = os.path.join(S.PLAN_DIR, name)
++        if not os.path.exists(fp) or S.sha256_file(fp) != h or (rel.get("impl_errata") or {}).get(name) != h:
++            reasons.append("implementation erratum missing or hash mismatch: %s" % name)
++    a1 = S.BUNDLE["preflight_attempt1"]
++    a1p = os.path.join(S.PLAN_DIR, a1["file"])
++    if not os.path.exists(a1p) or S.sha256_file(a1p) != a1["sha256"] or \
++            (rel.get("preflight_attempts") or [{}])[0].get("sha256") != a1["sha256"]:
++        reasons.append("failed preflight attempt 1 not preserved/listed")
+     for name, h in rel.get("bound_files", {}).items():
+         if not os.path.exists(name) or S.sha256_file(name) != h:
+             reasons.append("bound file mismatch: %s" % name)
+diff -ruN -x __pycache__ v8.1/code/v81/seeds.py v8.2/code/v81/seeds.py
+--- v8.1/code/v81/seeds.py
++++ v8.2/code/v81/seeds.py
+@@ -50,7 +50,7 @@
+             if seed in S.TEST_SEEDS and not (purpose.startswith("test") or purpose == "adapt_eval"):
+                 raise SeedGuardError("test seed %d used for %s" % (seed, purpose))
+             if purpose == "adapt_eval" and seed not in S.TEST_SEEDS[:S.ADAPT_EVAL_SEEDS_N]:
+-                raise SeedGuardError("adapt_eval seed %d outside 9100-9109" % seed)
++                raise SeedGuardError("adapt_eval seed %d outside the first %d test seeds" % (seed, S.ADAPT_EVAL_SEEDS_N))
+             allowed = {"train": sum((list(v) for v in S.TRAIN_SEEDS.values()), []),
+                        "val": sum((list(v) for v in S.VAL_SEEDS.values()), []),
+                        "tuning": S.TUNING_SEEDS, "test_heldout": S.TEST_SEEDS, "test_id": S.TEST_SEEDS,
+@@ -111,7 +111,8 @@
+ 
+ def adaptation_composition(htype, K):
+     """K adaptation episodes for HELDOUT type htype ('H1'..'H4'): seeds 8000.. in order,
+-    magnitudes alternating a, b; onsets cycle 72,120,168,216 like training data (IMPL_NOTES D5)."""
++    magnitudes alternating a, b; onsets cycle 72,120,168,216 like training data (IMPL_NOTES D5).
++    v8.2: the adaptation seed list comes from CONFIG (4100-4109); the docstring's '8000..' is the v8.1 list."""
+     out = []
+     for j in range(K):
+         iid = htype + ("a" if j % 2 == 0 else "b")
+diff -ruN -x __pycache__ v8.1/code/v81/spec.py v8.2/code/v81/spec.py
+--- v8.1/code/v81/spec.py
++++ v8.2/code/v81/spec.py
+@@ -1,20 +1,48 @@
+-"""Binding plan files (HASHES_r3) and frozen numbers. CONFIG governs numbers, PLAN governs logic (PLAN Status)."""
++"""Binding plan files (HASHES_v8.2) and frozen numbers. CONFIG governs numbers, PLAN governs logic (PLAN Status).
++
++v8.2: ALL plan-bundle identity lives in the single BUNDLE dict below. Swapping the bundle (e.g. a v8.2 r2)
++means editing BUNDLE only (hashes file + its sha, listed files, CONFIG name, plan-PASS file + sha)."""
+ import hashlib
+ import json
+ import os
++import re
+ 
+ CODE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+-PLAN_DIR = os.path.dirname(CODE_DIR)                     # .../v8/worldmodel/v8.1
+-HASHES_FILE = "HASHES_r3.sha256"
+-HASHES_FILE_SHA256 = "b2fac5bf5e57e9e7013445aba7b57b7e192aa10e4c72e49247d00d0fc6d70ed7"
+-BOUND_FILES = {
+-    "PLAN_v8.1_r3.md": "dae8731c5cc0e7c41d2bea830234be34f6f27d68279179dbcb086e30b34c7e7f",
+-    "CONFIG_v8.1_r3.json": "580bba9255265a76cbc92b23645817e1e6fb622dfbf23a1f208b25eab575ee21",
+-    "FEASIBILITY_v8.1_r3.md": "f7c772ec707a98219b517057ec55594c5d4e3cbae1ecd3229cdedff2637f3464",
+-    "INTERVENTIONS_v8.1.json": "948b5e3d5c53c9d6c4862fba1c6a4203c4f0c665d63a97be5f44dcf0bef61d9c",
+-}
+-PLAN_PASS_FILE = "/workspace/audit_dahill_v8.1/PLAN_PASS_r3.json"
+-PLAN_PASS_SHA256 = "2cda3f4809b119339ec21b1b7fd2a28501d4a35cc803d71c45b506a41d198727"
++PLAN_DIR = os.path.dirname(CODE_DIR)                     # .../v8/worldmodel/v8.2
++
++TODO_AFTER_PASS = "TODO_AFTER_PASS"                      # placeholder: launch is impossible while this is set
++BUNDLE = dict(
++    version="v8.2",
++    hashes_file="HASHES_v8.2_E1.sha256",                 # v8.2 bundle + ERRATUM_v8.2_E1 (erratum wins on conflict)
++    hashes_file_sha256="304bc28de338c92ee72817e7ed4ad498c367165e7f3ca47eed38e1732c636ff3",
++    files={                                              # names exactly as listed in hashes_file (relative to PLAN_DIR)
++        "PLAN_v8.2.md": "a1e5b1cd883ae1bff52d4eb86c18c9e3dda98681df7b0700c966249f9a7726c3",
++        "CONFIG_v8.2.json": "7f31dc4e43e7899016e0c049c2e3ed251d278235f1fbc059f250ff5bc419ef63",
++        "FEASIBILITY_v8.2.md": "6ce29d105e1f248a10c5a38e38f74db7173dc0e6eb721858870e6c4608ee3100",
++        "../v8.1/INTERVENTIONS_v8.1.json": "948b5e3d5c53c9d6c4862fba1c6a4203c4f0c665d63a97be5f44dcf0bef61d9c",
++        "HASHES_v8.2.sha256": "733cc25c235d6717f42223ce8868753bbccbfa80a234a4a88a8064deddb9b1d1",
++        "ERRATUM_v8.2_E1.md": "67b4ecdb9bd5a31a91ef2e603fe15350b7048fb98a05f8e3168e99f152938c47",
++    },
++    # numbers the erratum changes vs CONFIG (CONFIG itself is unchanged); {} = CONFIG as is
++    erratum_overrides={"lambda_grid": [0.5, 0.625, 0.75, 0.875, 1.0]},     # ERRATUM_v8.2_E1 §E1.1
++    config_file="CONFIG_v8.2.json",
++    interventions_file="../v8.1/INTERVENTIONS_v8.1.json",
++    plan_pass_file="/workspace/audit_dahill_v8.2/PLAN_PASS_v8.2.json",   # dahill PLAN_PASS on bundle 304bc28d
++    plan_pass_sha256="8ad13f896e2677498048f864ee3abed6e6534c4dcb75c889b59643de34bd49fe",
++    plan_pass_hashes_key="hashes_v8.2_sha256",           # key in the PASS JSON that must equal hashes_file_sha256
++    plan_pass_reviewer="dahill",                         # 'reviewer' in the PASS JSON
++    release_file="RELEASE_v8.2.json",
++    # implementation errata (outside code/, bound by sha) and the preserved failed first preflight
++    impl_errata={"IMPL_ERRATUM_v8.2_W1.md": "08f62233dadb4d009dfe5d7ce3bd3529337886211c87b48c1db5743c1668bdf8"},
++    preflight_attempt1=dict(file="PREFLIGHT_PROJECTION_attempt1_FAILED.json",
++                            sha256="f2a0e6b2a608d71bd0f1d554a2aca481ac97621f2be08985a565bdf73c4b17f7"),
++    code_manifest="CODE_HASHES_v8.2.sha256",
++)
++HASHES_FILE = BUNDLE["hashes_file"]
++HASHES_FILE_SHA256 = BUNDLE["hashes_file_sha256"]
++BOUND_FILES = dict(BUNDLE["files"])
++PLAN_PASS_FILE = BUNDLE["plan_pass_file"]
++PLAN_PASS_SHA256 = BUNDLE["plan_pass_sha256"]
+ OPTION1_DIR = "/workspace/nested_swarms/v7/worldmodel/option1_thermal_v5"   # read-only reference
+ 
+ 
+@@ -35,7 +63,7 @@
+     hf = os.path.join(plan_dir, HASHES_FILE)
+     got = sha256_file(hf)
+     if got != HASHES_FILE_SHA256:
+-        raise SpecError("HASHES_r3.sha256 mismatch: %s" % got)
++        raise SpecError("%s mismatch: %s" % (HASHES_FILE, got))
+     listed = {}
+     with open(hf) as f:
+         for line in f:
+@@ -43,7 +71,7 @@
+                 h, name = line.split()
+                 listed[name] = h
+     if listed != BOUND_FILES:
+-        raise SpecError("HASHES_r3 content differs from bound list")
++        raise SpecError("%s content differs from bound list" % HASHES_FILE)
+     for name, h in BOUND_FILES.items():
+         g = sha256_file(os.path.join(plan_dir, name))
+         if g != h:
+@@ -52,12 +80,12 @@
+ 
+ 
+ def load_config(plan_dir=PLAN_DIR):
+-    with open(os.path.join(plan_dir, "CONFIG_v8.1_r3.json")) as f:
++    with open(os.path.join(plan_dir, BUNDLE["config_file"])) as f:
+         return json.load(f)
+ 
+ 
+ def load_interventions(plan_dir=PLAN_DIR):
+-    with open(os.path.join(plan_dir, "INTERVENTIONS_v8.1.json")) as f:
++    with open(os.path.join(plan_dir, BUNDLE["interventions_file"])) as f:
+         return json.load(f)
+ 
+ 
+@@ -77,7 +105,16 @@
+ H = CFG["horizon_steps"]         # 12
+ PI_CFG = (float(CFG["PI"]["Kp"]), float(CFG["PI"]["Ti_h"]), int(CFG["PI"]["ell"]))
+ N_CAND = CFG["planner"]["N_CAND"]
+-LAMBDAS = tuple(CFG["planner"]["lambda_grid"])
++LAMBDAS = tuple(float(x) for x in BUNDLE["erratum_overrides"].get("lambda_grid", CFG["planner"]["lambda_grid"]))
++# Machine-readable record of every number the erratum overrides over CONFIG (RELEASE_v8.2 must carry it verbatim).
++GRID_OVERRIDE = dict(
++    parameter="planner.lambda_grid",
++    config_file=BUNDLE["config_file"], config_sha256=BUNDLE["files"][BUNDLE["config_file"]],
++    config_value=[float(x) for x in CFG["planner"]["lambda_grid"]],
++    effective_value=list(LAMBDAS),
++    source="ERRATUM_v8.2_E1.md §E1.1", source_sha256=BUNDLE["files"]["ERRATUM_v8.2_E1.md"],
++    applies_to=["WM", "GRU", "LIN", "RC_only"],
++)
+ GRU_HIDDEN = tuple(CFG["arms"]["GRU"]["structure_grid_hidden"])
+ GRU_PARAMS = tuple(CFG["arms"]["GRU"]["params"])
+ WM_HIDDEN = tuple(CFG["arms"]["WM"]["structure_grid_hidden"])
+@@ -111,6 +148,7 @@
+ GATE_FRAC = 0.9
+ TOTAL_GATE = 3240.0
+ LADDER_PHASES = ("adaptation", "in_distribution", "tuning")
++W1_ALLOWED_LADDER = ("a",)    # IMPL_ERRATUM_v8.2_W1 §W1.3(3): only step (a), only if adaptation fails
+ 
+ SEEDS = CFG["seeds"]
+ TUNING_SEEDS = tuple(SEEDS["tuning"])
+@@ -126,7 +164,23 @@
+ VAL_SEEDS = {r: seed_range(SEEDS["val_data"]["r%d" % (r + 1)]) for r in range(REPLICATES)}
+ INIT_SEEDS = {r: SEEDS["model_init"]["r%d" % (r + 1)] for r in range(REPLICATES)}
+ BOOT_SEEDS = dict(SEEDS["bootstrap"])
+-BURNED_SEEDS = tuple(range(5000, 5040))
++
++
++def parse_seed_ranges(entries):
++    """CONFIG 'excluded_never_used_in_production' strings like '7000-7019' or '1-4 (preflight only)' -> set."""
++    out = set()
++    for e in entries:
++        m = re.match(r"\s*(\d+)\s*-\s*(\d+)", str(e))
++        if not m:
++            raise SpecError("unparseable excluded seed range %r" % e)
++        out.update(range(int(m.group(1)), int(m.group(2)) + 1))
++    return out
++
++
++EXCLUDED_SEEDS = frozenset(parse_seed_ranges(SEEDS["excluded_never_used_in_production"]))
++# v8.2: every excluded seed (v5 burned 5000-5039 + all v8.1 tuning/test/adaptation/bootstrap seeds), minus the
++# preflight seeds, which have their own SeedGuard mode.
++BURNED_SEEDS = tuple(sorted(EXCLUDED_SEEDS - set(CFG["preflight"]["seeds"])))
+ INITIAL_STATES = tuple((s["T_r0"], s["T_w0"], s["q_h0"]) for s in CFG["initial_states"])
+ 
+ TRAIN_IVS = tuple(IV["TRAIN_INTERVENTIONS"])
+@@ -140,6 +194,27 @@
+ COMPARATOR_ARMS_TIEBREAK = ("RC_only", "LIN", "GRU")
+ 
+ 
++D_MAX_EXPECTED = 0.3269812989590207        # PLAN §8 / CONFIG selection.D_max_K_h_per_day (v8.1 tuning rows only)
++
++
++def parse_comfort_bound(sel):
++    """v8.2 selection comfort constraint from CONFIG['selection']: ONLY the absolute form
++    'D_max_K_h_per_day' (feasible iff mean tuning D <= D_max, inclusive). Any other key/form raises SpecError."""
++    if not isinstance(sel, dict) or "D_max_K_h_per_day" not in sel:
++        raise SpecError("CONFIG selection must define D_max_K_h_per_day (absolute bound only)")
++    other = [k for k in sel if k.startswith("D_") and k not in ("D_max_K_h_per_day", "D_max_source",
++                                                                  "D_max_rejected_alternative")]
++    if other:
++        raise SpecError("unsupported comfort-bound keys in CONFIG selection: %r" % other)
++    return dict(form="absolute", D_max=float(sel["D_max_K_h_per_day"]))
++
++
++COMFORT_BOUND = parse_comfort_bound(CFG["selection"])
++if COMFORT_BOUND["D_max"] != D_MAX_EXPECTED:
++    raise SpecError("CONFIG D_max %r != expected %r" % (COMFORT_BOUND["D_max"], D_MAX_EXPECTED))
++
++
++
+ def structures(arm):
+     return {"WM": WM_HIDDEN, "GRU": GRU_HIDDEN, "LIN": LIN_ORDERS, "RC_only": RC_STRUCTS}[arm]
+ 
+@@ -152,3 +227,9 @@
+ assert all(len(TRAIN_SEEDS[r]) == N_TRAIN_EP and len(VAL_SEEDS[r]) == N_VAL_EP for r in range(REPLICATES))
+ assert len(TRAIN_IDS) == 6 and len(HELDOUT_IDS) == 8
+ assert abs(sum(CAPS.values()) - GLOBAL_CAP) < 1e-9
++assert len(LAMBDAS) == 5 and CFG["arms"]["configs_per_arm"] == 3 * len(LAMBDAS)
++_PROD_SEEDS = (set(TUNING_SEEDS) | set(TEST_SEEDS) | set(ADAPT_SEEDS) | set(sum((list(v) for v in TRAIN_SEEDS.values()), []))
++               | set(sum((list(v) for v in VAL_SEEDS.values()), [])))
++assert not (_PROD_SEEDS & EXCLUDED_SEEDS), "production seed list overlaps excluded seeds"
++assert not (set(BOOT_SEEDS.values()) & EXCLUDED_SEEDS), "bootstrap seed reuses an excluded (v8.1) seed"
++assert len(set(TUNING_SEEDS) | set(TEST_SEEDS) | set(ADAPT_SEEDS)) == 70
+diff -ruN -x __pycache__ v8.1/code/v81/stats.py v8.2/code/v81/stats.py
+--- v8.1/code/v81/stats.py
++++ v8.2/code/v81/stats.py
+@@ -1,4 +1,5 @@
+-"""Endpoints P1-P4, bootstrap (B=10000, 0-based order statistics [249]/[9750]), selection, gates."""
++"""Endpoints P1-P4, bootstrap (B=10000, 0-based order statistics [249]/[9750]), selection, gates.
++v8.2: energy-targeted selection under a comfort bound (PLAN §8), MSE contrast CIs (PLAN §9)."""
+ import numpy as np
+ 
+ from . import spec as S
+@@ -60,8 +61,15 @@
+                 P1=bool(P1), P2=bool(P2), P3=bool(P3), P4=bool(P4))
+ 
+ 
++def fallback_flags(selected, comparator):
++    """ERRATUM_v8.2_E1 §E1.6 (flag-only): which selections took the infeasible (lowest-D) fallback path.
++    Reported only; the run stays valid and the outcome is decided by P1-P4 as predeclared."""
++    return dict(WM_fallback=not selected["WM"]["feasible"], comparator_fallback=not selected[comparator]["feasible"],
++                arms_fallback=[a for a in S.ARMS if not selected[a]["feasible"]])
++
++
+ def outcome(primary, validity_ok, launched=True, start_ok=True):
+-    """PLAN §11."""
++    """PLAN §11. Precedence: NOT_LAUNCHED > INVALID > ADVANCE/NO_ADVANCE."""
+     if not (launched and start_ok):
+         return "NOT_LAUNCHED"
+     if not validity_ok:
+@@ -75,17 +83,57 @@
+     return list(S.structures(arm)).index(structure)
+ 
+ 
+-def select_within_arm(arm, table):
+-    """table: {(structure, lam): (mean_J, mean_E)} over 3 reps x n episodes. Lowest J; ties: lower E,
+-    smaller structure, lam = 1.0 (then the remaining lambda order is the grid order)."""
+-    def key(c):
+-        s, lam = c
+-        J, E = table[c]
+-        return (J, E, struct_rank(arm, s), 0 if lam == 1.0 else 1, S.LAMBDAS.index(lam))
+-    return min(table, key=key)
++def comfort_bound(table, bound=None):
++    """Numeric comfort bound for the selection (K h/day): ONLY the absolute D_max from CONFIG (S.COMFORT_BOUND).
++    Any other form raises SpecError. Returns (value, record). `table` is unused (bound is fixed before data)."""
++    b = dict(S.COMFORT_BOUND if bound is None else bound)
++    if set(b) != {"form", "D_max"} or b["form"] != "absolute":
++        raise S.SpecError("comfort bound must be the absolute D_max form, got %r" % (b,))
++    return float(b["D_max"]), dict(b, value=float(b["D_max"]))
++
++
++def select_within_arm(arm, table, d_bound):
++    """v8.2 PLAN §8. table: {(structure, lam): {"mean_E", "mean_D", ...}} (means over 3 reps x n episodes).
++    F = {c: mean_D <= d_bound}. F non-empty: argmin mean_E over F; ties lower D, smaller structure, smaller lambda.
++    F empty: argmin mean_D over all; ties lower E, smaller structure, smaller lambda. Returns (config, feasible)."""
++    rank = lambda c: (struct_rank(arm, c[0]), S.LAMBDAS.index(c[1]))
++    F = [c for c in table if table[c]["mean_D"] <= d_bound]
++    if F:
++        return min(F, key=lambda c: (table[c]["mean_E"], table[c]["mean_D"]) + rank(c)), True
++    return min(table, key=lambda c: (table[c]["mean_D"], table[c]["mean_E"]) + rank(c)), False
+ 
+ 
+ def select_comparator(sel):
+-    """sel: {arm: (config, mean_J, mean_E)} for GRU, LIN, RC_only. Ties: lower E, then RC_only, LIN, GRU."""
+-    arms = [a for a in S.COMPARATOR_ARMS_TIEBREAK]
+-    return min(arms, key=lambda a: (sel[a][1], sel[a][2], S.COMPARATOR_ARMS_TIEBREAK.index(a)))
++    """sel: {arm: {"mean_E", "mean_D", "feasible"}} for GRU, LIN, RC_only (their selected configs).
++    Feasible arms rank before infeasible ones; feasible: lowest E, ties lower D; none feasible: lowest D, ties
++    lower E; remaining ties: order RC_only, LIN, GRU."""
++    def key(a):
++        x = sel[a]
++        m = (x["mean_E"], x["mean_D"]) if x["feasible"] else (x["mean_D"], x["mean_E"])
++        return (0 if x["feasible"] else 1,) + m + (S.COMPARATOR_ARMS_TIEBREAK.index(a),)
++    return min(S.COMPARATOR_ARMS_TIEBREAK, key=key)
++
++
++MSE_CONTRASTS = (("WM", "GRU"), ("WM", "RC_only"), ("WM", "LIN"), ("GRU", "RC_only"), ("GRU", "LIN"),
++                 ("RC_only", "LIN"))
++
++
++def mse_contrast_ci(per_seed, idx):
++    """v8.2 secondary (CONFIG endpoints.secondary_mse_ci). per_seed: {arm: (n_clusters,) per-test-seed mean
++    12-step MSE (NaN = no prediction for that seed)}. For each contrast a-b: d = per_seed[a] - per_seed[b];
++    point = mean(d); bootstrap value b = mean(d[idx[b]]) over the resampled seed clusters; CI by ci().
++    A contrast with any NaN seed is reported with ci = None (no ranking claim possible)."""
++    out = {}
++    ii = idx.astype(np.int64)
++    for a, b in MSE_CONTRASTS:
++        key = "%s-%s" % (a, b)
++        if per_seed.get(a) is None or per_seed.get(b) is None:
++            out[key] = dict(diff=None, ci=None, n_nan_seeds=None)
++            continue
++        d = np.asarray(per_seed[a], dtype=np.float64) - np.asarray(per_seed[b], dtype=np.float64)
++        nn = int(np.isnan(d).sum())
++        if nn:
++            out[key] = dict(diff=float(np.nanmean(d)) if nn < len(d) else None, ci=None, n_nan_seeds=nn)
++            continue
++        out[key] = dict(diff=float(d.mean()), ci=list(ci(d[ii].mean(1))), n_nan_seeds=0)
++    return out

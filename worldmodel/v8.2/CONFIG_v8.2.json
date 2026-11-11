@@ -1,0 +1,365 @@
+{
+ "time": {
+  "DT_h": 0.25,
+  "episode_transitions": 192,
+  "warmup_steps": "0..95 under frozen PI (identical for all arms, common random numbers)",
+  "control_steps": "96..191",
+  "scoring_window_primary": "96..191 (all 96 control steps, identical for all arms)",
+  "scoring_window_secondary": "120..191 (intervention + recovery)",
+  "settling_log_only": "first k>=onset with |T_r-setpoint|<0.5 K for 8 consecutive steps; never used to define windows"
+ },
+ "inputs_all_arms": [
+  "y_r",
+  "T_o",
+  "setpoint s",
+  "commanded u",
+  "clock sin",
+  "clock cos"
+ ],
+ "context_steps": 48,
+ "horizon_steps": 12,
+ "PI": {
+  "Kp": 0.4,
+  "Ti_h": 8,
+  "ell": 4,
+  "source": "Option1 PI_FROZEN (no re-tuning)"
+ },
+ "planner": {
+  "type": "identical 64-candidate library MPC (Option1 planner.py)",
+  "N_CAND": 64,
+  "plan_cost": "lambda*2.5*u + 0.25*(4v+8v^2) per step, v=min(violation,11.5)",
+  "lambda_grid": [
+   0.5,
+   1.0,
+   2.0,
+   4.0,
+   8.0
+  ],
+  "tuning_episodes_per_arm": 1800,
+  "planner_decisions_per_arm_tuning": 172800,
+  "note": "lambda multiplies the energy term; lambda=1.0 reproduces Option1"
+ },
+ "arms": {
+  "WM": {
+   "desc": "GreyBox: 3-state RC core (T_r,T_w,q_h)+disturbance bias, steady-state Kalman filter over context, learned physical params (13 scalars) + GRU enc-dec residual on T_r",
+   "structure_grid_hidden": [
+    32,
+    64,
+    96
+   ],
+   "params": [
+    7471,
+    27215,
+    59247
+   ]
+  },
+  "GRU": {
+   "desc": "Option1 GRU enc-dec (increment head)",
+   "structure_grid_hidden": [
+    32,
+    64,
+    96
+   ],
+   "params": [
+    7458,
+    27202,
+    59234
+   ]
+  },
+  "LIN": {
+   "desc": "E1: same LIN as Option1/v8.1 = thermal5/model_lin.py subspace ID + finite-history Kalman predictor, ridge rel 1e-6",
+   "structure_grid_order": [
+    3,
+    5,
+    8
+   ]
+  },
+  "RC_only": {
+   "desc": "RC core + Kalman filter, no residual",
+   "structure_grid": [
+    "1-state(T_r,q_h lumped)",
+    "2-state(T_r,T_w)",
+    "3-state(T_r,T_w,q_h)"
+   ],
+   "params": [
+    7,
+    11,
+    13
+   ]
+  },
+  "configs_per_arm": 15,
+  "note": "each arm: 3 structures x 5 lambdas = 15 configs (equal search effort: 1800 tuning episodes, 172800 planner decisions per arm)"
+ },
+ "training": {
+  "updates": 2000,
+  "batch": 16,
+  "lr": [
+   0.001,
+   0.0001
+  ],
+  "optimizer": "Adam, grad clip 1.0, loss multi-step H=12 MSE on y_r (same loss for WM,GRU,RC_only)",
+  "LIN": "closed form",
+  "replicates": 3,
+  "episodes_per_replicate": {
+   "train": 32,
+   "val": 8
+  },
+  "train_composition": "8 nominal + 4 x each of 6 TRAIN entries (onset cycles 72,120,168,216, duration 48); val: 2 nominal + 1 x each TRAIN entry",
+  "episode_transitions": 288
+ },
+ "seeds": {
+  "tuning": [
+   7300,
+   7301,
+   7302,
+   7303,
+   7304,
+   7305,
+   7306,
+   7307,
+   7308,
+   7309,
+   7310,
+   7311,
+   7312,
+   7313,
+   7314,
+   7315,
+   7316,
+   7317,
+   7318,
+   7319
+  ],
+  "test": [
+   9500,
+   9501,
+   9502,
+   9503,
+   9504,
+   9505,
+   9506,
+   9507,
+   9508,
+   9509,
+   9510,
+   9511,
+   9512,
+   9513,
+   9514,
+   9515,
+   9516,
+   9517,
+   9518,
+   9519,
+   9520,
+   9521,
+   9522,
+   9523,
+   9524,
+   9525,
+   9526,
+   9527,
+   9528,
+   9529,
+   9530,
+   9531,
+   9532,
+   9533,
+   9534,
+   9535,
+   9536,
+   9537,
+   9538,
+   9539
+  ],
+  "adaptation": [
+   4100,
+   4101,
+   4102,
+   4103,
+   4104,
+   4105,
+   4106,
+   4107,
+   4108,
+   4109
+  ],
+  "train_data": {
+   "r1": [
+    6100,
+    6131
+   ],
+   "r2": [
+    6200,
+    6231
+   ],
+   "r3": [
+    6300,
+    6331
+   ]
+  },
+  "val_data": {
+   "r1": [
+    6140,
+    6147
+   ],
+   "r2": [
+    6240,
+    6247
+   ],
+   "r3": [
+    6340,
+    6347
+   ]
+  },
+  "model_init": {
+   "r1": 3101,
+   "r2": 3102,
+   "r3": 3103
+  },
+  "bootstrap": {
+   "primary": 9921,
+   "adapt": 9922,
+   "secondary": 9923,
+   "mse": 9924
+  },
+  "cand_lib": "Option1 child(10, episode_id, k), identical across arms",
+  "preflight": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "excluded_never_used_in_production": [
+   "5000-5039",
+   "7000-7019",
+   "9100-9139",
+   "8000-8009",
+   "1-4 (preflight only)",
+   "9901-9903 (v8.1 bootstrap)"
+  ],
+  "unchanged_note": "train/val data seeds and model-init seeds are unchanged from v8.1 on purpose: fits are expected to reproduce v8.1 fits (fit_info.json 873435b1…e3e5 comparable), so the only experimental change is selection; they are not tuning or test data"
+ },
+ "initial_states": [
+  {
+   "id": "S0",
+   "T_r0": 15.0,
+   "T_w0": 14.5,
+   "q_h0": 0.0
+  },
+  {
+   "id": "S1",
+   "T_r0": 17.5,
+   "T_w0": 17.0,
+   "q_h0": 2.5
+  },
+  {
+   "id": "S2",
+   "T_r0": 20.0,
+   "T_w0": 19.0,
+   "q_h0": 5.0
+  },
+  {
+   "id": "S3",
+   "T_r0": 22.5,
+   "T_w0": 21.0,
+   "q_h0": 0.0
+  }
+ ],
+ "initial_state_assignment": "Seed-index rule, identical for every seed list (train, val, tuning, test, adaptation): the seed at 0-based position i in its list uses S[i mod 4]; ALL episodes generated from that seed share that initial state (tuning: both episodes of a seed; test: all 8 HELDOUT episodes and the in-distribution episode of a seed; adaptation: all episodes of a seed). Examples: tuning 7300->S0, 7301->S1, 7303->S3, 7304->S0; test 9500->S0 ... 9539->S3 (10 seeds per state). delta0, e_o0, weather and schedules from the seed as in Option1 draw_episode.",
+ "tuning": {
+  "episodes_per_config": 40,
+  "composition": "each tuning seed (7300-7319): 1 nominal episode + 1 TRAIN-entry episode (entry index = seed position mod 6), onset 120, duration 48",
+  "heldout_types_in_tuning": false
+ },
+ "selection": {
+  "D_max_K_h_per_day": 0.3269812989590207,
+  "D_max_source": "v8.1 TUNING ONLY: mean comfort deficit D of the v8.1 comparator structure (RC_only, structure 2) at lambda=1.0 over its 120 tuning rows (3 reps x 40 eps, seeds 7000-7019) in v8.1/run_output/tuning_rows.npz sha256 864ac87a67addcc727d1b1f8a655431600c866b8f9badfe6d3c10f567fffdce4. No v8.1 test, in-distribution, adaptation or secondary data used.",
+  "D_max_rejected_alternative": "0.16305200579291218 (same structure at its J-selected lambda=0.5): rejected because it reproduces v8.1's J-driven comfort level, leaving no energy-leaning config feasible for most arms (v8.1 tuning: no lambda>=1 config of any arm had D<=0.163)",
+  "within_arm": "feasible set F = configs with mean tuning D <= D_max (mean over 3 replicates x 40 episodes). If F non-empty: argmin mean tuning E over F; ties: lower mean D, then smaller structure, then smaller lambda. If F empty: argmin mean tuning D over all 15 configs; ties: lower mean E, then smaller structure, then smaller lambda. Applies identically to WM, GRU, LIN, RC_only.",
+  "comparator": "among the selected GRU, LIN, RC_only configs: arms whose selection was feasible (in F) rank before infeasible ones; among feasible: lowest mean tuning E; if none feasible: lowest mean tuning D; ties: lower D (resp. E), then order RC_only, LIN, GRU",
+  "sealed_file": "COMPARATOR_SELECTION.json incl. per-config mean E, D, J, feasibility flags; sha256 written to ledger before any test-seed episode is generated",
+  "J_score": "still computed and reported per config (secondary), not used for selection"
+ },
+ "test": {
+  "episodes_per_instance": 320,
+  "composition": "40 test seeds x 8 HELDOUT entries, init state per seed rule; common random numbers across arms",
+  "instances": "selected config x 3 replicates per arm (12) + PI + Oracle-MPC (descriptive)",
+  "in_distribution_secondary": "40 test seeds x 1 TRAIN entry (index = seed index mod 6) per instance"
+ },
+ "endpoints": {
+  "energy": "E = sum over scoring window of 2.5*u_commanded [kWh]",
+  "comfort_C1": "D = sum 0.25*min(v,11.5) over scoring window [K h/day] (v5 sec.7.1 d_k)",
+  "P1": "S = 1 - sum E_WM / sum E_comp >= 0.05 (episode E = mean over 3 replicates)",
+  "P2": "cluster bootstrap (cluster = test seed, 40) 10000 resamples; np.sort(S_boot)[249] > 0",
+  "P3": "np.sort(dD_boot)[9750] < 0.25 K h/day (dD = mean(D_WM - D_comp), absolute)",
+  "bootstrap_index_matrices_saved": true,
+  "n_boot": 10000,
+  "bootstrap_order_statistics": "B=10000 for every 95% percentile CI: lower = np.sort(x)[249], upper = np.sort(x)[9750] (0-based, no interpolation). Primary/secondary/MSE matrices 10000 x 40 (clusters = test seeds); adaptation matrix 10000 x 10 (E2). All matrices saved with sha256 before statistics.",
+  "P4_safety": "safety exits counted per arm on test = number of (episode, replicate) pairs with a safety exit over 320 x 3; all arms reported; if count_WM > count_comparator then no ADVANCE (counts as primary failure)",
+  "secondary_mse_ci": "12-step held-out y_r MSE (v8.1 definition, origin k=120 on PI-reference trajectories of HELDOUT test episodes): paired cluster-bootstrap CI (seed 9924) of per-seed mean MSE differences WM-GRU, WM-RC_only, WM-LIN, GRU-RC_only, GRU-LIN, RC_only-LIN; rankings stated only with these CIs"
+ },
+ "adaptation": {
+  "K": [
+   1,
+   3,
+   10
+  ],
+  "data": "K episodes per HELDOUT type from adaptation seeds 4100-4109 (both magnitudes alternating, a then b), generated only after primary sealed",
+  "budget": "WM, GRU, RC_only: 100 Adam updates batch 16 lr 1e-4 from fitted weights; LIN: one ridge refit on train+adaptation windows with adaptation windows weight 1",
+  "eval": "test seeds 9500-9509 x larger magnitude (b) of the adapted type, onset 120",
+  "arms": "selected config x 3 replicates, 4 types x 3 K"
+ },
+ "fallback": {
+  "nonfinite_prediction": "PI takes over for rest of episode, episode counted, flagged",
+  "safety_exit": "T_r outside [10,30]: remaining steps charged E=2.5, d=2.875",
+  "gate": "fallback episodes <= 10% per arm on test else INVALID",
+  "safety_exit_reporting": "per-arm safety-exit counts reported for tuning, test, in-distribution and adaptation; P4_safety uses test only"
+ },
+ "caps_cpu_s": {
+  "global_cap": 3600,
+  "preflight_toy": 120,
+  "per_phase": {
+   "overhead": 60,
+   "data": 30,
+   "fits": 800,
+   "tuning": 1100,
+   "test": 800,
+   "in_distribution": 120,
+   "pi_oracle": 30,
+   "adaptation": 520,
+   "bootstrap_stats": 60,
+   "audit": 80
+  }
+ },
+ "device": "CPU (GPU permitted by Dark, not used unless a revision says so)",
+ "revision": "v8.2 (base: v8.1 r3 HASHES_r3 b2fac5bf…0ed7 + ERRATUM_r3_IMPL_v1 86a0d2f2…5373); changes listed in PLAN_v8.2.md section 13",
+ "start_rule": "Launch requires ALL: (1) dahill plan PASS on the hashes in HASHES_v8.2.sha256; (2) non-author implementation (TMbot) reusing the v8.1 frozen code (manifest be232be6…d4e8) with a minimal diff, the diff itself hashed and listed; (3) independent code-review PASS on the frozen v8.2 code hashes; (4) RELEASE_v8.2.json binding HASHES_v8.2, code hashes, the diff hash, both PASS files and the measured toy-preflight per-structure costs, per-phase and total projections and any ladder steps, all gates passing. Start authority: Dark's standing autonomy rule of 2026-11-10 12:24 Europe/Berlin as relayed by mixxy (relayed; not independently verifiable by plan author or reviewer). Missing any = NOT_LAUNCHED.",
+ "preflight": {
+  "cap_cpu_s": 120,
+  "seeds": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "measures": "per-update cost (20 updates) and per-episode cost (2 toy episodes x 96 decisions) for EVERY arm x structure separately: WM h32/h64/h96, GRU h32/h64/h96, LIN order 3/5/8, RC_only 1/2/3-state; lambda does not change per-episode cost (same 64 candidates), measured at lambda=1.0",
+  "projection": "fits and tuning use each structure's own measured cost; test, in-distribution and adaptation use the per-arm maximum over structures (selected structure unknown at preflight)",
+  "gate": "every phase projection <= 0.9 x its phase cap AND total <= 3240 s (0.9 x 3600)",
+  "shrink_ladder": "only if the failing phase is adaptation, in-distribution or tuning: (a) adaptation eval 10->5 seeds (9500-9504), (b) drop in-distribution secondary, (c) tuning 40->30 eps/config (seeds 7300-7314); applied in order until all gates pass. The lambda grid and structure grid are never shrunk.",
+  "no_shrink": "fits, primary test, overhead, data, PI/Oracle, bootstrap/stats and audit are never shrunk: if any projects above 0.9 x its cap (fits > 720 s, test > 720 s), there is no launch"
+ },
+ "base": {
+  "HASHES_r3.sha256": "b2fac5bf5e57e9e7013445aba7b57b7e192aa10e4c72e49247d00d0fc6d70ed7",
+  "PLAN_v8.1_r3.md": "dae8731c5cc0e7c41d2bea830234be34f6f27d68279179dbcb086e30b34c7e7f",
+  "CONFIG_v8.1_r3.json": "580bba9255265a76cbc92b23645817e1e6fb622dfbf23a1f208b25eab575ee21",
+  "ERRATUM_r3_IMPL_v1.md": "86a0d2f26703f7c6d9e77953b8e38ae39528cdbd80747f7097a349316de65373",
+  "INTERVENTIONS_v8.1.json (reused unchanged)": "948b5e3d5c53c9d6c4862fba1c6a4203c4f0c665d63a97be5f44dcf0bef61d9c",
+  "v8.1 frozen code manifest CODE_HASHES_v8.1.sha256": "be232be6b42d534c7bfd8ee3f0d6e3c75bd1c1c3129f47ab88de8e174ff4d4e8"
+ },
+ "results_rules": [
+  "MSE rankings only with the paired bootstrap CIs (secondary_mse_ci); without a CI no ranking claim",
+  "'refuted'/'widerlegt' only relative to this protocol (plant, interventions, selection rule, D_max)",
+  "literature citations only after checking the source; SPARTAN arXiv 2411.06890 may only be cited for what its abstract/paper states (see PLAN section 12)"
+ ]
+}

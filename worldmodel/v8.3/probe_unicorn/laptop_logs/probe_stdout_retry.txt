@@ -1,0 +1,7 @@
+{
+ "outcome": "PROBE_DIAGNOSIS",
+ "reason": "linearity ratio 1.9425883124540124 outside [0.87, 1.15]",
+ "R": null,
+ "caps": null,
+ "probe_cpu_s": 29.629107581
+}

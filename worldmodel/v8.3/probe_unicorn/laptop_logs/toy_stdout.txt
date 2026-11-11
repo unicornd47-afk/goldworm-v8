@@ -1,0 +1,58 @@
+  WM         32   per_update=0.008170674 episode=0.1279 s
+  WM         64   per_update=0.01001050095 episode=0.2071 s
+  WM         96   per_update=0.011709748700000012 episode=0.2148 s
+  GRU        32   per_update=0.0067729422000000206 episode=0.1246 s
+  GRU        64   per_update=0.007216064400000022 episode=0.1527 s
+  GRU        96   per_update=0.011090617749999998 episode=0.1913 s
+  LIN        3    per_update=None episode=0.1695 s
+  LIN        5    per_update=None episode=0.1768 s
+  LIN        8    per_update=None episode=0.1548 s
+  RC_only    1    per_update=0.0015145755499999859 episode=0.0266 s
+  RC_only    2    per_update=0.00193654160000003 episode=0.0415 s
+  RC_only    3    per_update=0.0027213513999999606 episode=0.0274 s
+{
+ "projection": {
+  "overhead": 15.890079863,
+  "data": 0.3419048989999999,
+  "fits": 369.57663474000015,
+  "tuning": 968.9167077399991,
+  "test": 599.5034350399989,
+  "in_distribution": 74.93792937999986,
+  "pi_oracle": 10.635734159999721,
+  "adaptation": 318.63826718199925,
+  "bootstrap_stats": 3.5672129260001437,
+  "audit": 0.02608967799999249
+ },
+ "total": 2362.033995607997,
+ "gates": {
+  "overhead": true,
+  "data": true,
+  "fits": true,
+  "tuning": true,
+  "test": true,
+  "in_distribution": true,
+  "pi_oracle": true,
+  "adaptation": true,
+  "bootstrap_stats": true,
+  "audit": true
+ },
+ "ladder": [],
+ "all_pass": true,
+ "preflight_cpu": 9.100953118,
+ "plausibility": {
+  "rule": "WM_32 per_update_cpu_s <= WM_64 per_update_cpu_s",
+  "WM_32": 0.008170674,
+  "WM_64": 0.01001050095,
+  "ok": true
+ },
+ "load_before": [
+  0.8994140625,
+  1.23095703125,
+  1.4365234375
+ ],
+ "load_after": [
+  0.98779296875,
+  1.244140625,
+  1.43994140625
+ ]
+}

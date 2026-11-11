@@ -1,0 +1,32 @@
+{
+ "P1": false,
+ "P2": false,
+ "P3": true,
+ "P4": true,
+ "S": -0.01906430403798054,
+ "S_ci": [
+  -0.021804130708076297,
+  -0.016256098434096034
+ ],
+ "comparator": "RC_only",
+ "dD": -1.146707011527995,
+ "dD_ci": [
+  -1.2503999542220785,
+  -1.0422065570249912
+ ],
+ "fallback_test_all_arms": {
+  "GRU": 0,
+  "LIN": 0,
+  "RC_only": 0,
+  "WM": 0
+ },
+ "safety_exits_WM": 0,
+ "safety_exits_comp": 0,
+ "safety_exits_test_all_arms": {
+  "GRU": 0,
+  "LIN": 0,
+  "RC_only": 0,
+  "WM": 0
+ },
+ "zero_den_resamples": 0
+}

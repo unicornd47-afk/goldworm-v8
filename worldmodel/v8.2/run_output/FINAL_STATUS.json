@@ -1,0 +1,55 @@
+{
+ "budget": {
+  "cap_exceeded": "phase fits: 803.61 > cap 800.0",
+  "total": 805.041461973,
+  "used": {
+   "adaptation": 0.0,
+   "audit": 0.0,
+   "bootstrap_stats": 0.0,
+   "data": 0.215034948,
+   "fits": 803.670797039,
+   "in_distribution": 0.0,
+   "overhead": 0.0,
+   "pi_oracle": 0.0,
+   "test": 0.0,
+   "tuning": 0.0
+  }
+ },
+ "design_mode": "production",
+ "fallback_gate": {},
+ "grid_override": {
+  "applies_to": [
+   "WM",
+   "GRU",
+   "LIN",
+   "RC_only"
+  ],
+  "config_file": "CONFIG_v8.2.json",
+  "config_sha256": "7f31dc4e43e7899016e0c049c2e3ed251d278235f1fbc059f250ff5bc419ef63",
+  "config_value": [
+   0.5,
+   1.0,
+   2.0,
+   4.0,
+   8.0
+  ],
+  "effective_value": [
+   0.5,
+   0.625,
+   0.75,
+   0.875,
+   1.0
+  ],
+  "parameter": "planner.lambda_grid",
+  "source": "ERRATUM_v8.2_E1.md \u00a7E1.1",
+  "source_sha256": "67b4ecdb9bd5a31a91ef2e603fe15350b7048fb98a05f8e3168e99f152938c47"
+ },
+ "ladder_applied": [],
+ "outcome": "INVALID",
+ "primary": null,
+ "selection": null,
+ "selection_fallback_flags": null,
+ "validity": {
+  "stage0_model_imports": true
+ }
+}

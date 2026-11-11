@@ -1,0 +1,300 @@
+{
+ "plan_base_sha256": "7ae7809fe4663d308437861d547977e083cec67f540f0c8537fabf30b35b2f2d",
+ "time": {
+  "DT_h": 0.25,
+  "episode_transitions": 192,
+  "warmup_steps": "0..95 under frozen PI (identical for all arms, common random numbers)",
+  "control_steps": "96..191",
+  "scoring_window_primary": "96..191 (all 96 control steps, identical for all arms)",
+  "scoring_window_secondary": "120..191 (intervention + recovery)",
+  "settling_log_only": "first k>=onset with |T_r-setpoint|<0.5 K for 8 consecutive steps; never used to define windows"
+ },
+ "inputs_all_arms": [
+  "y_r",
+  "T_o",
+  "setpoint s",
+  "commanded u",
+  "clock sin",
+  "clock cos"
+ ],
+ "context_steps": 48,
+ "horizon_steps": 12,
+ "PI": {
+  "Kp": 0.4,
+  "Ti_h": 8,
+  "ell": 4,
+  "source": "Option1 PI_FROZEN (no re-tuning)"
+ },
+ "planner": {
+  "type": "identical 64-candidate library MPC (Option1 planner.py)",
+  "N_CAND": 64,
+  "plan_cost": "lambda*2.5*u + 0.25*(4v+8v^2) per step, v=min(violation,11.5)",
+  "lambda_grid": [
+   0.5,
+   1.0,
+   2.0
+  ],
+  "tuning_episodes_per_arm": 1080,
+  "planner_decisions_per_arm_tuning": 103680,
+  "note": "lambda multiplies the energy term; lambda=1.0 reproduces Option1"
+ },
+ "arms": {
+  "WM": {
+   "desc": "GreyBox: 3-state RC core (T_r,T_w,q_h)+disturbance bias, steady-state Kalman filter over context, learned physical params (13 scalars) + GRU enc-dec residual on T_r",
+   "structure_grid_hidden": [
+    32,
+    64,
+    96
+   ],
+   "params": [
+    7471,
+    27215,
+    59247
+   ]
+  },
+  "GRU": {
+   "desc": "Option1 GRU enc-dec (increment head)",
+   "structure_grid_hidden": [
+    32,
+    64,
+    96
+   ],
+   "params": [
+    7458,
+    27202,
+    59234
+   ]
+  },
+  "LIN": {
+   "desc": "Option1 ARX ridge (rel 1e-6)",
+   "structure_grid_order": [
+    3,
+    5,
+    8
+   ]
+  },
+  "RC_only": {
+   "desc": "RC core + Kalman filter, no residual",
+   "structure_grid": [
+    "1-state(T_r,q_h lumped)",
+    "2-state(T_r,T_w)",
+    "3-state(T_r,T_w,q_h)"
+   ],
+   "params": [
+    7,
+    11,
+    13
+   ]
+  },
+  "configs_per_arm": 9,
+  "note": "each arm: 3 structures x 3 lambdas = 9 configs (equal search effort)"
+ },
+ "training": {
+  "updates": 2000,
+  "batch": 16,
+  "lr": [
+   0.001,
+   0.0001
+  ],
+  "optimizer": "Adam, grad clip 1.0, loss multi-step H=12 MSE on y_r (same loss for WM,GRU,RC_only)",
+  "LIN": "closed form",
+  "replicates": 3,
+  "episodes_per_replicate": {
+   "train": 32,
+   "val": 8
+  },
+  "train_composition": "8 nominal + 4 x each of 6 TRAIN entries (onset cycles 72,120,168,216, duration 48); val: 2 nominal + 1 x each TRAIN entry",
+  "episode_transitions": 288
+ },
+ "seeds": {
+  "tuning": [
+   7000,
+   7001,
+   7002,
+   7003,
+   7004,
+   7005,
+   7006,
+   7007,
+   7008,
+   7009,
+   7010,
+   7011,
+   7012,
+   7013,
+   7014,
+   7015,
+   7016,
+   7017,
+   7018,
+   7019
+  ],
+  "test": [
+   9100,
+   9101,
+   9102,
+   9103,
+   9104,
+   9105,
+   9106,
+   9107,
+   9108,
+   9109,
+   9110,
+   9111,
+   9112,
+   9113,
+   9114,
+   9115,
+   9116,
+   9117,
+   9118,
+   9119,
+   9120,
+   9121,
+   9122,
+   9123,
+   9124,
+   9125,
+   9126,
+   9127,
+   9128,
+   9129,
+   9130,
+   9131,
+   9132,
+   9133,
+   9134,
+   9135,
+   9136,
+   9137,
+   9138,
+   9139
+  ],
+  "adaptation": [
+   8000,
+   8001,
+   8002,
+   8003,
+   8004,
+   8005,
+   8006,
+   8007,
+   8008,
+   8009
+  ],
+  "train_data": {
+   "r1": [
+    6100,
+    6131
+   ],
+   "r2": [
+    6200,
+    6231
+   ],
+   "r3": [
+    6300,
+    6331
+   ]
+  },
+  "val_data": {
+   "r1": [
+    6140,
+    6147
+   ],
+   "r2": [
+    6240,
+    6247
+   ],
+   "r3": [
+    6340,
+    6347
+   ]
+  },
+  "model_init": {
+   "r1": 3101,
+   "r2": 3102,
+   "r3": 3103
+  },
+  "bootstrap": {
+   "primary": 9901,
+   "adapt": 9902,
+   "secondary": 9903
+  },
+  "cand_lib": "Option1 child(10, episode_id, k), identical across arms"
+ },
+ "initial_states": [
+  {
+   "id": "S0",
+   "T_r0": 15.0,
+   "T_w0": 14.5,
+   "q_h0": 0.0
+  },
+  {
+   "id": "S1",
+   "T_r0": 17.5,
+   "T_w0": 17.0,
+   "q_h0": 2.5
+  },
+  {
+   "id": "S2",
+   "T_r0": 20.0,
+   "T_w0": 19.0,
+   "q_h0": 5.0
+  },
+  {
+   "id": "S3",
+   "T_r0": 22.5,
+   "T_w0": 21.0,
+   "q_h0": 0.0
+  }
+ ],
+ "initial_state_assignment": "episode seed index i (0-based within its list) uses S[i mod 4]; delta0,e_o0, weather and schedules from the seed as in Option1 draw_episode",
+ "tuning": {
+  "episodes_per_config": 40,
+  "composition": "each tuning seed: 1 nominal episode + 1 TRAIN-entry episode (entry index = seed index mod 6), onset 120, duration 48",
+  "heldout_types_in_tuning": false
+ },
+ "selection": {
+  "within_arm": "argmin over 9 configs of mean tuning J_score (Option1 step score: 2.5u+0.25(4v+8v^2), lambda-independent) averaged over 3 replicates x 40 episodes; ties: lower mean E, then smaller structure, then lambda=1.0",
+  "comparator": "among GRU, LIN, RC_only selected configs: lowest mean tuning J_score; ties: lower E, then order RC_only, LIN, GRU",
+  "sealed_file": "COMPARATOR_SELECTION.json, sha256 written to ledger before any test-seed episode is generated"
+ },
+ "test": {
+  "episodes_per_instance": 320,
+  "composition": "40 test seeds x 8 HELDOUT entries, init state per seed rule; common random numbers across arms",
+  "instances": "selected config x 3 replicates per arm (12) + PI + Oracle-MPC (descriptive)",
+  "in_distribution_secondary": "40 test seeds x 1 TRAIN entry (index = seed index mod 6) per instance"
+ },
+ "endpoints": {
+  "energy": "E = sum over scoring window of 2.5*u_commanded [kWh]",
+  "comfort_C1": "D = sum 0.25*min(v,11.5) over scoring window [K h/day] (v5 sec.7.1 d_k)",
+  "P1": "S = 1 - sum E_WM / sum E_comp >= 0.05 (episode E = mean over 3 replicates)",
+  "P2": "cluster bootstrap (cluster = test seed, 40) 10000 resamples, lower endpoint = 250th sorted S > 0",
+  "P3": "upper endpoint (9750th) of mean(D_WM - D_comp) < 0.25 K h/day (absolute)",
+  "bootstrap_index_matrices_saved": true,
+  "n_boot": 10000
+ },
+ "adaptation": {
+  "K": [
+   1,
+   3,
+   10
+  ],
+  "data": "K episodes per HELDOUT type from adaptation seeds 8000.. (both magnitudes alternating, a then b), generated only after primary sealed",
+  "budget": "WM, GRU, RC_only: 100 Adam updates batch 16 lr 1e-4 from fitted weights; LIN: one ridge refit on train+adaptation windows with adaptation windows weight 1",
+  "eval": "test seeds 9100-9109 x larger magnitude (b) of the adapted type, onset 120",
+  "arms": "selected config x 3 replicates, 4 types x 3 K"
+ },
+ "fallback": {
+  "nonfinite_prediction": "PI takes over for rest of episode, episode counted, flagged",
+  "safety_exit": "T_r outside [10,30]: remaining steps charged E=2.5, d=2.875",
+  "gate": "fallback episodes <= 10% per arm on test else INVALID"
+ },
+ "caps_cpu_s": {
+  "global_cap": 3600,
+  "preflight_toy": 120,
+  "per_phase": "see FEASIBILITY_v8.1.md; hard stop at global cap, exceeding = INVALID, no resume"
+ },
+ "device": "CPU (GPU permitted by Dark, not used unless a revision says so)"
+}

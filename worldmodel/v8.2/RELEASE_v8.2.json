@@ -1,0 +1,403 @@
+{
+ "status": "FINAL",
+ "note": "DRAFT: CODE_PASS (dahill, 2b10b0f5) bound; all gates passing. Remaining for launch: start_authority signature (mixxy) and status FINAL as RELEASE_v8.2.json. No production run, no run_output.",
+ "plan_bundle": {
+  "HASHES_v8.2_E1.sha256": "304bc28de338c92ee72817e7ed4ad498c367165e7f3ca47eed38e1732c636ff3",
+  "PLAN_v8.2.md": "a1e5b1cd883ae1bff52d4eb86c18c9e3dda98681df7b0700c966249f9a7726c3",
+  "CONFIG_v8.2.json": "7f31dc4e43e7899016e0c049c2e3ed251d278235f1fbc059f250ff5bc419ef63",
+  "FEASIBILITY_v8.2.md": "6ce29d105e1f248a10c5a38e38f74db7173dc0e6eb721858870e6c4608ee3100",
+  "../v8.1/INTERVENTIONS_v8.1.json": "948b5e3d5c53c9d6c4862fba1c6a4203c4f0c665d63a97be5f44dcf0bef61d9c",
+  "HASHES_v8.2.sha256": "733cc25c235d6717f42223ce8868753bbccbfa80a234a4a88a8064deddb9b1d1",
+  "ERRATUM_v8.2_E1.md": "67b4ecdb9bd5a31a91ef2e603fe15350b7048fb98a05f8e3168e99f152938c47"
+ },
+ "config_sha256": "7f31dc4e43e7899016e0c049c2e3ed251d278235f1fbc059f250ff5bc419ef63",
+ "interventions_sha256": "948b5e3d5c53c9d6c4862fba1c6a4203c4f0c665d63a97be5f44dcf0bef61d9c",
+ "erratum": {
+  "path": "/workspace/nested_swarms/v8/worldmodel/v8.2/ERRATUM_v8.2_E1.md",
+  "sha256": "67b4ecdb9bd5a31a91ef2e603fe15350b7048fb98a05f8e3168e99f152938c47",
+  "author": "uni · KI-Forschung",
+  "scope": "E1.1 lambda grid, E1.2 no HC, E1.3 post-hoc disclosure, E1.4 RC_only at threshold (report), E1.5 fit reproduction (report only), E1.6 fallback flag-only"
+ },
+ "grid_override": {
+  "parameter": "planner.lambda_grid",
+  "config_file": "CONFIG_v8.2.json",
+  "config_sha256": "7f31dc4e43e7899016e0c049c2e3ed251d278235f1fbc059f250ff5bc419ef63",
+  "config_value": [
+   0.5,
+   1.0,
+   2.0,
+   4.0,
+   8.0
+  ],
+  "effective_value": [
+   0.5,
+   0.625,
+   0.75,
+   0.875,
+   1.0
+  ],
+  "source": "ERRATUM_v8.2_E1.md §E1.1",
+  "source_sha256": "67b4ecdb9bd5a31a91ef2e603fe15350b7048fb98a05f8e3168e99f152938c47",
+  "applies_to": [
+   "WM",
+   "GRU",
+   "LIN",
+   "RC_only"
+  ]
+ },
+ "comfort_bound": {
+  "form": "absolute",
+  "D_max": 0.3269812989590207,
+  "inclusive": true
+ },
+ "plan_pass": {
+  "file": "/workspace/audit_dahill_v8.2/PLAN_PASS_v8.2.json",
+  "sha256": "8ad13f896e2677498048f864ee3abed6e6534c4dcb75c889b59643de34bd49fe",
+  "verdict": "PLAN_PASS",
+  "reviewer": "dahill",
+  "hashes_v8_2_sha256": "304bc28de338c92ee72817e7ed4ad498c367165e7f3ca47eed38e1732c636ff3",
+  "scope": "plan review only; not a start authorization"
+ },
+ "code_review_pass": {
+  "verdict": "CODE_PASS",
+  "file": "/workspace/audit_dahill_v8.2/CODE_PASS_v8.2.json",
+  "sha256": "2b10b0f56c671c97ed17bdf6f0ca0b56a810031c16bfde241a338732de77f7b4",
+  "reviewer": "dahill",
+  "code_manifest_sha256": "a6544b6fdafb11bf853bd1b57ce8d3f8d508f06dbafebcafb2a7dbede2a7b643",
+  "scope": "Technical code review only. Not a start authorization; start authority stays with the coordinator (mixxy) under Gerrit's relayed rule. Nothing run in production, nothing published by the reviewer.",
+  "reviewer_time_berlin": "2026-11-10T13:25+0100"
+ },
+ "code_review_pass_required_format": {
+  "verdict": "CODE_PASS",
+  "file": "<path to reviewer's code-review JSON>",
+  "sha256": "<sha256 of that file>",
+  "file_must_contain": {
+   "reviewer": "dahill",
+   "code_manifest_sha256": "a6544b6fdafb11bf853bd1b57ce8d3f8d508f06dbafebcafb2a7dbede2a7b643"
+  }
+ },
+ "implementer": "TMbot · Research (non-author)",
+ "code_hashes": {
+  "manifest_file": "/workspace/nested_swarms/v8/worldmodel/v8.2/code/CODE_HASHES_v8.2.sha256",
+  "manifest_sha256": "a6544b6fdafb11bf853bd1b57ce8d3f8d508f06dbafebcafb2a7dbede2a7b643",
+  "files": {
+   "IMPL_NOTES.md": "7b099e55c74907095d407b1df41dd20e0c408ad231284c6dcb719b0f9ed61bc2",
+   "IMPL_NOTES_v8.2.md": "75a4c61734d5e2b877ef18daf343d95aa36e58c659d482b221ae17ac38bf082e",
+   "run_preflight.py": "3d86405e0619b167ecf54343deed4e47238555dc86fb53a0719a74c76d1d748e",
+   "run_production.py": "524abd4b42aa3014d34d74548b6a0edb618ee0226bc87e9a8a846b7bf032611f",
+   "tests/conftest.py": "07343c5926c5b007bc977d39edb052e8ac6d186226129c7b7994d8100027ee06",
+   "tests/test_bootstrap.py": "c716ec6367692d8c6cec4f58cda24afecbb27246c7f4b4caf6ede593fa998417",
+   "tests/test_gates.py": "419a3e2169fa8be596743785d6b8575ddef6ebb4666dbe0367783e2c37037ed8",
+   "tests/test_heldout_isolation.py": "c09ef0aa70af4a040b8dedf394083aa96114ebc8d2e424021479d2ea7464e07e",
+   "tests/test_param_matching.py": "9f9bef439b37694a2100642f19fa1817c967cfdcffdb515b943e28445fc5095f",
+   "tests/test_plant_and_models.py": "f425b58b94bf9c823747e587a288209e3ab9a9ab40a895a8ac2a90ec5e2eef66",
+   "tests/test_seeds_initial_states.py": "be83b57b55e17fd53455337b8ce523eb5903de306c9818578ac4040a9f482c8b",
+   "tests/test_smoke_pipeline.py": "4c6e8498d07b00c349ba26259fc108c97b2157a3f8573631b6944a8fd895f399",
+   "tests/test_v82_selection.py": "a88373eb264a89a2ff7e534b0bd67198b13be4740bdc0db8984a1802189270eb",
+   "tests/test_w1_preflight.py": "97bc5f7962cf968e7340c4889b5a74321ab4175df550a7bd63b15b149562270d",
+   "tests/test_windows.py": "c9a55ae4d897992d4440043b45d6cc70e13018285bf68086a606fa78159eda8d",
+   "v81/__init__.py": "9ed7c0ec07e28341e84091d53b5a4d64107964be03e09de4c68ecdb65c2bb31c",
+   "v81/budget.py": "e8aaf836102bd785bf5befcb160a0ec873cc50a3e755eaa0498399bf9ee1eec7",
+   "v81/closedloop.py": "b02cf27571ec6e12c20d52a214c09e9c3f67620353cd25bed38ef74437de5f11",
+   "v81/features.py": "4f14c3753499ed2a27fa964b6fbfa34a0c59a0ce814258a94d64c7b6aacbcc82",
+   "v81/ledger.py": "79b242dfde435e5a75229977b77da2757ba5294078b541ddafc1fc58720f2eb3",
+   "v81/model_lin.py": "18ee559812e3858d5de1cd2f60cb9ed8399f360d06315f80190f9d2c04a48c72",
+   "v81/models_torch.py": "c9eef10b214b9eabdb3b99a20c1deabe8b7d725f99bf44b40c65518c11b0c61e",
+   "v81/pipeline.py": "02f0359d559602cc61be03c12a62fc945141475cb5ce823eb659509c380a533f",
+   "v81/planner.py": "a11f6ec698b61b624ea4bf20e55b27d5ea363a99cb63b13d08dbaa567a26114e",
+   "v81/plant_iv.py": "166da4c1418fa0be79c19b385334db7f02b487ed7246085e10741c246981f091",
+   "v81/predictors.py": "3c327987ac69e299f0eccf4100b9690d4770c0504914df08c2116b300d47f35a",
+   "v81/preflight.py": "b56810b00e826c9d4f4041d6ca5f987aa22c6125ca8c4dba94f7b7c28aea3d5d",
+   "v81/release.py": "7d75e6bf89cbae5a4a1e737cefc9338decb9beca737462e99e9bda29bb6b3e88",
+   "v81/seeds.py": "3631b365071b449bae16fddc9816e3d38ad59b4835c3b7f0f95344de89cc82a0",
+   "v81/spec.py": "c546755a5943172ae1b284acac0d54f1273424ec15859c17fc065fc2b5c6c14d",
+   "v81/stage0.py": "44436934aab2defa5c9f8807f3318405a4f5e7a48692f615ea54e64e3b10b3d2",
+   "v81/stats.py": "c665aa7f181002c214ef23e49dca7493150af891968ebf9279d1f9c4010f9575"
+  },
+  "base_v8_1_manifest_sha256": "be232be6b42d534c7bfd8ee3f0d6e3c75bd1c1c3129f47ab88de8e174ff4d4e8",
+  "superseded_v8_2_manifest_sha256": "da529e8248d5c1f365b223c9da2e6853bf57ce2049d6dec4061553a843a0308f"
+ },
+ "diff": {
+  "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/DIFF_v8.1_to_v8.2.patch",
+  "sha256": "223a442f5eb2dcd579d482e75cafa422a31d619047599356dcdfb70052139473",
+  "lines": 1601,
+  "command": "cd v8/worldmodel && diff -ruN -x __pycache__ v8.1/code v8.2/code | sed -E 's/^((---|\\+\\+\\+) [^\\t]+)\\t.*$/\\1/'",
+  "timestamp_free": true
+ },
+ "preflight": {
+  "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/PREFLIGHT_PROJECTION.json",
+  "sha256": "7e1643629afe9f4d0dc5a1401d62e2e5b5b6bfda48069810c3a2b4b61a670a29",
+  "attempt": 2,
+  "code_manifest_sha256_at_preflight": "a6544b6fdafb11bf853bd1b57ce8d3f8d508f06dbafebcafb2a7dbede2a7b643",
+  "seeds": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "preflight_cpu_s_used": 6.157666935,
+  "preflight_cap_cpu_s": 120.0,
+  "warmup_all_structures_cpu_s": 0.945232477,
+  "loadavg_1_5_15_before": [
+   0.837890625,
+   1.62646484375,
+   3.83740234375
+  ],
+  "loadavg_1_5_15_after": [
+   0.93115234375,
+   1.6328125,
+   3.8271484375
+  ],
+  "per_structure_unit_costs_cpu_s": {
+   "GRU_32": {
+    "per_update_cpu_s": 0.006646378899999994,
+    "episode_cpu_s": 0.11820552550000007
+   },
+   "GRU_64": {
+    "per_update_cpu_s": 0.00742973764999999,
+    "episode_cpu_s": 0.1380580535
+   },
+   "GRU_96": {
+    "per_update_cpu_s": 0.00808083504999999,
+    "episode_cpu_s": 0.16589423150000027
+   },
+   "LIN_3": {
+    "per_update_cpu_s": null,
+    "episode_cpu_s": 0.13352648899999986
+   },
+   "LIN_5": {
+    "per_update_cpu_s": null,
+    "episode_cpu_s": 0.1382575290000001
+   },
+   "LIN_8": {
+    "per_update_cpu_s": null,
+    "episode_cpu_s": 0.13720866099999984
+   },
+   "RC_only_1": {
+    "per_update_cpu_s": 0.0017501010999999788,
+    "episode_cpu_s": 0.02555737899999988
+   },
+   "RC_only_2": {
+    "per_update_cpu_s": 0.0019422280999999765,
+    "episode_cpu_s": 0.028551346999999616
+   },
+   "RC_only_3": {
+    "per_update_cpu_s": 0.001975846250000002,
+    "episode_cpu_s": 0.03165905349999987
+   },
+   "WM_32": {
+    "per_update_cpu_s": 0.008360875999999995,
+    "episode_cpu_s": 0.139564743
+   },
+   "WM_64": {
+    "per_update_cpu_s": 0.008923483850000014,
+    "episode_cpu_s": 0.16041462000000006
+   },
+   "WM_96": {
+    "per_update_cpu_s": 0.010570216549999989,
+    "episode_cpu_s": 0.19750972
+   }
+  },
+  "phase_projection_cpu_s": {
+   "adaptation": 268.32464268400014,
+   "audit": 0.025130387399998358,
+   "bootstrap_stats": 4.5119698349999,
+   "data": 0.31453074499999745,
+   "fits": 336.7999158663746,
+   "in_distribution": 64.02057986000003,
+   "overhead": 16.012459794,
+   "pi_oracle": 12.322868220000043,
+   "test": 512.1646388800002,
+   "tuning": 848.6665269799997
+  },
+  "phase_gate_limits_cpu_s": {
+   "adaptation": 468.0,
+   "audit": 72.0,
+   "bootstrap_stats": 54.0,
+   "data": 27.0,
+   "fits": 720.0,
+   "in_distribution": 108.0,
+   "overhead": 54.0,
+   "pi_oracle": 27.0,
+   "test": 720.0,
+   "tuning": 990.0
+  },
+  "phase_gates": {
+   "adaptation": true,
+   "audit": true,
+   "bootstrap_stats": true,
+   "data": true,
+   "fits": true,
+   "in_distribution": true,
+   "overhead": true,
+   "pi_oracle": true,
+   "test": true,
+   "tuning": true
+  },
+  "total_projection_cpu_s": 2063.1632632517744,
+  "total_gate_cpu_s": 3240.0,
+  "total_gate": true,
+  "plausibility": {
+   "WM_32": 0.008360875999999995,
+   "WM_64": 0.008923483850000014,
+   "ok": true,
+   "rule": "WM_32 per_update_cpu_s <= WM_64 per_update_cpu_s"
+  },
+  "ladder_applied": [],
+  "failing_non_ladder": [],
+  "all_gates_pass": true
+ },
+ "tests": {
+  "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/PYTEST_frozen_code_v8.2.txt",
+  "sha256": "04cb57e2efba9e353e900b849424fa0e3c24e805755fd1c9167c3413d66681f1",
+  "result": "79 passed",
+  "interpreter": "/workspace/venv_wm/bin/python",
+  "device": "cpu"
+ },
+ "impl_notes": {
+  "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/code/IMPL_NOTES_v8.2.md",
+  "sha256": "75a4c61734d5e2b877ef18daf343d95aa36e58c659d482b221ae17ac38bf082e"
+ },
+ "start_authority": "Dark's standing autonomy rule of 2026-11-10 12:24 Europe/Berlin, as relayed by mixxy (PLAN_v8.2 Status); relayed, not verifiable by implementer or reviewer",
+ "start_authority_signed_by": {
+  "signer": "mixxy (coordinator)",
+  "time_berlin": "2026-11-10 13:19 Europe/Berlin",
+  "statement": "I sign start authority for exactly one CPU-only v8.2 production run on plan bundle 304bc28d, PLAN_PASS 8ad13f89, CODE_PASS 2b10b0f5 (manifest a6544b6f). Authority: Dark Unicorn 2026-11-10 12:24 standing rule (once a goal is set, work through without standstills or repeated confirmation), continuing the v8.1 world-model goal (04:46 execute no more request, 05:07 go). No publishing without Dark OK. Re-signed on draft 4d36315b after my first signature (13:18, 0c982105) was overwritten by a concurrent write.",
+  "signed_on_draft_sha256_prefix": "4d36315b",
+  "code_pass_sha256": "2b10b0f56c671c97ed17bdf6f0ca0b56a810031c16bfde241a338732de77f7b4"
+ },
+ "dahill_pass_scope": "technical only; dahill does not attest start authority",
+ "device": "CPU only",
+ "production_run_started": false,
+ "bound_files": {
+  "/workspace/nested_swarms/v8/worldmodel/v8.2/code/CODE_HASHES_v8.2.sha256": "a6544b6fdafb11bf853bd1b57ce8d3f8d508f06dbafebcafb2a7dbede2a7b643",
+  "/workspace/nested_swarms/v8/worldmodel/v8.2/DIFF_v8.1_to_v8.2.patch": "223a442f5eb2dcd579d482e75cafa422a31d619047599356dcdfb70052139473",
+  "/workspace/nested_swarms/v8/worldmodel/v8.2/PREFLIGHT_PROJECTION.json": "7e1643629afe9f4d0dc5a1401d62e2e5b5b6bfda48069810c3a2b4b61a670a29",
+  "/workspace/nested_swarms/v8/worldmodel/v8.2/PREFLIGHT_PROJECTION_attempt1_FAILED.json": "f2a0e6b2a608d71bd0f1d554a2aca481ac97621f2be08985a565bdf73c4b17f7",
+  "/workspace/nested_swarms/v8/worldmodel/v8.2/IMPL_ERRATUM_v8.2_W1.md": "08f62233dadb4d009dfe5d7ce3bd3529337886211c87b48c1db5743c1668bdf8",
+  "/workspace/nested_swarms/v8/worldmodel/v8.2/HASHES_v8.2_E1.sha256": "304bc28de338c92ee72817e7ed4ad498c367165e7f3ca47eed38e1732c636ff3",
+  "/workspace/audit_dahill_v8.2/PLAN_PASS_v8.2.json": "8ad13f896e2677498048f864ee3abed6e6534c4dcb75c889b59643de34bd49fe",
+  "/workspace/audit_dahill_v8.2/CODE_PASS_v8.2.json": "2b10b0f56c671c97ed17bdf6f0ca0b56a810031c16bfde241a338732de77f7b4",
+  "/workspace/nested_swarms/v8/worldmodel/v8.2/ERRATUM_v8.2_E1.md": "67b4ecdb9bd5a31a91ef2e603fe15350b7048fb98a05f8e3168e99f152938c47"
+ },
+ "created_berlin": "2026-11-10 13:05 Europe/Berlin",
+ "pre_measurement_record": {
+  "time_berlin": "2026-11-10 13:12:10 Europe/Berlin",
+  "note": "recorded BEFORE the single fresh preflight (W1 §W1.3(1))",
+  "impl_erratum_W1": {
+   "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/IMPL_ERRATUM_v8.2_W1.md",
+   "sha256": "08f62233dadb4d009dfe5d7ce3bd3529337886211c87b48c1db5743c1668bdf8"
+  },
+  "code_manifest_sha256": "a6544b6fdafb11bf853bd1b57ce8d3f8d508f06dbafebcafb2a7dbede2a7b643",
+  "diff_sha256": "223a442f5eb2dcd579d482e75cafa422a31d619047599356dcdfb70052139473"
+ },
+ "impl_errata": {
+  "IMPL_ERRATUM_v8.2_W1.md": "08f62233dadb4d009dfe5d7ce3bd3529337886211c87b48c1db5743c1668bdf8"
+ },
+ "impl_erratum_W1": {
+  "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/IMPL_ERRATUM_v8.2_W1.md",
+  "sha256": "08f62233dadb4d009dfe5d7ce3bd3529337886211c87b48c1db5743c1668bdf8",
+  "author": "TMbot · Research (non-author)",
+  "approved_by": "dahill (reviewer) and uni (plan author), option 1, relayed by coordinator",
+  "scope": "preflight warm-up of every arm x structure, loadavg logging, plausibility gate WM_32<=WM_64, ladder (a) only; production path unchanged"
+ },
+ "preflight_attempts": [
+  {
+   "attempt": 1,
+   "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/PREFLIGHT_PROJECTION_attempt1_FAILED.json",
+   "sha256": "f2a0e6b2a608d71bd0f1d554a2aca481ac97621f2be08985a565bdf73c4b17f7",
+   "verdict": "FAILED",
+   "read_only": true,
+   "time_berlin": "2026-11-10T13:04:58+0100",
+   "code_manifest_sha256": "da529e8248d5c1f365b223c9da2e6853bf57ce2049d6dec4061553a843a0308f",
+   "reason": "fits 815.4 > 720 s (non-ladder) and adaptation 537.4 > 468 s; WM_32 0.0805 s/update vs WM_64 0.0133 (warm-up only ran a GRU; WM lazy init charged to WM_32); would also fail the W1 plausibility gate",
+   "load": "not logged by the preflight; uptime at 13:05:17 Europe/Berlin: 1.42 / 4.04 / 5.58 (1/5/15 min)"
+  },
+  {
+   "attempt": 2,
+   "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/PREFLIGHT_PROJECTION.json",
+   "sha256": "7e1643629afe9f4d0dc5a1401d62e2e5b5b6bfda48069810c3a2b4b61a670a29",
+   "verdict": "PASS",
+   "time_berlin": "2026-11-10T13:12:20+0100",
+   "code_manifest_sha256": "a6544b6fdafb11bf853bd1b57ce8d3f8d508f06dbafebcafb2a7dbede2a7b643",
+   "load_before": [
+    0.837890625,
+    1.62646484375,
+    3.83740234375
+   ],
+   "load_after": [
+    0.93115234375,
+    1.6328125,
+    3.8271484375
+   ],
+   "note": "the single binding fresh preflight under W1; no repeat"
+  }
+ ],
+ "updated_berlin": "2026-11-10 13:17 Europe/Berlin",
+ "binding_sha256": {
+  "manifest": {
+   "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/code/CODE_HASHES_v8.2.sha256",
+   "sha256": "a6544b6fdafb11bf853bd1b57ce8d3f8d508f06dbafebcafb2a7dbede2a7b643"
+  },
+  "diff": {
+   "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/DIFF_v8.1_to_v8.2.patch",
+   "sha256": "223a442f5eb2dcd579d482e75cafa422a31d619047599356dcdfb70052139473"
+  },
+  "preflight": {
+   "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/PREFLIGHT_PROJECTION.json",
+   "sha256": "7e1643629afe9f4d0dc5a1401d62e2e5b5b6bfda48069810c3a2b4b61a670a29"
+  },
+  "attempt1": {
+   "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/PREFLIGHT_PROJECTION_attempt1_FAILED.json",
+   "sha256": "f2a0e6b2a608d71bd0f1d554a2aca481ac97621f2be08985a565bdf73c4b17f7"
+  },
+  "W1": {
+   "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/IMPL_ERRATUM_v8.2_W1.md",
+   "sha256": "08f62233dadb4d009dfe5d7ce3bd3529337886211c87b48c1db5743c1668bdf8"
+  },
+  "bundle": {
+   "file": "/workspace/nested_swarms/v8/worldmodel/v8.2/HASHES_v8.2_E1.sha256",
+   "sha256": "304bc28de338c92ee72817e7ed4ad498c367165e7f3ca47eed38e1732c636ff3"
+  },
+  "plan_pass": {
+   "file": "/workspace/audit_dahill_v8.2/PLAN_PASS_v8.2.json",
+   "sha256": "8ad13f896e2677498048f864ee3abed6e6534c4dcb75c889b59643de34bd49fe"
+  },
+  "code_pass": {
+   "file": "/workspace/audit_dahill_v8.2/CODE_PASS_v8.2.json",
+   "sha256": "2b10b0f56c671c97ed17bdf6f0ca0b56a810031c16bfde241a338732de77f7b4"
+  }
+ },
+ "impl_notes_answers": {
+  "source": "/workspace/audit_dahill_v8.2/CODE_PASS_v8.2.json",
+  "source_sha256": "2b10b0f56c671c97ed17bdf6f0ca0b56a810031c16bfde241a338732de77f7b4",
+  "key": "answers_impl_notes",
+  "questions": [
+   "Q3",
+   "Q5",
+   "Q7",
+   "Q8",
+   "Q9",
+   "Q10",
+   "Q12"
+  ],
+  "status": "answered by dahill (by reference)"
+ },
+ "reviewer_non_blocking_notes": {
+  "source": "/workspace/audit_dahill_v8.2/CODE_PASS_v8.2.json",
+  "source_sha256": "2b10b0f56c671c97ed17bdf6f0ca0b56a810031c16bfde241a338732de77f7b4",
+  "key": "non_blocking_notes",
+  "ids": [
+   "N1",
+   "N2",
+   "N3",
+   "N4"
+  ]
+ },
+ "conditions_for_release_final": {
+  "source": "/workspace/audit_dahill_v8.2/CODE_PASS_v8.2.json",
+  "source_sha256": "2b10b0f56c671c97ed17bdf6f0ca0b56a810031c16bfde241a338732de77f7b4",
+  "key": "conditions_for_release_final"
+ },
+ "derived_from_draft_sha256": "262021511fd5ba49093344de2ddc2bd705ec0cef2333b6bfe9a32d300231b42d"
+}

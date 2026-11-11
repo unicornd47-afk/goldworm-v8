@@ -1,0 +1,364 @@
+{
+ "comparator": "RC_only",
+ "effort": {
+  "GRU": {
+   "configs": 9,
+   "decisions": 103680,
+   "episodes": 1080
+  },
+  "LIN": {
+   "configs": 9,
+   "decisions": 103680,
+   "episodes": 1080
+  },
+  "RC_only": {
+   "configs": 9,
+   "decisions": 103680,
+   "episodes": 1080
+  },
+  "WM": {
+   "configs": 9,
+   "decisions": 103680,
+   "episodes": 1080
+  }
+ },
+ "ladder_applied": [],
+ "selected": {
+  "GRU": {
+   "lam": 0.5,
+   "mean_E": 90.471875,
+   "mean_J": 91.74004553405342,
+   "structure": 64
+  },
+  "LIN": {
+   "lam": 0.5,
+   "mean_E": 89.078125,
+   "mean_J": 90.51079861534099,
+   "structure": 3
+  },
+  "RC_only": {
+   "lam": 0.5,
+   "mean_E": 88.9,
+   "mean_J": 89.97098093495441,
+   "structure": 2
+  },
+  "WM": {
+   "lam": 0.5,
+   "mean_E": 90.22916666666667,
+   "mean_J": 91.6656328585383,
+   "structure": 96
+  }
+ },
+ "tuning_seeds": [
+  7000,
+  7001,
+  7002,
+  7003,
+  7004,
+  7005,
+  7006,
+  7007,
+  7008,
+  7009,
+  7010,
+  7011,
+  7012,
+  7013,
+  7014,
+  7015,
+  7016,
+  7017,
+  7018,
+  7019
+ ],
+ "tuning_table": [
+  {
+   "arm": "WM",
+   "lam": 0.5,
+   "mean_E": 90.35104166666666,
+   "mean_J": 91.70950913501756,
+   "safety_exits": 0,
+   "structure": 32
+  },
+  {
+   "arm": "WM",
+   "lam": 1.0,
+   "mean_E": 88.87708333333333,
+   "mean_J": 92.12715363156197,
+   "safety_exits": 0,
+   "structure": 32
+  },
+  {
+   "arm": "WM",
+   "lam": 2.0,
+   "mean_E": 87.00729166666666,
+   "mean_J": 93.93785590094245,
+   "safety_exits": 0,
+   "structure": 32
+  },
+  {
+   "arm": "WM",
+   "lam": 0.5,
+   "mean_E": 90.24791666666667,
+   "mean_J": 91.72139076974297,
+   "safety_exits": 0,
+   "structure": 64
+  },
+  {
+   "arm": "WM",
+   "lam": 1.0,
+   "mean_E": 88.85208333333334,
+   "mean_J": 92.03174755722453,
+   "safety_exits": 0,
+   "structure": 64
+  },
+  {
+   "arm": "WM",
+   "lam": 2.0,
+   "mean_E": 87.00833333333334,
+   "mean_J": 93.97340622888763,
+   "safety_exits": 0,
+   "structure": 64
+  },
+  {
+   "arm": "WM",
+   "lam": 0.5,
+   "mean_E": 90.22916666666667,
+   "mean_J": 91.6656328585383,
+   "safety_exits": 0,
+   "structure": 96
+  },
+  {
+   "arm": "WM",
+   "lam": 1.0,
+   "mean_E": 88.87604166666667,
+   "mean_J": 92.15258204597818,
+   "safety_exits": 0,
+   "structure": 96
+  },
+  {
+   "arm": "WM",
+   "lam": 2.0,
+   "mean_E": 86.959375,
+   "mean_J": 93.98278370465823,
+   "safety_exits": 0,
+   "structure": 96
+  },
+  {
+   "arm": "GRU",
+   "lam": 0.5,
+   "mean_E": 91.06979166666666,
+   "mean_J": 92.4005467866224,
+   "safety_exits": 0,
+   "structure": 32
+  },
+  {
+   "arm": "GRU",
+   "lam": 1.0,
+   "mean_E": 89.61458333333333,
+   "mean_J": 92.60476008100672,
+   "safety_exits": 0,
+   "structure": 32
+  },
+  {
+   "arm": "GRU",
+   "lam": 2.0,
+   "mean_E": 87.675,
+   "mean_J": 94.43348878901877,
+   "safety_exits": 0,
+   "structure": 32
+  },
+  {
+   "arm": "GRU",
+   "lam": 0.5,
+   "mean_E": 90.471875,
+   "mean_J": 91.74004553405342,
+   "safety_exits": 0,
+   "structure": 64
+  },
+  {
+   "arm": "GRU",
+   "lam": 1.0,
+   "mean_E": 89.09791666666666,
+   "mean_J": 92.11977457889041,
+   "safety_exits": 0,
+   "structure": 64
+  },
+  {
+   "arm": "GRU",
+   "lam": 2.0,
+   "mean_E": 87.24166666666666,
+   "mean_J": 94.07322395645772,
+   "safety_exits": 0,
+   "structure": 64
+  },
+  {
+   "arm": "GRU",
+   "lam": 0.5,
+   "mean_E": 90.50208333333333,
+   "mean_J": 91.82120411238593,
+   "safety_exits": 0,
+   "structure": 96
+  },
+  {
+   "arm": "GRU",
+   "lam": 1.0,
+   "mean_E": 89.06458333333333,
+   "mean_J": 92.06959163205498,
+   "safety_exits": 0,
+   "structure": 96
+  },
+  {
+   "arm": "GRU",
+   "lam": 2.0,
+   "mean_E": 87.19166666666666,
+   "mean_J": 94.04051050053998,
+   "safety_exits": 0,
+   "structure": 96
+  },
+  {
+   "arm": "LIN",
+   "lam": 0.5,
+   "mean_E": 89.078125,
+   "mean_J": 90.51079861534099,
+   "safety_exits": 0,
+   "structure": 3
+  },
+  {
+   "arm": "LIN",
+   "lam": 1.0,
+   "mean_E": 87.48541666666667,
+   "mean_J": 90.54314385884506,
+   "safety_exits": 0,
+   "structure": 3
+  },
+  {
+   "arm": "LIN",
+   "lam": 2.0,
+   "mean_E": 85.85833333333333,
+   "mean_J": 91.95876526655636,
+   "safety_exits": 0,
+   "structure": 3
+  },
+  {
+   "arm": "LIN",
+   "lam": 0.5,
+   "mean_E": 89.86979166666667,
+   "mean_J": 91.52351338313552,
+   "safety_exits": 0,
+   "structure": 5
+  },
+  {
+   "arm": "LIN",
+   "lam": 1.0,
+   "mean_E": 88.56145833333333,
+   "mean_J": 92.08476731203275,
+   "safety_exits": 0,
+   "structure": 5
+  },
+  {
+   "arm": "LIN",
+   "lam": 2.0,
+   "mean_E": 86.56458333333333,
+   "mean_J": 94.3858507268168,
+   "safety_exits": 0,
+   "structure": 5
+  },
+  {
+   "arm": "LIN",
+   "lam": 0.5,
+   "mean_E": 89.89479166666666,
+   "mean_J": 91.51567365549634,
+   "safety_exits": 0,
+   "structure": 8
+  },
+  {
+   "arm": "LIN",
+   "lam": 1.0,
+   "mean_E": 88.55,
+   "mean_J": 92.02826760708265,
+   "safety_exits": 0,
+   "structure": 8
+  },
+  {
+   "arm": "LIN",
+   "lam": 2.0,
+   "mean_E": 86.57604166666667,
+   "mean_J": 94.22825274881602,
+   "safety_exits": 0,
+   "structure": 8
+  },
+  {
+   "arm": "RC_only",
+   "lam": 0.5,
+   "mean_E": 91.91145833333333,
+   "mean_J": 92.52834411220108,
+   "safety_exits": 0,
+   "structure": 1
+  },
+  {
+   "arm": "RC_only",
+   "lam": 1.0,
+   "mean_E": 90.53125,
+   "mean_J": 92.19660918302722,
+   "safety_exits": 0,
+   "structure": 1
+  },
+  {
+   "arm": "RC_only",
+   "lam": 2.0,
+   "mean_E": 88.83333333333333,
+   "mean_J": 93.29901432694722,
+   "safety_exits": 0,
+   "structure": 1
+  },
+  {
+   "arm": "RC_only",
+   "lam": 0.5,
+   "mean_E": 88.9,
+   "mean_J": 89.97098093495441,
+   "safety_exits": 0,
+   "structure": 2
+  },
+  {
+   "arm": "RC_only",
+   "lam": 1.0,
+   "mean_E": 87.57708333333333,
+   "mean_J": 90.07105125248563,
+   "safety_exits": 0,
+   "structure": 2
+  },
+  {
+   "arm": "RC_only",
+   "lam": 2.0,
+   "mean_E": 86.12708333333333,
+   "mean_J": 92.0223203086652,
+   "safety_exits": 0,
+   "structure": 2
+  },
+  {
+   "arm": "RC_only",
+   "lam": 0.5,
+   "mean_E": 89.9375,
+   "mean_J": 91.5070779382259,
+   "safety_exits": 0,
+   "structure": 3
+  },
+  {
+   "arm": "RC_only",
+   "lam": 1.0,
+   "mean_E": 88.60416666666667,
+   "mean_J": 91.94080918275202,
+   "safety_exits": 0,
+   "structure": 3
+  },
+  {
+   "arm": "RC_only",
+   "lam": 2.0,
+   "mean_E": 86.659375,
+   "mean_J": 93.98739387391181,
+   "safety_exits": 0,
+   "structure": 3
+  }
+ ]
+}

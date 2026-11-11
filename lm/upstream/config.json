@@ -1,0 +1,16 @@
+{
+  "model_type": "goldworm_v8",
+  "architecture": "GoldWormV8 (extends GoldWormV6): byte-level causal transformer, pre-LN, RoPE, causal SDPA, tied embeddings",
+  "vocab_size": 256,
+  "tokenizer": "none (raw UTF-8 bytes, ids 0-255)",
+  "ctx": 2048,
+  "d_model": 768,
+  "n_layer": 12,
+  "n_head": 12,
+  "ffn_mult": 4,
+  "dropout": 0.0,
+  "tie_embeddings": true,
+  "n_params_unique": 85169664,
+  "checkpoint": {"phase": "sft", "step": 809, "dev_loss": 0.48391179191438777},
+  "files": {"pytorch": "sft_best.pt", "safetensors": "model.safetensors"}
+}

@@ -1,0 +1,186 @@
+{
+  "raw_bytes": 151974457,
+  "ngram": 14648,
+  "concept": 992,
+  "duplicate": 4,
+  "train_bytes": 108013035,
+  "dev_bytes": 4231185,
+  "train_chunks": 52715,
+  "dev_chunks": 2065,
+  "sft_train": 81,
+  "sft_dev": 39,
+  "sft_unique_train_prompts": 62,
+  "sft_unique_dev_prompts": 25,
+  "sft_rejected": 1188,
+  "packages": [
+    {
+      "package": "torch",
+      "version": "2.12.1",
+      "license": "BSD-3-Clause",
+      "notices": [
+        "licenses/torch_torch-2.12.1.dist-info_licenses_LICENSE",
+        "licenses/torch_torch-2.12.1.dist-info_licenses_NOTICE"
+      ],
+      "source": "<site-packages>/torch"
+    },
+    {
+      "package": "transformers",
+      "version": "5.14.1",
+      "license": "Apache-2.0",
+      "notices": [
+        "licenses/transformers_transformers-5.14.1.dist-info_licenses_LICENSE"
+      ],
+      "source": "<site-packages>/transformers"
+    },
+    {
+      "package": "sympy",
+      "version": "1.14.0",
+      "license": "BSD-3-Clause",
+      "notices": [
+        "licenses/sympy_sympy-1.14.0.dist-info_licenses_AUTHORS",
+        "licenses/sympy_sympy-1.14.0.dist-info_licenses_LICENSE"
+      ],
+      "source": "<site-packages>/sympy"
+    },
+    {
+      "package": "scipy",
+      "version": "1.17.1",
+      "license": "BSD-3-Clause",
+      "notices": [
+        "licenses/scipy_scipy-1.17.1.dist-info_LICENSE.txt"
+      ],
+      "source": "<site-packages>/scipy"
+    },
+    {
+      "package": "numpy",
+      "version": "2.4.6",
+      "license": "BSD-3-Clause",
+      "notices": [
+        "licenses/numpy_LICENSE.txt"
+      ],
+      "source": "/usr/lib64/python3.14/site-packages/numpy"
+    },
+    {
+      "package": "datasets",
+      "version": "5.0.1",
+      "license": "Apache-2.0",
+      "notices": [
+        "licenses/datasets_datasets-5.0.1.dist-info_licenses_AUTHORS",
+        "licenses/datasets_datasets-5.0.1.dist-info_licenses_LICENSE"
+      ],
+      "source": "<site-packages>/datasets"
+    },
+    {
+      "package": "gradio",
+      "version": "5.50.0",
+      "license": "Apache-2.0",
+      "notices": [
+        "licenses/gradio_gradio-5.50.0.dist-info_licenses_LICENSE"
+      ],
+      "source": "<site-packages>/gradio"
+    },
+    {
+      "package": "huggingface_hub",
+      "version": "1.20.1",
+      "license": "Apache-2.0",
+      "notices": [
+        "licenses/huggingface_hub_huggingface_hub-1.20.1.dist-info_licenses_LICENSE"
+      ],
+      "source": "<site-packages>/huggingface_hub"
+    }
+  ],
+  "eval_hashes": {
+    "eval": "3792a73144643fa8f803f1937b1c29a680e442b9a4e77f0e535587bdf7240a2b",
+    "eval2": "60c20524ea238d855031aa2348346aec41bdd9811cd3aa8a19cb59d1bdb0aa12"
+  },
+  "concept_blocklist": [
+    "factorial",
+    "palindrome",
+    "fibonacci",
+    "fizzbuzz",
+    "fizz buzz",
+    "collatz",
+    "anagram",
+    "caesar",
+    "roman numeral",
+    "pascal triangle",
+    "pascal_triangle",
+    "ipv4",
+    "camel_to_snake",
+    "camel to snake",
+    "binary_search",
+    "binary search",
+    "merge_sorted",
+    "merge sorted",
+    "run length encod",
+    "run_length_encod",
+    "balanced bracket",
+    "balanced parenthes",
+    "greatest common divisor",
+    "gcd",
+    "transpose matrix"
+  ],
+  "entry_blocklist": [
+    "absolute",
+    "add",
+    "average",
+    "balanced",
+    "bsearch",
+    "caesar",
+    "camel_to_snake",
+    "capitalize_words",
+    "char_at",
+    "chunk",
+    "collatz_steps",
+    "count_char",
+    "count_vowels",
+    "digit_sum",
+    "double_all",
+    "drop_head",
+    "ends_with_dot",
+    "evens",
+    "factorial",
+    "fib",
+    "first",
+    "fizzbuzz",
+    "flatten_once",
+    "gcd",
+    "greet",
+    "halve_down",
+    "interleave",
+    "invert_dict",
+    "is_anagram",
+    "is_blank",
+    "is_even",
+    "is_ipv4",
+    "is_palindrome",
+    "is_prime",
+    "key_of",
+    "list_len",
+    "max_of_list",
+    "merge_sorted",
+    "min_of_two",
+    "mul",
+    "parse_int",
+    "parse_kv",
+    "pascal_row",
+    "ranges",
+    "reverse_string",
+    "rle_encode",
+    "roman_value",
+    "rotate_left",
+    "second_largest",
+    "square",
+    "sub",
+    "sum_list",
+    "swap_pair",
+    "to_binary",
+    "to_upper",
+    "transpose",
+    "unique",
+    "word_count",
+    "xor_bool",
+    "yes_no"
+  ],
+  "guard": "Every accepted full 2049-byte window or full teacher prompt+body excludes all prompt/test 13grams. Corpus also excludes heldout definitions and high-specificity concept phrases. Teacher prompts additionally use original broad BLOCK_EVAL1/2. Semantic independence cannot be guaranteed."
+}

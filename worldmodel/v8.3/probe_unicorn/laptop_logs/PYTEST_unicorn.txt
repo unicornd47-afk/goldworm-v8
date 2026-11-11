@@ -1,0 +1,85 @@
+....................sss................................................. [ 60%]
+...............................F..F..F..........                         [100%]
+=================================== FAILURES ===================================
+________ test_real_code_pass_a9841b45_does_not_satisfy_current_manifest ________
+
+    def test_real_code_pass_a9841b45_does_not_satisfy_current_manifest():
+        old = "a9841b4517c3fb3ef1fe48c68c3ffb5acc60cdff97c55dcbb4721f1549df2ed5"
+        ok, cur = GT.manifest_ok()
+        if not ok:
+            cur = None                                                          # stale manifest during development
+        if os.path.exists(os.path.join(S.CODE_PASS_DIR, "CODE_PASS_v8.3.json")):
+            assert GT.find_code_pass(old)[0] is not None                        # dahill's file binds a9841b45 ...
+        if cur is not None:
+>           assert cur != old and GT.find_code_pass(cur)[0] is None             # ... never the new manifest
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           AssertionError: assert ('2b4528cc072056164df5562fb0570485fa347278696c5149d455a3c81a78292b' != 'a9841b4517c3fb3ef1fe48c68c3ffb5acc60cdff97c55dcbb4721f1549df2ed5' and '/home/darky/wm_v83/audit_dahill_v8.3/CODE_PASS_v8.3_r2.json' is None)
+
+tests/test_v83_mechanisms.py:607: AssertionError
+____________ test_run_probe_refuses_k2_on_non_box_host_without_toy _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-darky/pytest-0/test_run_probe_refuses_k2_on_n0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f1010d4f350>
+
+    def test_run_probe_refuses_k2_on_non_box_host_without_toy(tmp_path, monkeypatch):
+        rpb = _run_probe_module()
+        monkeypatch.setattr(HE, "host_fingerprint", lambda: dict(hostname="unicorn", cpu_model="Laptop CPU", cpu_count=12))
+        ok = lambda: dict(ok=True, reasons=[], load1=0.1)
+        r = rpb.main(probe_dir=str(tmp_path / "probe"), config_path=str(tmp_path / "C.json"), start_rule_fn=ok,
+                     with_sidecar=False, t0=None)
+        assert r["outcome"] == "PROBE_NOT_STARTED" and not r["is_box"] and r["k2_reference"] is None
+        assert any("no valid same-host toy" in x for x in r["reasons"])
+>       assert any("CODE_PASS" in x for x in r["reasons"])                     # current manifest has no dahill PASS yet
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       assert False
+E        +  where False = any(<generator object test_run_probe_refuses_k2_on_non_box_host_without_toy.<locals>.<genexpr> at 0x7f1015e4fe00>)
+
+tests/test_v83_mechanisms.py:663: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{
+ "outcome": "PROBE_NOT_STARTED",
+ "reasons": [
+  "K2: non-box host 'unicorn' has no valid same-host toy preflight attempt (run run_preflight.py first)"
+ ]
+}
+____________________ test_toy_attempts_numbered_append_only ____________________
+
+tmp_path = PosixPath('/tmp/pytest-of-darky/pytest-0/test_toy_attempts_numbered_app0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f1011005130>
+
+    def test_toy_attempts_numbered_append_only(tmp_path, monkeypatch):
+        rp = _rp()
+        monkeypatch.delenv("WM_TOY_PREFLIGHT_OUT", raising=False)
+        with pytest.raises(SystemExit):
+            rp.main()                                                            # no output path
+        bad = lambda: dict(ok=False, reasons=["load1 2.00 >= 1.0"])
+        d = str(tmp_path / "probe")
+        a = rp.attempt_main(probe_dir=d, start_rule_fn=bad, with_sidecar=False)
+        b = rp.attempt_main(probe_dir=d, start_rule_fn=bad, with_sidecar=False)
+        assert a["attempt"] == 1 and b["attempt"] == 2 and a["outcome"] == "TOY_NOT_STARTED"
+        ev = GT.events(os.path.join(d, GT.TOY_LEDGER))
+        assert [e["event"] for e in ev] == ["attempt_start", "attempt_end"] * 2 and ev[0]["host"]["hostname"]
+>       assert any("C4 start rule" in r for r in ev[1]["reasons"]) and any("CODE_PASS" in r for r in ev[1]["reasons"])
+E       assert (True and False)
+E        +  where True = any(<generator object test_toy_attempts_numbered_append_only.<locals>.<genexpr> at 0x7f1010edd630>)
+E        +  and   False = any(<generator object test_toy_attempts_numbered_append_only.<locals>.<genexpr> at 0x7f1010edd2f0>)
+
+tests/test_v83_mechanisms.py:715: AssertionError
+----------------------------- Captured stdout call -----------------------------
+{
+ "outcome": "TOY_NOT_STARTED",
+ "reasons": [
+  "C4 start rule: load1 2.00 >= 1.0"
+ ]
+}
+{
+ "outcome": "TOY_NOT_STARTED",
+ "reasons": [
+  "C4 start rule: load1 2.00 >= 1.0"
+ ]
+}
+=========================== short test summary info ============================
+FAILED tests/test_v83_mechanisms.py::test_real_code_pass_a9841b45_does_not_satisfy_current_manifest
+FAILED tests/test_v83_mechanisms.py::test_run_probe_refuses_k2_on_non_box_host_without_toy
+FAILED tests/test_v83_mechanisms.py::test_toy_attempts_numbered_append_only
+3 failed, 114 passed, 3 skipped in 183.52s (0:03:03)

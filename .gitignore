@@ -1,0 +1,47 @@
+# secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+id_rsa
+id_ed25519
+
+# python / rust / node
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+target/
+node_modules/
+dist/
+*.egg-info/
+*.pyc
+
+# model weights and large arrays
+*.pt
+*.pth
+*.safetensors
+*.bin
+*.gguf
+*.ckpt
+*.npy
+*.npz
+*.onnx
+
+# runtime / media
+*.log
+*.pid
+*.wav
+*.mp3
+*.flac
+*.ogg
+data/
+.DS_Store

@@ -1,0 +1,13 @@
+{
+ "pool_size": 294,
+ "pool_entry_overlap": 0,
+ "pool_doc13_overlap": 0,
+ "pool_items_sharing_13gram_with_test_asserts": 0,
+ "pool_exact_ref_bodies": 0,
+ "opt_val_test_entry_overlap": [],
+ "test_prefix_blocks_not_from_pool": 0,
+ "test_gen_files": 2,
+ "opt_branch_uses_test_tests_or_refs": false,
+ "eval_sha_ok": true,
+ "G0_pass": true
+}

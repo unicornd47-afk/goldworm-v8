@@ -1,0 +1,79 @@
+{
+ "attempt": 1,
+ "code_manifest_sha256": "2b4528cc072056164df5562fb0570485fa347278696c5149d455a3c81a78292b",
+ "code_pass": {
+  "file": "/home/darky/wm_v83/audit_dahill_v8.3/CODE_PASS_v8.3_r2.json",
+  "sha256": "74fcaf6b8a2f41117210b999084cd0cbd6dd7f5f0c2a7718116ba63fa90b2f51"
+ },
+ "host_fingerprint": {
+  "cpu_count": 16,
+  "cpu_model": "13th Gen Intel(R) Core(TM) i5-13500H",
+  "hostname": "unicorn",
+  "platform": "Linux-7.1.4-200.nobara.fc44.x86_64-x86_64-with-glibc2.43",
+  "python": "3.13.5"
+ },
+ "is_box": false,
+ "k2_reference": {
+  "attempt": 1,
+  "file": "v8.3/probe/TOY_PREFLIGHT_attempt1.json",
+  "kind": "host_toy",
+  "sha256": "11688cdbf26cd482b247f11fd13aa720c8fc7d29b994e016434d5491bb930ac3",
+  "toy_fits": 369.57663474000015
+ },
+ "kind": "v8.3 full-size probe (PLAN r3 C2)",
+ "outcome": "PROBE_NOT_STARTED",
+ "plan_hashes": {
+  "v8.2_bundle": {
+   "../v8.1/INTERVENTIONS_v8.1.json": "948b5e3d5c53c9d6c4862fba1c6a4203c4f0c665d63a97be5f44dcf0bef61d9c",
+   "CONFIG_v8.2.json": "7f31dc4e43e7899016e0c049c2e3ed251d278235f1fbc059f250ff5bc419ef63",
+   "ERRATUM_v8.2_E1.md": "67b4ecdb9bd5a31a91ef2e603fe15350b7048fb98a05f8e3168e99f152938c47",
+   "FEASIBILITY_v8.2.md": "6ce29d105e1f248a10c5a38e38f74db7173dc0e6eb721858870e6c4608ee3100",
+   "HASHES_v8.2.sha256": "733cc25c235d6717f42223ce8868753bbccbfa80a234a4a88a8064deddb9b1d1",
+   "HASHES_v8.2_E1.sha256": "304bc28de338c92ee72817e7ed4ad498c367165e7f3ca47eed38e1732c636ff3",
+   "PLAN_v8.2.md": "a1e5b1cd883ae1bff52d4eb86c18c9e3dda98681df7b0700c966249f9a7726c3"
+  },
+  "v8.3_bundle": {
+   "DIFF_r2_to_r3.patch": "b4dd2a238e49b29ab4cad878a42c9e932e1802e76777f957ec84a2117b3723e5",
+   "HASHES_v8.3.sha256": "8b3b53e0a80417f020aa0fc05ad1fe62bd46028a2bfd8432da64c900bcc89e70",
+   "PLAN_REVIEW_v8.3_r3.json": "43a6e207bc104097c302b652fdb6e7124cba068d876da8d976455137ae698b3f",
+   "PLAN_v8.3.md": "e2debca54bb2d303b910eb5d32d691b14652bd61422b53e3eadf757d4c5784ec",
+   "archive/PLAN_v8.3_r0.md": "3107d350232fdb246f6d1c49e16bacbb23a30f7bfa4f6a0d58753f74d1f44f2f",
+   "archive/PLAN_v8.3_r1.md": "69c8f1cdd7d9b64c59e3c57f5b20366c639f1d60b08ff9ade2cba94ada3a9311",
+   "archive/PLAN_v8.3_r2.md": "7d0abe30ad6205e09067ef1a0ffacc2326d1fa822ac140b1fcd2c1b8117b2f02"
+  }
+ },
+ "probe_cap_cpu_s": 450.0,
+ "reasons": [
+  "C4 start rule: load1 1.10 >= 1.0"
+ ],
+ "rules": {
+  "A1": "A1: probe cap 450 CPU-s hit OR linearity ratio outside [0.87, 1.15] -> PROBE_DIAGNOSIS: no freeze, no projection from partial data; a new probe is a new attempt (counter in PROBE_LEDGER.jsonl, never overwrite).",
+  "A2": "A2: probe and production on the same host under the same C4 start rule; hostname, CPU model and thread count recorded here and bound in RELEASE; production refuses on a different fingerprint. On a host switch the C2 probe is repeated there (the C4 'toy preflight' sentence is superseded).",
+  "K2_HOST": "uni 11:12 (5): K2 R across hosts is invalid. On the v8.2 box (spec.BOX_FINGERPRINT) the toy reference is v8.2/PREFLIGHT_PROJECTION.json (fits 336.8); on any other host the unchanged v8.2 toy preflight must have run there (run_preflight.py, 120 s cap, numbered attempt in probe/TOY_LEDGER.jsonl) and R = probe P_fits / that attempt's fits projection. Without a valid same-host toy attempt the probe does not start."
+ },
+ "sidecar_sha256": "0eb6113a84fb23528e5359d7d4413f9fcbbffd1136e0540973dfa94559913579",
+ "start_rule": {
+  "exclude_patterns": [
+   "exp001",
+   "run_arm.py"
+  ],
+  "excluded_hits": [],
+  "load1": 1.10400390625,
+  "load1_max_exclusive": 1.0,
+  "mem_available_kb": 5981368,
+  "mem_available_min_kb": 4194304,
+  "ok": false,
+  "reasons": [
+   "load1 1.10 >= 1.0"
+  ]
+ },
+ "threads": {
+  "MKL_NUM_THREADS": "1",
+  "OMP_NUM_THREADS": "1",
+  "OPENBLAS_NUM_THREADS": "1",
+  "cuda_visible_devices": "",
+  "torch_num_interop_threads": 12,
+  "torch_num_threads": 1
+ },
+ "time_local": "2026-11-11T11:43:13+0100"
+}

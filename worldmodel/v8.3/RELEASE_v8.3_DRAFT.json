@@ -1,0 +1,169 @@
+{
+ "status": "DRAFT",
+ "signed_by": null,
+ "version": "v8.3",
+ "note": "Unsigned draft by the implementer, code revision r3 (plan r4 = r3 + ERRATUM E1 + E2; dahill reqs 1-7; R_fresh; production CODE_PASS only). Nothing run (no baseline, toy, probe, production). TBD fields are filled only after dahill's CODE_PASS on THIS manifest, the E2.4 baseline (set_start_threshold.py) and the probe (GATE_PASS); the FINAL file is RELEASE_v8.3.json.",
+ "created_local": "2026-11-11T11:11:07+0100",
+ "implementer": "TMbot · Research (non-author)",
+ "plan_bundle_v8_2": {
+  "HASHES_v8.2_E1.sha256": "304bc28de338c92ee72817e7ed4ad498c367165e7f3ca47eed38e1732c636ff3"
+ },
+ "plan_pass_v8_2": {
+  "file": "audit_dahill_v8.2/PLAN_PASS_v8.2.json",
+  "sha256": "8ad13f896e2677498048f864ee3abed6e6534c4dcb75c889b59643de34bd49fe"
+ },
+ "plan_bundle_v8_3": {
+  "PLAN_v8.3.md": "e2debca54bb2d303b910eb5d32d691b14652bd61422b53e3eadf757d4c5784ec",
+  "HASHES_v8.3.sha256": "8b3b53e0a80417f020aa0fc05ad1fe62bd46028a2bfd8432da64c900bcc89e70",
+  "DIFF_r2_to_r3.patch": "b4dd2a238e49b29ab4cad878a42c9e932e1802e76777f957ec84a2117b3723e5",
+  "revision": "r3"
+ },
+ "plan_review_v8_3": {
+  "file": "audit_dahill_v8.3/PLAN_REVIEW_v8.3_r3.json",
+  "sha256": "43a6e207bc104097c302b652fdb6e7124cba068d876da8d976455137ae698b3f",
+  "verdict": "PLAN_PASS_CONDITIONAL",
+  "earlier_reviews": {
+   "PLAN_REVIEW_v8.3_r0.json": "d8150e96cb1ac1072e868b7574f139c783c795a68df509c43f3706ae0260b245",
+   "PLAN_REVIEW_v8.3_r1.json": "09b7fc0a95a7736532b76310ce6a294807616b7a4517f1276d195f20c8e17cd1"
+  },
+  "conditions_closed": {
+   "A1": "CONFIG/code rule: probe hitting 450 CPU-s or linearity ratio outside [0.87, 1.15] -> PROBE_DIAGNOSIS, no freeze, no projection from partial data, no CONFIG_v8.3; every probe invocation is a numbered attempt in probe/PROBE_LEDGER.jsonl, outputs exclusive-create (probe.decide, run_probe.py).",
+   "A2": "Probe and production on the same host under the same C4 start rule; hostname, CPU model and logical CPU count recorded in PROBE_v8.3_attempt<N>.json, CONFIG_v8.3.json and host_fingerprint below; run_production refuses on a different fingerprint (release.check_probe_config). The C4 sentence 're-measure toy preflight' on a host switch is superseded: the C2 probe is repeated on that host.",
+   "A3": "Plan r3 unchanged (e2debca5, read-only); A1/A2 closed here and in CONFIG_v8.3/code only.",
+   "status": "implemented by TMbot; closure to be confirmed by dahill in the code review"
+  }
+ },
+ "grid_override": {
+  "parameter": "planner.lambda_grid",
+  "config_file": "CONFIG_v8.2.json",
+  "config_sha256": "7f31dc4e43e7899016e0c049c2e3ed251d278235f1fbc059f250ff5bc419ef63",
+  "config_value": [
+   0.5,
+   1.0,
+   2.0,
+   4.0,
+   8.0
+  ],
+  "effective_value": [
+   0.5,
+   0.625,
+   0.75,
+   0.875,
+   1.0
+  ],
+  "source": "ERRATUM_v8.2_E1.md §E1.1",
+  "source_sha256": "67b4ecdb9bd5a31a91ef2e603fe15350b7048fb98a05f8e3168e99f152938c47",
+  "applies_to": [
+   "WM",
+   "GRU",
+   "LIN",
+   "RC_only"
+  ]
+ },
+ "diff": {
+  "file": "v8.3/DIFF_v8.2_to_v8.3.patch",
+  "sha256": "4cb19f19e2ecf6d378614254deae04f6d661aa19724eee74a5e9261eea012cf9",
+  "lines": 4200,
+  "base_manifest": "CODE_HASHES_v8.2.sha256 a6544b6fdafb11bf853bd1b57ce8d3f8d508f06dbafebcafb2a7dbede2a7b643"
+ },
+ "code_hashes": {
+  "manifest": "v8.3/code/CODE_HASHES_v8.3.sha256",
+  "manifest_sha256": "68d1406d3c4cc0cb75c1334549a761ca4c59aa595a37ec6013f0f4a34800cb22",
+  "files": 43,
+  "tests": "145 passed (box, CPU) x3: real WM_AUDIT_ROOT, audit copy without CODE_PASS, audit copy + synthetic CODE_PASS on this manifest"
+ },
+ "impl_notes": {
+  "file": "v8.3/code/IMPL_NOTES_v8.3.md",
+  "sha256": "655e902d9cbba967cb0656d3de3294baf636b417046718dec0b5795cb561d14b"
+ },
+ "seed_evidence": {
+  "file": "v8.3/SEED_EVIDENCE_v8.3.md",
+  "sha256": "e33710d7e552b05519905f8d2a4c74027c57e45ff69a26549771b9cce2f85dc9",
+  "consequence": "tuning 7300-7319, test 9500-9539, adaptation 4100-4109 reused (plan r3 §1)"
+ },
+ "sidecar": {
+  "file": "v8.3/sidecar/load_sidecar.py",
+  "sha256": "0eb6113a84fb23528e5359d7d4413f9fcbbffd1136e0540973dfa94559913579",
+  "interval_s": 30,
+  "gap_report_s": 90
+ },
+ "rules": {
+  "C3": "phase cap = ceil(1.25 x projection) for fits, tuning, test, in_distribution, adaptation; fixed overhead 60, data 30, pi_oracle 30, bootstrap_stats 60, audit 80; global cap = sum of phase caps <= 3600; ladder a, b, c; else NOT_LAUNCHED",
+  "K1": "cumulative process CPU-s > 3600 = INVALID even if every phase is under its cap (explicit abort in Budget, separate from the sum-of-caps global cap)",
+  "K2": "R = P_fits / toy_fits of the same-host K2 reference (see k2_host_rule) reported; if R > 1.5 and an episode phase's measured projection < 0.8 x toy x R, toy x R is used before the gate (toy unladdered, stricter S1)",
+  "C6b": "cap check every 10 updates in fits, otherwise after every episode / bootstrap block of 1000; no overshoot tolerance; measured per-check jump reported",
+  "invalid": "exceeded cap = INVALID, no rerun under v8.3; exactly one production run",
+  "C2_episode_phases": "each episode phase = max(v8.2 formula with probe per-unit costs, episodes x measured episode cost); no toy input in the measured projection",
+  "E2": "E2.1 W x n_coldstarts fixed cost in fits projection; E2.2 two full h96 fits, 50-update blocks, linearity on fit 2; E2.3 probe sidecar <= 2 s (production 30 s) + max load1/min MHz/steal; E2.4 baseline threshold; E2.5 pinning + pinned toy reference; E2.6 cap 450; E2.7/E1.5 linearity failure under errata -> NOT_LAUNCHED"
+ },
+ "probe": null,
+ "config_v8_3": null,
+ "host_fingerprint": null,
+ "planned_host": "unicorn (laptop CPU), because the box is busy with exp001 (mixxy). Non-box: host toy attempt required before the probe. Fingerprint TBD from the toy attempt and the probe.",
+ "code_review_pass": null,
+ "bound_files": {
+  "v8.2/PREFLIGHT_PROJECTION.json": "7e1643629afe9f4d0dc5a1401d62e2e5b5b6bfda48069810c3a2b4b61a670a29",
+  "v8.3/SEED_EVIDENCE_v8.3.md": "e33710d7e552b05519905f8d2a4c74027c57e45ff69a26549771b9cce2f85dc9"
+ },
+ "TBD": [
+  "code_review_pass (dahill CODE_PASS — verdict CODE_PASS for production — on manifest 68d1406d3c4cc0cb75c1334549a761ca4c59aa595a37ec6013f0f4a34800cb22)",
+  "start_rule_threshold (E2.4 baseline on the probe host, set once)",
+  "pinning (= probe's: core list, core, MHz)",
+  "k2_reference (unicorn: pinned toy attempt 2 file, sha, attempt)",
+  "probe (file, sha256, attempt 3; GATE_PASS)",
+  "config_v8_3 (sha256)",
+  "host_fingerprint (= probe's = toy attempt's)",
+  "status FINAL + signature (mixxy)"
+ ],
+ "revision": 3,
+ "code_pass_requirement": "probe/toy: <WM_AUDIT_ROOT>/audit_dahill_v8.3/CODE_PASS_v8.3*.json, reviewer dahill, verdict CODE_PASS or CODE_PASS_CONDITIONAL, plan_sha256 r3, manifest_sha256 = code_hashes.manifest_sha256. PRODUCTION: code_review_pass verdict must be exactly CODE_PASS (file and record).",
+ "k2_reference": null,
+ "k2_host_rule": "box (hostname grok-bot-vm-408406529, CPU 'Intel(R) Xeon(R) Processor', 8 CPUs): v8.2/PREFLIGHT_PROJECTION.json 7e164362, toy fits 336.8. Any other host: latest TOY_OK attempt of the unchanged v8.2 toy preflight on that same host (run_preflight.py, 120 s cap, numbered append-only in probe/TOY_LEDGER.jsonl), bound here with file + sha + attempt; R = host probe P_fits / host toy fits; never cross-host; ERRATUM E2.5: if pinned, only a TOY_OK attempt pinned identically (same core) counts -> unicorn toy attempt 1 (11688cdb, unpinned) no longer qualifies; fresh pinned toy attempt 2 required. Box: R_fresh/drift reported descriptively (k2_fresh).",
+ "plan_r4": {
+  "definition": "PLAN_v8.3.md r3 + ERRATUM_v8.3_E1.md + ERRATUM_v8.3_E2.md (E2 wins)",
+  "plan_sha256": "e2debca54bb2d303b910eb5d32d691b14652bd61422b53e3eadf757d4c5784ec",
+  "erratum_E1": {
+   "file": "v8.3/ERRATUM_v8.3_E1.md",
+   "sha256": "ea6421146159f2ab549b6a9290906737a6f1778220586c9643744022a3651cb0"
+  },
+  "erratum_E2": {
+   "file": "v8.3/ERRATUM_v8.3_E2.md",
+   "sha256": "3d6f8c0a54101a681bbaf8a05c2725f1c8cb6efea70249c98d2782fa0c1b1bcf"
+  },
+  "hashes_v8_3": {
+   "file": "v8.3/HASHES_v8.3.sha256",
+   "sha256": "c5b6de26ba72b3d96f634b4672f86eca5380c7b1ba856ecf512083e901011025"
+  }
+ },
+ "diff_round_r3": {
+  "file": "v8.3/DIFF_2b4528cc_to_r3.patch",
+  "sha256": "9225068eb3354b2a2514296d90976eab4aeb2cda2981ef454452243205dcb630",
+  "lines": 1900,
+  "base_manifest": "2b4528cc072056164df5562fb0570485fa347278696c5149d455a3c81a78292b"
+ },
+ "previous_code_reviews": [
+  {
+   "file": "audit_dahill_v8.3/CODE_PASS_v8.3.json",
+   "sha256": "19bea022a25101458b38d9b4b0ebf19d6bc6d374730c7554a0fafc39286a68aa",
+   "verdict": "CODE_PASS_CONDITIONAL",
+   "manifest_sha256": "a9841b4517c3fb3ef1fe48c68c3ffb5acc60cdff97c55dcbb4721f1549df2ed5",
+   "status": "superseded by the revision-2 manifest; does not satisfy the run_probe CODE_PASS gate",
+   "rulings_implemented": [
+    "3: h96 full-fit total CPU reported",
+    "4: episode phase = max(formula with probe unit costs, episodes x measured episode cost), both + winner reported",
+    "5: R = same-host probe / same-host toy, never cross-host",
+    "7: max CPU jump per check reported (adaptation)"
+   ]
+  },
+  {
+   "file": "audit_dahill_v8.3/CODE_PASS_v8.3_r2.json",
+   "sha256": "74fcaf6b8a2f41117210b999084cd0cbd6dd7f5f0c2a7718116ba63fa90b2f51",
+   "verdict": "CODE_PASS_CONDITIONAL",
+   "manifest_sha256": "2b4528cc072056164df5562fb0570485fa347278696c5149d455a3c81a78292b",
+   "status": "superseded by the r3 manifest"
+  }
+ ],
+ "production_process_starts": 1,
+ "start_rule_threshold_procedure": "E2.4: run_baseline.py (10 min, no experiment) -> set_start_threshold.py <BASELINE_attempt<N>.json> inserts field 'start_rule_threshold' (1.5 x p95) once; toy, probe and production refuse on a non-box host while it is absent; box without it: < 1.0",
+ "pinning": null
+}

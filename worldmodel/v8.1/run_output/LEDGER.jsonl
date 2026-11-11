@@ -1,0 +1,7 @@
+{"event": "sealed", "file": "COMPARATOR_SELECTION.json", "sha256": "1c422d5b5a243a5929efb3bb7f43b79a40bda4f7e09458340722fd37490747b5", "time_unix": 1794300576.227718}
+{"event": "test_begin", "time_unix": 1794300576.2281947}
+{"event": "boot_matrix_saved", "file": "BOOT_INDEX_primary.npy", "sha256": "7741d5f947f57b2cb8725f113d1d9e019fa440f2c12d3906b214a0368d09e3ff", "time_unix": 1794301013.063615}
+{"event": "sealed", "file": "PRIMARY_RESULT.json", "sha256": "5841fba4e61265862ef1e948974b925eca577cb6440aeb227756618fdfd142e9", "time_unix": 1794301013.072645}
+{"event": "boot_matrix_saved", "file": "BOOT_INDEX_adapt.npy", "sha256": "fd4b1d30f22e9a3bc208918dd0c98dbb51ad0533fcc74c13df51f7c0a0f4f061", "time_unix": 1794309737.9000545}
+{"event": "boot_matrix_saved", "file": "BOOT_INDEX_secondary.npy", "sha256": "e062498995f5051aff1b8d3987c5856da5ac54c339a93b46b9a1ba47bed75b99", "time_unix": 1794309737.901597}
+{"event": "final", "outcome": "NO_ADVANCE", "time_unix": 1794309741.3826551}

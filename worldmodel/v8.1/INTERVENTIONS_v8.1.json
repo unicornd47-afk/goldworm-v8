@@ -1,0 +1,255 @@
+{
+ "plan_base_sha256": "7ae7809fe4663d308437861d547977e083cec67f540f0c8537fabf30b35b2f2d",
+ "plan_revision": "PLAN_v8.1_r2.md",
+ "plant": "v7 Option1 thermal plant (thermal5/plant.py, constants.py), extended only by time-windowed parameter overrides listed here",
+ "indicator_channels": "NONE for any intervention (train or held-out). No arm receives an intervention flag, type, magnitude or onset. Interventions act only through the plant.",
+ "window_semantics": "override active for plant steps k with onset_step <= k < onset_step+duration_steps; nominal otherwise. H4 buffer holds commanded u history; at onset applied u = commanded u_{k-d} from the real history.",
+ "nominal_episode": {
+  "id": "N0",
+  "type": "none"
+ },
+ "TRAIN_INTERVENTIONS": [
+  {
+   "id": "T1a",
+   "type": "internal_gain_step",
+   "param": "D_BAR",
+   "unit": "kW-eq disturbance mean (plant d_bar)",
+   "nominal": 0.5,
+   "value": 1.0,
+   "mode": "set",
+   "onset_step_test_and_tuning": 120,
+   "duration_steps": 48,
+   "onset_steps_training_data": [
+    72,
+    120,
+    168,
+    216
+   ]
+  },
+  {
+   "id": "T1b",
+   "type": "internal_gain_step",
+   "param": "D_BAR",
+   "unit": "kW-eq disturbance mean (plant d_bar)",
+   "nominal": 0.5,
+   "value": 1.5,
+   "mode": "set",
+   "onset_step_test_and_tuning": 120,
+   "duration_steps": 48,
+   "onset_steps_training_data": [
+    72,
+    120,
+    168,
+    216
+   ]
+  },
+  {
+   "id": "T2a",
+   "type": "ambient_offset_in_range",
+   "param": "outdoor_mean_offset",
+   "unit": "K added to T_o mean",
+   "nominal": 0.0,
+   "value": -2.0,
+   "mode": "add",
+   "onset_step_test_and_tuning": 120,
+   "duration_steps": 48,
+   "onset_steps_training_data": [
+    72,
+    120,
+    168,
+    216
+   ]
+  },
+  {
+   "id": "T2b",
+   "type": "ambient_offset_in_range",
+   "param": "outdoor_mean_offset",
+   "unit": "K added to T_o mean",
+   "nominal": 0.0,
+   "value": 2.0,
+   "mode": "add",
+   "onset_step_test_and_tuning": 120,
+   "duration_steps": 48,
+   "onset_steps_training_data": [
+    72,
+    120,
+    168,
+    216
+   ]
+  },
+  {
+   "id": "T3a",
+   "type": "heater_time_constant_const_gain",
+   "param": "A_QH",
+   "unit": "(q_h coeff, u gain), steady gain A_QH[1]/(1-A_QH[0]) = 10 kept",
+   "nominal": [
+    0.6,
+    4.0
+   ],
+   "value": [
+    0.45,
+    5.5
+   ],
+   "mode": "set",
+   "onset_step_test_and_tuning": 120,
+   "duration_steps": 48,
+   "onset_steps_training_data": [
+    72,
+    120,
+    168,
+    216
+   ]
+  },
+  {
+   "id": "T3b",
+   "type": "heater_time_constant_const_gain",
+   "param": "A_QH",
+   "unit": "(q_h coeff, u gain), steady gain 10 kept",
+   "nominal": [
+    0.6,
+    4.0
+   ],
+   "value": [
+    0.75,
+    2.5
+   ],
+   "mode": "set",
+   "onset_step_test_and_tuning": 120,
+   "duration_steps": 48,
+   "onset_steps_training_data": [
+    72,
+    120,
+    168,
+    216
+   ]
+  }
+ ],
+ "HELDOUT_INTERVENTIONS": [
+  {
+   "id": "H1a",
+   "type": "heater_derating",
+   "param": "A_QH[1]",
+   "unit": "q_h gain per unit u (nominal 4.0); commanded-u energy still charged 2.5 kWh per step at u=1",
+   "nominal": 4.0,
+   "value": 3.0,
+   "mode": "set",
+   "onset_step": 120,
+   "duration_steps": 48,
+   "off_step": 168
+  },
+  {
+   "id": "H1b",
+   "type": "heater_derating",
+   "param": "A_QH[1]",
+   "unit": "as H1a",
+   "nominal": 4.0,
+   "value": 2.4,
+   "mode": "set",
+   "onset_step": 120,
+   "duration_steps": 48,
+   "off_step": 168
+  },
+  {
+   "id": "H2a",
+   "type": "envelope_loss_step_window_open",
+   "param": "A_TR[2] (T_o coupling), A_TR[0]=1-A_TR[1]-A_TR[2]",
+   "unit": "per-step coefficient",
+   "nominal": [
+    0.925,
+    0.0125
+   ],
+   "value": [
+    0.9125,
+    0.025
+   ],
+   "mode": "set",
+   "onset_step": 120,
+   "duration_steps": 48,
+   "off_step": 168
+  },
+  {
+   "id": "H2b",
+   "type": "envelope_loss_step_window_open",
+   "param": "A_TR[2], A_TR[0]=1-A_TR[1]-A_TR[2]",
+   "unit": "per-step coefficient",
+   "nominal": [
+    0.925,
+    0.0125
+   ],
+   "value": [
+    0.9,
+    0.0375
+   ],
+   "mode": "set",
+   "onset_step": 120,
+   "duration_steps": 48,
+   "off_step": 168
+  },
+  {
+   "id": "H3a",
+   "type": "wall_thermal_mass_change",
+   "param": "A_TW (b0,b1,b2); b0,b2 scaled by f, b1=1-b0-b2",
+   "unit": "f=0.5 (wall mass x2)",
+   "nominal": [
+    0.0125,
+    0.98125,
+    0.00625
+   ],
+   "value": [
+    0.00625,
+    0.990625,
+    0.003125
+   ],
+   "mode": "set",
+   "onset_step": 120,
+   "duration_steps": 48,
+   "off_step": 168
+  },
+  {
+   "id": "H3b",
+   "type": "wall_thermal_mass_change",
+   "param": "A_TW (b0,b1,b2)",
+   "unit": "f=2.0 (wall mass x0.5)",
+   "nominal": [
+    0.0125,
+    0.98125,
+    0.00625
+   ],
+   "value": [
+    0.025,
+    0.9625,
+    0.0125
+   ],
+   "mode": "set",
+   "onset_step": 120,
+   "duration_steps": 48,
+   "off_step": 168
+  },
+  {
+   "id": "H4a",
+   "type": "actuator_dead_time",
+   "param": "applied u_k = commanded u_{k-d}",
+   "unit": "d steps (15 min each)",
+   "nominal": 0,
+   "value": 2,
+   "mode": "set",
+   "onset_step": 120,
+   "duration_steps": 48,
+   "off_step": 168
+  },
+  {
+   "id": "H4b",
+   "type": "actuator_dead_time",
+   "param": "applied u_k = commanded u_{k-d}",
+   "unit": "d steps",
+   "nominal": 0,
+   "value": 4,
+   "mode": "set",
+   "onset_step": 120,
+   "duration_steps": 48,
+   "off_step": 168
+  }
+ ],
+ "disjointness": "TRAIN types {internal_gain_step, ambient_offset_in_range, heater_time_constant_const_gain} and HELDOUT types {heater_derating, envelope_loss_step_window_open, wall_thermal_mass_change, actuator_dead_time} share no type and no parameter override pattern. HELDOUT entries are used only in test episodes (seeds 9100-9139) and adaptation-data episodes (seeds 8000-8009, after the primary test is sealed).",
+ "feasibility_note": "Steady-state heating headroom (u=1, T_w equilibrated): nominal dT=39.4 K; H1b 24.4 K; H2b 22.5 K. Comfort reachable for typical T_o; physics-limited cases hit all arms identically."
+}

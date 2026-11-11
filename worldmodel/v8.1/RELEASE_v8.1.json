@@ -1,0 +1,208 @@
+{
+  "status": "FINAL",
+  "note": "FINAL: CODE_PASS (dahill) bound, bound_files set, start_authority signed by mixxy 09:36. Single production run on CPU.",
+  "plan_bundle": {
+    "HASHES_r3.sha256": "b2fac5bf5e57e9e7013445aba7b57b7e192aa10e4c72e49247d00d0fc6d70ed7",
+    "PLAN_v8.1_r3.md": "dae8731c5cc0e7c41d2bea830234be34f6f27d68279179dbcb086e30b34c7e7f",
+    "CONFIG_v8.1_r3.json": "580bba9255265a76cbc92b23645817e1e6fb622dfbf23a1f208b25eab575ee21",
+    "FEASIBILITY_v8.1_r3.md": "f7c772ec707a98219b517057ec55594c5d4e3cbae1ecd3229cdedff2637f3464",
+    "INTERVENTIONS_v8.1.json": "948b5e3d5c53c9d6c4862fba1c6a4203c4f0c665d63a97be5f44dcf0bef61d9c"
+  },
+  "config_sha256": "580bba9255265a76cbc92b23645817e1e6fb622dfbf23a1f208b25eab575ee21",
+  "interventions_sha256": "948b5e3d5c53c9d6c4862fba1c6a4203c4f0c665d63a97be5f44dcf0bef61d9c",
+  "plan_pass": {
+    "file": "/workspace/audit_dahill_v8.1/PLAN_PASS_r3.json",
+    "sha256": "2cda3f4809b119339ec21b1b7fd2a28501d4a35cc803d71c45b506a41d198727",
+    "verdict": "PLAN_PASS",
+    "reviewer": "dahill",
+    "scope": "plan text only"
+  },
+  "code_review_pass": {
+    "verdict": "CODE_PASS",
+    "file": "/workspace/audit_dahill_v8.1/CODE_PASS_v8.1.json",
+    "sha256": "36aefe316370121039b5539f77e3e128fc7ae107a8680589872aeec84add6928",
+    "reviewer": "dahill",
+    "scope": "technical only, not a start release"
+  },
+  "code_review_pass_required_format": {
+    "verdict": "CODE_PASS",
+    "file": "<path to dahill's code-review JSON>",
+    "sha256": "<sha256 of that file>",
+    "file_must_contain": {
+      "reviewer": "dahill",
+      "code_manifest_sha256": "be232be6b42d534c7bfd8ee3f0d6e3c75bd1c1c3129f47ab88de8e174ff4d4e8"
+    }
+  },
+  "implementer": "TMbot · Research (non-author)",
+  "code_hashes": {
+    "manifest_file": "/workspace/nested_swarms/v8/worldmodel/v8.1/code/CODE_HASHES_v8.1.sha256",
+    "manifest_sha256": "be232be6b42d534c7bfd8ee3f0d6e3c75bd1c1c3129f47ab88de8e174ff4d4e8",
+    "files": {
+      "IMPL_NOTES.md": "7b099e55c74907095d407b1df41dd20e0c408ad231284c6dcb719b0f9ed61bc2",
+      "run_preflight.py": "897ad23bacdc60f26cbc91e452700155f4e7a49a46718ea198553a85d9fcba63",
+      "run_production.py": "ae53f1f72bc594ca4cc88c31a54acd338dc432d8faf3daa09e9889b2b2eec23f",
+      "tests/conftest.py": "07343c5926c5b007bc977d39edb052e8ac6d186226129c7b7994d8100027ee06",
+      "tests/test_bootstrap.py": "94e2663e91b319c3adfb16779e3a36d6e242e31f95025ebd3902ea661ae10415",
+      "tests/test_gates.py": "0ef4f478ed4dcbc5491f5ae6645ade82248949b3042d762219ef598c53e10152",
+      "tests/test_heldout_isolation.py": "e14fd15bfdab5548b62993fccde660cc281be3bd2d0bb6dbf6d6cd0048c423ea",
+      "tests/test_param_matching.py": "9f9bef439b37694a2100642f19fa1817c967cfdcffdb515b943e28445fc5095f",
+      "tests/test_plant_and_models.py": "f425b58b94bf9c823747e587a288209e3ab9a9ab40a895a8ac2a90ec5e2eef66",
+      "tests/test_seeds_initial_states.py": "5693fea9deefa533b274cb7610d57bba5df57d58b37948a71c5dda64efa6282c",
+      "tests/test_smoke_pipeline.py": "1eeeb73dc98a290039caa0b14f2545519bac492e62dac93eacaa2f10832ab311",
+      "tests/test_windows.py": "c9a55ae4d897992d4440043b45d6cc70e13018285bf68086a606fa78159eda8d",
+      "v81/__init__.py": "77f6614a7ba542f0ba5027405db43cab74c33b0ba764c765f842171d53c26547",
+      "v81/budget.py": "e8aaf836102bd785bf5befcb160a0ec873cc50a3e755eaa0498399bf9ee1eec7",
+      "v81/closedloop.py": "b02cf27571ec6e12c20d52a214c09e9c3f67620353cd25bed38ef74437de5f11",
+      "v81/features.py": "4f14c3753499ed2a27fa964b6fbfa34a0c59a0ce814258a94d64c7b6aacbcc82",
+      "v81/ledger.py": "79b242dfde435e5a75229977b77da2757ba5294078b541ddafc1fc58720f2eb3",
+      "v81/model_lin.py": "18ee559812e3858d5de1cd2f60cb9ed8399f360d06315f80190f9d2c04a48c72",
+      "v81/models_torch.py": "c9eef10b214b9eabdb3b99a20c1deabe8b7d725f99bf44b40c65518c11b0c61e",
+      "v81/pipeline.py": "4ac94132d2c8e6d97f47081ec47c8078fe18c281aae80f022e08210deeb5db46",
+      "v81/planner.py": "a11f6ec698b61b624ea4bf20e55b27d5ea363a99cb63b13d08dbaa567a26114e",
+      "v81/plant_iv.py": "166da4c1418fa0be79c19b385334db7f02b487ed7246085e10741c246981f091",
+      "v81/predictors.py": "3c327987ac69e299f0eccf4100b9690d4770c0504914df08c2116b300d47f35a",
+      "v81/preflight.py": "2ee0f4658a404a88c3be502a116b77bd54b7ff8cfd6b2a895be4edfac8f2e091",
+      "v81/release.py": "9b0046caff39ced649054eac6693c00a0bd019f47d5c6d224786f247c4033f26",
+      "v81/seeds.py": "6f64bdaea1504bef851ba395bfad3155f0f3852e4b6767cdf23ba2f205431b52",
+      "v81/spec.py": "055f7301531795c6f7933608524d4b16817c48696de9a05b59d955f5f4749599",
+      "v81/stage0.py": "44436934aab2defa5c9f8807f3318405a4f5e7a48692f615ea54e64e3b10b3d2",
+      "v81/stats.py": "22eace0a690a129c88f67ef8949218b1387ae793e7e8cf081e7397f6fe2626b8"
+    }
+  },
+  "preflight": {
+    "file": "/workspace/nested_swarms/v8/worldmodel/v8.1/preflight/PREFLIGHT_PROJECTION.json",
+    "sha256": "d65447ba0000e3fc2c0933cb83c64f6746d399db756dd533cca99899db4cd527",
+    "code_manifest_sha256_at_preflight": "be232be6b42d534c7bfd8ee3f0d6e3c75bd1c1c3129f47ab88de8e174ff4d4e8",
+    "seeds": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "preflight_cpu_s_used": 5.236678346,
+    "preflight_cap_cpu_s": 120.0,
+    "per_structure_unit_costs_cpu_s": {
+      "GRU_32": {
+        "per_update_cpu_s": 0.0061292925000000055,
+        "episode_cpu_s": 0.10808507649999988
+      },
+      "GRU_64": {
+        "per_update_cpu_s": 0.0068347602000000006,
+        "episode_cpu_s": 0.1288449195000001
+      },
+      "GRU_96": {
+        "per_update_cpu_s": 0.007531797350000003,
+        "episode_cpu_s": 0.15438586049999992
+      },
+      "LIN_3": {
+        "per_update_cpu_s": null,
+        "episode_cpu_s": 0.12286209700000006,
+        "fit_cpu_s_scaled_32ep": 0.040215951999996946
+      },
+      "LIN_5": {
+        "per_update_cpu_s": null,
+        "episode_cpu_s": 0.12638559549999995,
+        "fit_cpu_s_scaled_32ep": 0.033676272000001006
+      },
+      "LIN_8": {
+        "per_update_cpu_s": null,
+        "episode_cpu_s": 0.12715106749999983,
+        "fit_cpu_s_scaled_32ep": 0.034485439999997425
+      },
+      "RC_only_1": {
+        "per_update_cpu_s": 0.0017013894000000196,
+        "episode_cpu_s": 0.02418179750000027
+      },
+      "RC_only_2": {
+        "per_update_cpu_s": 0.001768981299999961,
+        "episode_cpu_s": 0.024907239999999664
+      },
+      "RC_only_3": {
+        "per_update_cpu_s": 0.0017536525000000137,
+        "episode_cpu_s": 0.024358784999999994
+      },
+      "WM_32": {
+        "per_update_cpu_s": 0.03971326295,
+        "episode_cpu_s": 0.12188225000000008
+      },
+      "WM_64": {
+        "per_update_cpu_s": 0.008128181700000004,
+        "episode_cpu_s": 0.14211028550000004
+      },
+      "WM_96": {
+        "per_update_cpu_s": 0.009026144950000004,
+        "episode_cpu_s": 0.1752413085000002
+      }
+    },
+    "phase_projection_cpu_s": {
+      "adaptation": 351.9356831819996,
+      "audit": 0.018253586320000962,
+      "bootstrap_stats": 3.6650468949998114,
+      "data": 0.30842978899999773,
+      "fits": 498.0529857105,
+      "in_distribution": 57.81865477999995,
+      "overhead": 15.811541804,
+      "pi_oracle": 9.348928740000115,
+      "test": 462.5492382399996,
+      "tuning": 460.95905948
+    },
+    "phase_gate_limits_cpu_s": {
+      "adaptation": 468.0,
+      "audit": 72.0,
+      "bootstrap_stats": 54.0,
+      "data": 27.0,
+      "fits": 720.0,
+      "in_distribution": 108.0,
+      "overhead": 54.0,
+      "pi_oracle": 27.0,
+      "test": 810.0,
+      "tuning": 900.0
+    },
+    "phase_gates": {
+      "adaptation": true,
+      "audit": true,
+      "bootstrap_stats": true,
+      "data": true,
+      "fits": true,
+      "in_distribution": true,
+      "overhead": true,
+      "pi_oracle": true,
+      "test": true,
+      "tuning": true
+    },
+    "total_projection_cpu_s": 1860.4678222068192,
+    "total_gate_cpu_s": 3240.0,
+    "total_gate": true,
+    "ladder_applied": [],
+    "all_gates_pass": true
+  },
+  "tests": {
+    "file": "/workspace/nested_swarms/v8/worldmodel/v8.1/preflight/PYTEST_frozen_code.txt",
+    "sha256": "7be977fafefed3f24190150f869526acc0315a365d379087adf372c133d4ea27",
+    "result": "37 passed"
+  },
+  "impl_notes": {
+    "file": "/workspace/nested_swarms/v8/worldmodel/v8.1/code/IMPL_NOTES.md",
+    "open_questions": "Q1-Q17, for uni/dahill"
+  },
+  "start_authority": "Dark Unicorn to mixxy (DM), 2026-11-10 04:46 Europe/Berlin 'execte no more request' and 04:47 'gpu enabled'; additionally 'go' from Dark Unicorn to mixxy (DM), 2026-11-10 05:07 Europe/Berlin; relayed by mixxy, not verified directly; start authorized by mixxy as coordinator; publishing only with Dark's separate OK",
+  "start_authority_signed_by": {
+    "signer": "mixxy (coordinator)",
+    "time_berlin": "2026-11-10 09:36 Europe/Berlin",
+    "statement": "I sign start_authority as quoted; Dark re-asked for v8.1 at 09:35 (\"v8.1 fertig ?\")."
+  },
+  "dahill_pass_scope": "technical only; dahill does not attest start authority",
+  "device": "CPU only (GPU permitted by Dark, not used)",
+  "production_run_started": false,
+  "erratum": {
+    "path": "ERRATUM_r3_IMPL_v1.md",
+    "sha256": "86a0d2f26703f7c6d9e77953b8e38ae39528cdbd80747f7097a349316de65373",
+    "author": "uni · KI-Forschung",
+    "scope": "Q1 LIN = Option1 LIN (orders 3/5/8), Q8 adaptation bootstrap 10000x10; no change to hypothesis, gates, seeds, caps or code"
+  },
+  "bound_files": {
+    "/workspace/nested_swarms/v8/worldmodel/v8.1/preflight/PREFLIGHT_PROJECTION.json": "d65447ba0000e3fc2c0933cb83c64f6746d399db756dd533cca99899db4cd527",
+    "/workspace/nested_swarms/v8/worldmodel/v8.1/ERRATUM_r3_IMPL_v1.md": "86a0d2f26703f7c6d9e77953b8e38ae39528cdbd80747f7097a349316de65373"
+  },
+  "finalized_berlin": "2026-11-10 09:37 Europe/Berlin"
+}

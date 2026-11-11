@@ -1,0 +1,15 @@
+{
+  "architecture": "GoldWormV8 extends gwlm_v6.GoldWormV6",
+  "blocks": "Original gwlm_v6.Block and MLP reused without edits; attention subclasses original QKVO, adds RoPE and causal SDPA",
+  "parameter_count": 85169664,
+  "source_weight_logits_max_error": 7.152557373046875e-06,
+  "cache_max_error": 1.9073486328125e-06,
+  "optimizer_states": 123,
+  "resumed_extra_steps": 20,
+  "final_step": 3306,
+  "before_dev_loss": 0.7901719473302364,
+  "after_dev_loss": 0.7936292551457882,
+  "extra_train_and_dev_s": 4.01536922500236,
+  "peak_mib": 3096.14306640625,
+  "checkpoint": "goldworm_v8_smoke.pt"
+}
